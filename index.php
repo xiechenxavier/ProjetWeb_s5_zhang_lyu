@@ -24,7 +24,7 @@ and open the template in the editor.
                 <li>Domaine de la Quérye</li>
                 <li>Centre National du Costume de Scène</li>
             </ul>
-        </div>
+        </div>1
         <section>
             <div>
 
