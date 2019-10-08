@@ -7,6 +7,7 @@
         <title> Lieux&#8239;; Théâtres de Bourbon </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" type="text/css" href="./CSS/style.css" />
+        <link rel="stylesheet" type="text/css" href="./CSS/style2.css" />
     </head>
 
     <!-- Corps de la page-->
@@ -37,7 +38,7 @@
                              >
                     </a>
                 </div><!-- div vignette-->
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="./Accueil.php">Accueil</a></li>
                 <li><a href="#">Lieu par Lieu</a></li>
                 <!--<li><a href="Festival2018ProgrammationVueGlobale.php">Planning</a> </li>-->		  
             </ul>
@@ -1591,7 +1592,7 @@
 
                     de    <Auteur>          William Shakespeare                                                                    </Auteur>.
 
-                </p>
+                    </p>
 
                     <p>       <Horaire>          lundi 05 août 2019                                           à              20h30      </Horaire>,
 

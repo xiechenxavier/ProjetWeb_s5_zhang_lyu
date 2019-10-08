@@ -1,36 +1,27 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
+
+    <!-- Affichage Dans l'onglet et choix des caractères-->
     <head>
-        <meta charset="UTF-8">
-        <title></title>
+        <title> Lieux&#8239;; Théâtres de Bourbon </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" type="text/css" href="./CSS/style.css" />
+        <link rel="stylesheet" type="text/css" href="./CSS/style2.css" />
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
-        <div class="bandeau">
-			 <div class="petitPanier"><table>Billets en vente exclusivement sur les lieux du festival: Monétay, Monteignet, Veauce  du 2 au 6 août dès 11h00 et le 6 août à Moulins de 19h00 à 20h00.
-									Attention! à Moulins le début du spectacle à 20h00. </table></div><!-- class="petitPanier"-->							
-										<h1>
-				Théâtres de Bourbon&#8239;: les spectacles
-			</h1>
-        <div class="menu">
-            <ul class="navbar">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="./LieuParLieu.php">Lieu par Lieu</a></li>
-                <li>Centre National du Costume de Scène</li>
-            </ul>
-        </div>
-        <section>
-            <div>
+        <form class="Welcome" action="getto.php" method="GET">
+            <!--<p>    <input id="url" class="url" name="url" type="text" placeholder="tape un lien d'une page"/></p>-->
+            <p class="par1">
+                <select name="url" id="url">
+                    <option value="selecte une page à visiter"></option>
+                    <option value="notre Accueil">notre Accueil</option>
+                    <option value="les lieus">les lieus</option>
+                </select>
+            </p>
+            <p class="par2">    <input type="submit" value="Allez-y" class="signup-btn" /></p>
+           <!--  <input type="text" placeholder="Full Name" name="name" class="textb" required />
+                <input type="text" placeholder="UserName" -->
+        </form>
 
-            </div>
-        </section>
     </body>
 </html>
