@@ -269,16 +269,14 @@
     	left: 8%;
     }
     .btn_hide{
-        position: absolute;
+        position: fixed;
         left: 126px;
         top: 50%;
     }
-    .btn_hide_s{
-        display: none;
-    }
     .btn_show{
-        position: absolute;
+        position: fixed;
         top: 50%;
-        display: none
+        left: 0;
+        display: none;
     }
     

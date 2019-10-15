@@ -7,9 +7,12 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Accueil</title>
         <link rel="stylesheet" type="text/css" href="./CSS/style.css" />
         <link rel="stylesheet" type="text/css" href="./CSS/style2.css" />
+        <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="./JS/Front.js"></script>
     </head>
     <body>
         <div class="bandeau">
@@ -26,6 +29,14 @@ and open the template in the editor.
                     <li>Centre National du Costume de Scène</li>
                 </ul>
             </div>
+            <div class="btn_hide">
+                <img  src="./images/flaish2.png">
+            </div>
+
+            <div class="btn_show">
+                <img  src="./images/flaish_r2_c2.png">
+            </div>
+        </div>
             <section>
                 <div>
 

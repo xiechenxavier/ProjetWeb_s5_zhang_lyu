@@ -2,599 +2,501 @@
 <!DOCTYPE html>
 <html>
 
-<!-- Affichage Dans l'onglet et choix des caractères-->
-<head>
-    <title> Lieux&#8239;; Théâtres de Bourbon </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="./CSS/style.css" />
-</head>
+    <!-- Affichage Dans l'onglet et choix des caractères-->
+    <head>
+        <title> Lieux&#8239;; Théâtres de Bourbon </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="./CSS/style.css" />
+        <link rel="stylesheet" type="text/css" href="./CSS/style2.css" />
+        <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="./JS/Front.js"></script>
+    </head>
 
-<!-- Corps de la page-->
-<body>
-
-
-
-    <div class="bandeau">
-
-        <h1> Théâtres de Bourbon&#8239;: Dans chaque lieu</h1>
-
-
-    </div><!--bandeau-->
-    <div class="petitPanier"><table>Billets en vente exclusivement sur les lieux du festival: Monétay, Monteignet, Veauce  du 2 au 6 août dès 11h00 et le 6 août à Moulins de 19h00 à 20h00.
-    Attention! à Moulins le début du spectacle à 20h00. </table></div><!-- class="petitPanier"-->							
-
-    <div class="menu">
+    <!-- Corps de la page-->
+    <body>
 
 
 
-        <ul class="navbar">
-            Le site&#8239;:
-            <div id="vignette">						
-                <a href="index.php">
-                    <img class="vignette"
-                    src="https://www.theatresdebourbon.com/images/logo.jpg"
-                    alt="[logo de l'association vers l'accueil du site]"
-                    width=30%
-                    height=30%
-                    decoding=low
-                    >
+        <div class="bandeau">
+
+            <h1> Théâtres de Bourbon&#8239;: Dans chaque lieu</h1>
+
+
+        </div><!--bandeau-->
+        <div class="petitPanier"><table>Billets en vente exclusivement sur les lieux du festival: Monétay, Monteignet, Veauce  du 2 au 6 août dès 11h00 et le 6 août à Moulins de 19h00 à 20h00.
+                Attention! à Moulins le début du spectacle à 20h00. </table></div><!-- class="petitPanier"-->							
+
+        <div class="menu">
+
+
+
+            <ul class="navbar">
+                Le site&#8239;:
+                <div id="vignette">						
+                    <a href="index.php">
+                        <img class="vignette"
+                             src="https://www.theatresdebourbon.com/images/logo.jpg"
+                             alt="[logo de l'association vers l'accueil du site]"
+                             width=30%
+                             height=30%
+                             decoding=low
+                             >
+                    </a>
+                </div><!-- div vignette-->
+                <li><a href="./Accueil.php">Accueil</a></li>
+                <li><a href="#">Lieu par Lieu</a></li>
+                <li><a href="./Reservation.php">Reserver les billes</li>
+                <!--<li><a href="Festival2018ProgrammationVueGlobale.php">Planning</a> </li>-->		  
+            </ul>
+
+
+
+
+
+
+
+            <ul class="navbar">
+
+                La page&#8239;:	
+            </ul>			
+
+            <div id="vignette">
+                <a href="#a   Eglise                   z">
+                    <img  	class="vignette"
+                           src="https://www.theatresdebourbon.com/images/imgLieuVeauceEglise.jpg"
+                           alt="[ Eglise de Veauce      ]"
+                           width=30%
+                           height=30%
+
+                           >
                 </a>
-            </div><!-- div vignette-->
-            <li><a href="./Accueil.php">Accueil</a></li>
-            <li><a href="#">Lieu par Lieu</a></li>
-            <li><a href="./Reservation.php">Reserver les billes</li>
-            <!--<li><a href="Festival2018ProgrammationVueGlobale.php">Planning</a> </li>-->		  
-        </ul>
-
-
-
-
-
-
-
-        <ul class="navbar">
-
-            La page&#8239;:	
-        </ul>			
-
-        <div id="vignette">
-            <a href="#a   Eglise                   z">
-                <img  	class="vignette"
-                src="https://www.theatresdebourbon.com/images/imgLieuVeauceEglise.jpg"
-                alt="[ Eglise de Veauce      ]"
-                width=30%
-                height=30%
-
-                >
-            </a>
-            <a href="#a   Château de Lachaise      z">
-                <img  	class="vignette"
-                src="https://www.theatresdebourbon.com/images/imgLieuLachaise2.jpg"
-                alt="[ Photo du château de Lachaise      ]"
-                width=30%
-                height=30%
-
-                >
-            </a>
-            <a href="#a   Manoir des noix          z">		
-                <img  	class="vignette"
-                src="https://www.theatresdebourbon.com/images/imgLieuVeauceManoirEtEglise.jpg "
-                alt="[ Pigeonnier du manoir des noix et de l'église de Veauce vue du ciel           ]"		
-                width=30%
-                height=30%
-
-                >
-            </a>
-            <a href="#a   Château d'Idogne         z">		
-                <img  	class="vignette"
-                src="https://www.theatresdebourbon.com/images/imgLieuIdogne2.jpg"
-                alt="[ Photo du château d'Idogne     ]"
-                width=30%
-                height=30%
-
-                >
-            </a>
-            <a href="#a   Domaine de la Querye     z">		
-                <img  	class="vignette"
-                src="https://www.theatresdebourbon.com/images/imgLieuQuerye1.jpg"
-                alt="[ Photo du domaine de la Querye     ]"
-                width=30%
-                height=30%
-
-                >
-            </a>					
-        </div><!--Vignette-->
-    </div><!-- class="menu"-->
-        <!--				<div class="patchwork">
-<div id="ContenantVignetteP">
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheBarbara.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                                
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheLeChateauDeMaMere.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                                
-                                >
-                                
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheOurs.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%		
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheFricassee.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheMlleJulie.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheHugo.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheProphete.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheMariage.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheLaGloireDeMonPere.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAffichePortRacines.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheTartuffe.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheMarchandDeVenise.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheSoliloquesMariette.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheConfessions.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%		
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleAfficheLaPromesse.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                <img  	class="vignetteP"
-                                                src="images/imgSpectacleTitreProvisoire5.jpg"
-                                                alt="[ Affiche de spectacle    ]"
-                                                width=30%
-                                                height=30%
-                                >
-                                
-                                
-                            </div><!--Vignette-->
+                <a href="#a   Château de Lachaise      z">
+                    <img  	class="vignette"
+                           src="https://www.theatresdebourbon.com/images/imgLieuLachaise2.jpg"
+                           alt="[ Photo du château de Lachaise      ]"
+                           width=30%
+                           height=30%
 
-                        </div ><!--pachtwork-->-->
+                           >
+                </a>
+                <a href="#a   Manoir des noix          z">		
+                    <img  	class="vignette"
+                           src="https://www.theatresdebourbon.com/images/imgLieuVeauceManoirEtEglise.jpg "
+                           alt="[ Pigeonnier du manoir des noix et de l'église de Veauce vue du ciel           ]"		
+                           width=30%
+                           height=30%
 
-                        <main>
+                           >
+                </a>
+                <a href="#a   Château d'Idogne         z">		
+                    <img  	class="vignette"
+                           src="https://www.theatresdebourbon.com/images/imgLieuIdogne2.jpg"
+                           alt="[ Photo du château d'Idogne     ]"
+                           width=30%
+                           height=30%
 
+                           >
+                </a>
+                <a href="#Domaine_de_la_Querye">		
+                    <img  	class="vignette"
+                           src="https://www.theatresdebourbon.com/images/imgLieuQuerye1.jpg"
+                           alt="[ Photo du domaine de la Querye     ]"
+                           width=30%
+                           height=30%
 
+                           >
+                </a>					
+            </div>
 
-                            <section>
-                                <div class= "decalage">
 
-                                <h2> Quatres demeures de l'Allier, un musée et une église vous ouvrent leurs grilles pour assister aux représentations théâtrales. </h2>
+        </div ><!--pachtwork-->
+         <div class="btn_hide">
+                <img  src="./images/flaish2.png">
+            </div>
+            
+            <div class="btn_show">
+                <img  src="./images/flaish_r2_c2.png">
+            </div>
 
+        <main>
 
-                                <p> Choissisez un lieu en cliquant sur son bouton (dans le menu de la page) pour voir la programmation qu'il accueille puis selectionnez les spectacles qui s'y jouent et vous intéresse. </p>
 
-                                <figure>
-                                    <img  	src="https://www.theatresdebourbon.com/images/kje.jpg"                                                                                                                   
-                                    alt=" Infographie Pour Situer les châteaux sur la carte du département "
-                                    width=100%
-                                    height=100%
-                                    id="localisation"
-                                    >
-                                    <figcaption>Photocomposition&#8239;:Edmée Deusy</figcaption>
-                                </figure>
-                                ﻿
 
-                                <div class="Lieu">       <h2 id="a   Manoir des noix          z">
+            <section>
+                <div class= "decalage">
 
-                                    Veauce
+                    <h2> Quatres demeures de l'Allier, un musée et une église vous ouvrent leurs grilles pour assister aux représentations théâtrales. </h2>
 
-                                </h2>
 
-                                <p>
+                    <p> Choissisez un lieu en cliquant sur son bouton (dans le menu de la page) pour voir la programmation qu'il accueille puis selectionnez les spectacles qui s'y jouent et vous intéresse. </p>
 
-                                    45 minutes de Clermont-Ferrand, 10 minutes d'Ebreuil
+                    <figure>
+                        <img  	src="https://www.theatresdebourbon.com/images/kje.jpg"                                                                                                                   
+                               alt=" Infographie Pour Situer les châteaux sur la carte du département "
+                               width=100%
+                               height=100%
+                               id="localisation"
+                               >
+                        <figcaption>Photocomposition&#8239;:Edmée Deusy</figcaption>
+                    </figure>
+                    ﻿
 
+                    <div class="Lieu">       <h2 id="a   Manoir des noix          z">
 
+                            Veauce
 
-                                </p>
+                        </h2>
 
+                        <p>
 
-                                <h2>
+                            45 minutes de Clermont-Ferrand, 10 minutes d'Ebreuil
 
-                                    Manoir des noix
 
 
-                                </h2>
+                        </p>
 
-                                <div>
 
-                                    <figure class="lieu">
+                        <h2>
 
-                                        <img  src="https://www.theatresdebourbon.com/images/imgLieuVeauceManoirEtEglise.jpg                                    "
+                            Manoir des noix
 
 
-                                        alt="[ Photo du pigeonnier du manoir des noix et de l'église de Veauce vue du ciel                        ]"
+                        </h2>
 
-                                        width=100%
-                                        height=100%
+                        <div>
 
-                                        ><figcaption>Photographe&#8239;:
+                            <figure class="lieu">
 
+                                <img  src="https://www.theatresdebourbon.com/images/imgLieuVeauceManoirEtEglise.jpg                                    "
 
-                                        Sébastien Tixeuil                                                                           </figcaption></figure>
 
-                                        <p>
+                                      alt="[ Photo du pigeonnier du manoir des noix et de l'église de Veauce vue du ciel                        ]"
 
-                                            Veauce est le plus petit village de l’Allier (40 habitants). Collé à la forêt des Colettes, il est perché sur la ligne de séparation entre langue d'oc et
-                                            langue d'oïl. Son château, royal jusqu'en 1700, servait de verrou aux 3 anciennes provinces de Bourbonnais, d’Auvergne et de Berry. Autant dire que,
-                                            malgré sa toute petite taille, Veauce est le cœur politique et symbolique de la France. Le village possède aussi une superbe église romane, fille de
-                                            l'abbaye carolingienne d'Ebreuil. Le festival se tient dans cette église et dans la propriété classée qu'elle surplombe, articulée autour du logis du Xve
-                                            siècle (le manoir des noix) qui en était autrefois le prieuré et d’un superbe pigeonnier.
-                                            Les représentations prennent place dans les dépendances du château au pied du pigeonnier.
-                                            Veauce
+                                      width=100%
+                                      height=100%
 
-                                        </p>
+                                      ><figcaption>Photographe&#8239;:
 
-                                    </div>      <div><h2>
 
+                                    Sébastien Tixeuil                                                                           </figcaption></figure>
 
-                                        Manoir des noix          à                                                                   Veauce
+                            <p>
 
+                                Veauce est le plus petit village de l’Allier (40 habitants). Collé à la forêt des Colettes, il est perché sur la ligne de séparation entre langue d'oc et
+                                langue d'oïl. Son château, royal jusqu'en 1700, servait de verrou aux 3 anciennes provinces de Bourbonnais, d’Auvergne et de Berry. Autant dire que,
+                                malgré sa toute petite taille, Veauce est le cœur politique et symbolique de la France. Le village possède aussi une superbe église romane, fille de
+                                l'abbaye carolingienne d'Ebreuil. Le festival se tient dans cette église et dans la propriété classée qu'elle surplombe, articulée autour du logis du Xve
+                                siècle (le manoir des noix) qui en était autrefois le prieuré et d’un superbe pigeonnier.
+                                Les représentations prennent place dans les dépendances du château au pied du pigeonnier.
+                                Veauce
 
-                                    ,</h2><h2>
+                            </p>
 
-                                        le programme  :
+                        </div>      <div><h2>
 
-                                    </h2></div>
 
+                                Manoir des noix          à                                                                   Veauce
 
-                                    <p>       <Horaire>          vendredi 02 août 2019                                        à              14h30      </Horaire>,
 
-                                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
+                                ,</h2><h2>
 
-                                        présente
+                                le programme  :
 
-                                        <TitreSpectacle>
+                            </h2></div>
 
-                                            Le Tartuffe ou l'imposteur
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          vendredi 02 août 2019                                        à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Molière                                                                                </Auteur>.
+                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Le Tartuffe ou l'imposteur
 
-                                    <p>       <Horaire>          vendredi 02 août 2019                                        à              17h00      </Horaire>,
+                        </TitreSpectacle>,
 
-                                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
+                        de    <Auteur>          Molière                                                                                </Auteur>.
 
-                                        présente
+                        </p>
 
-                                        <TitreSpectacle>
 
-                                            Mademoiselle Julie
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          vendredi 02 août 2019                                        à              17h00      </Horaire>,
 
-                                        de    <Auteur>          August Strindberg                                                                      </Auteur>.
+                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Mademoiselle Julie
 
-                                    <p>       <Horaire>          vendredi 02 août 2019                                        à              20h30      </Horaire>,
+                        </TitreSpectacle>,
 
-                                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
+                        de    <Auteur>          August Strindberg                                                                      </Auteur>.
 
-                                        présente
+                        </p>
 
-                                        <TitreSpectacle>
 
-                                            Le marchand de Venise
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          vendredi 02 août 2019                                        à              20h30      </Horaire>,
 
-                                        de    <Auteur>          William Shakespeare                                                                    </Auteur>.
+                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Le marchand de Venise
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              14h30      </Horaire>,
+                        </TitreSpectacle>,
 
-                                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
+                        de    <Auteur>          William Shakespeare                                                                    </Auteur>.
 
-                                        présente
+                        </p>
 
-                                        <TitreSpectacle>
 
-                                            Le mariage
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Jean Luc  Jeener                                                                       </Auteur>.
+                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Le mariage
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              17h00      </Horaire>,
+                        </TitreSpectacle>,
 
-                                        <Troupe>                 Alterthéâtre                                                                           </Troupe>
+                        de    <Auteur>          Jean Luc  Jeener                                                                       </Auteur>.
 
-                                        présente
+                        </p>
 
-                                        <TitreSpectacle>
 
-                                            Titre Provisoire
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Pauline Mornet                                                                         </Auteur>.
+                        <Troupe>                 Alterthéâtre                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              20h30      </Horaire>,
+                            Titre Provisoire
 
-                                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          Pauline Mornet                                                                         </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            Le prophète
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Khalil Gibran                                                                          </Auteur>.
+                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              14h30      </Horaire>,
+                            Le prophète
 
-                                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          Khalil Gibran                                                                          </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            La gloire de mon père
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
+                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            La gloire de mon père
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              17h00      </Horaire>,
+                        </TitreSpectacle>,
 
-                                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
+                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
 
-                                        présente
+                        </p>
 
-                                        <TitreSpectacle>
 
-                                            Le château de ma mère
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
+                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
 
-                                    </p>
+                        présente
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              20h30      </Horaire>,
+                        <TitreSpectacle>
 
-                                        <Troupe>                 labelles&cie                                                                           </Troupe>
+                            Le château de ma mère
 
-                                        présente
+                        </TitreSpectacle>,
 
-                                        <TitreSpectacle>
+                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
 
-                                            Les soliloques de Mariette
+                        </p>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Albert Cohen                                                                           </Auteur>.
+                        <Troupe>                 labelles&cie                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          lundi 05 août 2019                                           à              14h30      </Horaire>,
+                            Les soliloques de Mariette
 
-                                        <Troupe>                 labelles&cie                                                                           </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          Albert Cohen                                                                           </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            Port Racines
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          lundi 05 août 2019                                           à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Pierre Bertand, Anne Danais,  et Anaïs Renaudie                                        </Auteur>.
+                        <Troupe>                 labelles&cie                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Port Racines
 
-                                    <p>       <Horaire>          lundi 05 août 2019                                           à              17h00      </Horaire>,
+                        </TitreSpectacle>,
 
-                                        <Troupe>                 TIM La Parade                                                                          </Troupe>
+                        de    <Auteur>          Pierre Bertand, Anne Danais,  et Anaïs Renaudie                                        </Auteur>.
 
-                                        présente
+                        </p>
 
-                                        <TitreSpectacle>
 
-                                            Hugo es tu là?
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          lundi 05 août 2019                                           à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Victor Hugo                                                                            </Auteur>.
+                        <Troupe>                 TIM La Parade                                                                          </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          lundi 05 août 2019                                           à              20h30      </Horaire>,
+                            Hugo es tu là?
 
-                                        <Troupe>                 Des ils et des elles                                                                   </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          Victor Hugo                                                                            </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            La promesse de l'aube
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          lundi 05 août 2019                                           à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Romain Gary                                                                            </Auteur>.
+                        <Troupe>                 Des ils et des elles                                                                   </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          mardi 06 août 2019                                           à              17h00      </Horaire>,
+                            La promesse de l'aube
 
-                                        <Troupe>                 Rêve général                                                                           </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          Romain Gary                                                                            </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            Barbara, où rêvent mes saisons
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          mardi 06 août 2019                                           à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Barbara                                                                                </Auteur>.
+                        <Troupe>                 Rêve général                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
-                                    <p>       <Horaire>          mardi 06 août 2019                                           à              20h30      </Horaire>,
+                        <TitreSpectacle>
 
-                                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
+                            Barbara, où rêvent mes saisons
 
-                                        présente
+                        </TitreSpectacle>,
 
-                                        <TitreSpectacle>
+                        de    <Auteur>          Barbara                                                                                </Auteur>.
 
-                                            La demande en mariage et L'ours
+                        </p>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          mardi 06 août 2019                                           à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Anton Tchekhov                                                                         </Auteur>.
+                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
 
-                                    </p>
+                        présente
 
-                                </div> <!--Lieu-->
+                        <TitreSpectacle>
 
-                                <div class="Lieu">       <h2 id="a   Eglise                   z">
+                            La demande en mariage et L'ours
 
-                                    Veauce
+                        </TitreSpectacle>,
 
-                                </h2>
+                        de    <Auteur>          Anton Tchekhov                                                                         </Auteur>.
 
-                                <p>
+                        </p>
 
-                                    45 minutes de Clermont-Ferrand, 10 minutes d'Ebreuil
+                    </div> <!--Lieu-->
 
+                    <div class="Lieu">       <h2 id="a   Eglise                   z">
 
+                            Veauce
 
-                                </p>
+                        </h2>
 
+                        <p>
 
-                                <h2>
+                            45 minutes de Clermont-Ferrand, 10 minutes d'Ebreuil
 
-                                    Eglise
 
 
-                                </h2>
+                        </p>
 
-                                <div>
 
-                                    <figure class="lieu">
+                        <h2>
 
-                                        <img  src="https://www.theatresdebourbon.com/images/imgLieuVeauceEglise.jpg                                            "
+                            Eglise
 
 
-                                        alt="[ Photo du pigeonnier du manoir des noix et de l'église de Veauce vue du ciel                        ]"
+                        </h2>
 
-                                        width=100%
-                                        height=100%
+                        <div>
 
-                                        ><figcaption>Photographe&#8239;:
+                            <figure class="lieu">
 
+                                <img  src="https://www.theatresdebourbon.com/images/imgLieuVeauceEglise.jpg                                            "
 
-                                        Pierre Deusy                                                                                </figcaption></figure>
 
-                                        <p>
+                                      alt="[ Photo du pigeonnier du manoir des noix et de l'église de Veauce vue du ciel                        ]"
 
-                                            Village de 40 habitants, perché sur la ligne de séparation entre l'oc et oil, Veauce, dont le chateau, royal jusqu'en 1700, servait de verrou aux 3
-                                            anciennes provinces de Bourbonnais, Auvergne et Berry (autant dire le coeur politique et symbolique de la France). Le village possède une superbe
-                                            église romane, fille de l'abbaye carolingienne d'Ebreuil, dont le prieuré était le logis du XVe siècle de la propriété qui accueille le festival.
-                                            Le village possède aussi une superbe église romane, fille de l'abbaye carolingienne d'Ebreuil. Le festival se tient dans cette église et dans la
-                                            propriété classée qu'elle surplombe, articulée autour du logis du Xve siècle (le manoir des noix) qui en était autrefois le prieuré et d’un superbe
-                                            pigeonnier.
-                                            . Les représentations prennent place dans l'église.
+                                      width=100%
+                                      height=100%
 
+                                      ><figcaption>Photographe&#8239;:
 
 
+                                    Pierre Deusy                                                                                </figcaption></figure>
 
+                            <p>
 
+                                Village de 40 habitants, perché sur la ligne de séparation entre l'oc et oil, Veauce, dont le chateau, royal jusqu'en 1700, servait de verrou aux 3
+                                anciennes provinces de Bourbonnais, Auvergne et Berry (autant dire le coeur politique et symbolique de la France). Le village possède une superbe
+                                église romane, fille de l'abbaye carolingienne d'Ebreuil, dont le prieuré était le logis du XVe siècle de la propriété qui accueille le festival.
+                                Le village possède aussi une superbe église romane, fille de l'abbaye carolingienne d'Ebreuil. Le festival se tient dans cette église et dans la
+                                propriété classée qu'elle surplombe, articulée autour du logis du Xve siècle (le manoir des noix) qui en était autrefois le prieuré et d’un superbe
+                                pigeonnier.
+                                . Les représentations prennent place dans l'église.
 
 
 
@@ -635,94 +537,94 @@
 
 
 
-                                            Veauce
 
 
 
 
 
+                                Veauce
 
 
 
 
 
-                                        </p>
 
-                                    </div>      <div><h2>
 
 
-                                        Eglise                   à                                                                   Veauce
 
 
-                                    ,</h2><h2>
+                            </p>
 
-                                        le programme  :
+                        </div>      <div><h2>
 
-                                    </h2></div>
 
+                                Eglise                   à                                                                   Veauce
 
 
-                                    <p>       <Horaire>          vendredi 02 août 2019                                        à              14h30      </Horaire>,
+                                ,</h2><h2>
 
-                                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
+                                le programme  :
 
-                                        présente
+                            </h2></div>
 
-                                        <TitreSpectacle>
 
-                                            Les confessions : Les années de Jeunesse
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          vendredi 02 août 2019                                        à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Saint Augustin                                                                         </Auteur>.
+                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Les confessions : Les années de Jeunesse
 
+                        </TitreSpectacle>,
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              14h30      </Horaire>,
+                        de    <Auteur>          Saint Augustin                                                                         </Auteur>.
 
-                                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
+                        </p>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            Les confessions : Les années de Maturité
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Saint Augustin                                                                         </Auteur>.
+                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Les confessions : Les années de Maturité
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              14h30      </Horaire>,
+                        </TitreSpectacle>,
 
-                                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
+                        de    <Auteur>          Saint Augustin                                                                         </Auteur>.
 
-                                        présente
+                        </p>
 
-                                        <TitreSpectacle>
 
-                                            Les confessions : Les années de Sagesse
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Saint Augustin                                                                         </Auteur>.
+                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Les confessions : Les années de Sagesse
 
-                                </div> <!--Lieu-->
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Saint Augustin                                                                         </Auteur>.
 
+                        </p>
 
 
 
+                    </div> <!--Lieu-->
 
 
 
@@ -751,370 +653,370 @@
 
 
 
-                                <div class="Lieu">       <h2 id="a   Château de Lachaise      z">
 
-                                    Monétay sur Allier
 
-                                </h2>
 
-                                <p>
 
-                                    20 minutes de Moulins, 10 minutes de Saint Pourçain
 
+                    <div class="Lieu">       <h2 id="a   Château de Lachaise      z">
 
+                            Monétay sur Allier
 
-                                </p>
+                        </h2>
 
+                        <p>
 
-                                <h2>
+                            20 minutes de Moulins, 10 minutes de Saint Pourçain
 
-                                    Château de Lachaise
 
 
-                                </h2>
+                        </p>
 
-                                <div>
 
-                                    <figure class="lieu">
+                        <h2>
 
-                                        <img  src="https://www.theatresdebourbon.com/images/imgLieuLachaise2.jpg                                               "
+                            Château de Lachaise
 
 
-                                        alt="[ Photo du château de Lachaise                                                                       ]"
+                        </h2>
 
-                                        width=100%
-                                        height=100%
+                        <div>
 
-                                        ><figcaption>Photographe&#8239;:
+                            <figure class="lieu">
 
+                                <img  src="https://www.theatresdebourbon.com/images/imgLieuLachaise2.jpg                                               "
 
-                                        inconnu                                                                                     </figcaption></figure>
 
-                                        <p>
+                                      alt="[ Photo du château de Lachaise                                                                       ]"
 
-                                            Dominant le Val d'Allier, le château de Lachaise est intimement lié à l'histoire du vignoble de Saint-Pourcain: dés 1569, Nicolas de Nicolay,
-                                            géographe du roi Charles IX écrivait: " Au terroir de Lachaise croissent les meilleurs vins blancs du Bourbonnais" et c'est du port de Lachaise que
-                                            ceux-ci étaient expédiés dans tout le royaume;
-                                            En 1665, la propriété passe aux ancêtres de la famille des propriétaires actuels et, depuis 350 ans, chaque génération y apporte sa touche, faisant
-                                            de cette demeure un lieu à la fois familial et patrimonial où il fait bon vivre.
+                                      width=100%
+                                      height=100%
 
+                                      ><figcaption>Photographe&#8239;:
 
 
-                                            Monétay sur Allier
+                                    inconnu                                                                                     </figcaption></figure>
 
+                            <p>
 
-                                        </p>
+                                Dominant le Val d'Allier, le château de Lachaise est intimement lié à l'histoire du vignoble de Saint-Pourcain: dés 1569, Nicolas de Nicolay,
+                                géographe du roi Charles IX écrivait: " Au terroir de Lachaise croissent les meilleurs vins blancs du Bourbonnais" et c'est du port de Lachaise que
+                                ceux-ci étaient expédiés dans tout le royaume;
+                                En 1665, la propriété passe aux ancêtres de la famille des propriétaires actuels et, depuis 350 ans, chaque génération y apporte sa touche, faisant
+                                de cette demeure un lieu à la fois familial et patrimonial où il fait bon vivre.
 
-                                    </div>      <div><h2>
 
 
-                                        Château de Lachaise      à                                                       Monétay sur Allier
+                                Monétay sur Allier
 
 
-                                    ,</h2><h2>
+                            </p>
 
-                                        le programme  :
+                        </div>      <div><h2>
 
-                                    </h2></div>
 
+                                Château de Lachaise      à                                                       Monétay sur Allier
 
-                                    <p>       <Horaire>          vendredi 02 août 2019                                        à              17h00      </Horaire>,
 
-                                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
+                                ,</h2><h2>
 
-                                        présente
+                                le programme  :
 
-                                        <TitreSpectacle>
+                            </h2></div>
 
-                                            La gloire de mon père
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          vendredi 02 août 2019                                        à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
+                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
 
-                                    </p>
+                        présente
 
-                                    <p>       <Horaire>          vendredi 02 août 2019                                        à              20h30      </Horaire>,
+                        <TitreSpectacle>
 
-                                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
+                            La gloire de mon père
 
-                                        présente
+                        </TitreSpectacle>,
 
-                                        <TitreSpectacle>
+                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
 
-                                            Le château de ma mère
+                        </p>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          vendredi 02 août 2019                                        à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
+                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              14h30      </Horaire>,
+                            Le château de ma mère
 
-                                        <Troupe>                 labelles&cie                                                                           </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            Les soliloques de Mariette
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Albert Cohen                                                                           </Auteur>.
+                        <Troupe>                 labelles&cie                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              17h00      </Horaire>,
+                        <TitreSpectacle>
 
-                                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
+                            Les soliloques de Mariette
 
-                                        présente
+                        </TitreSpectacle>,
 
-                                        <TitreSpectacle>
+                        de    <Auteur>          Albert Cohen                                                                           </Auteur>.
 
-                                            La demande en mariage et L'ours
+                        </p>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Anton Tchekhov                                                                         </Auteur>.
+                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
 
-                                    </p>
+                        présente
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              20h30      </Horaire>,
+                        <TitreSpectacle>
 
-                                        <Troupe>                 labelles&cie                                                                           </Troupe>
+                            La demande en mariage et L'ours
 
-                                        présente
+                        </TitreSpectacle>,
 
-                                        <TitreSpectacle>
+                        de    <Auteur>          Anton Tchekhov                                                                         </Auteur>.
 
-                                            Fricassée de berniques sur lit de Prévert
+                        </p>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Jacques Prévert                                                                        </Auteur>.
+                        <Troupe>                 labelles&cie                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              14h30      </Horaire>,
+                        <TitreSpectacle>
 
-                                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
+                            Fricassée de berniques sur lit de Prévert
 
-                                        présente
+                        </TitreSpectacle>,
 
-                                        <TitreSpectacle>
+                        de    <Auteur>          Jacques Prévert                                                                        </Auteur>.
 
-                                            Mademoiselle Julie
+                        </p>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              14h30      </Horaire>,
 
-                                        de    <Auteur>          August Strindberg                                                                      </Auteur>.
+                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              17h00      </Horaire>,
+                            Mademoiselle Julie
 
-                                        <Troupe>                 Alterthéâtre                                                                           </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          August Strindberg                                                                      </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            Titre Provisoire
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Pauline Mornet                                                                         </Auteur>.
+                        <Troupe>                 Alterthéâtre                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              20h30      </Horaire>,
+                            Titre Provisoire
 
-                                        <Troupe>                 TIM La Parade                                                                          </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          Pauline Mornet                                                                         </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            Hugo es tu là?
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Victor Hugo                                                                            </Auteur>.
+                        <Troupe>                 TIM La Parade                                                                          </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          lundi 05 août 2019                                           à              14h30      </Horaire>,
+                            Hugo es tu là?
 
-                                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          Victor Hugo                                                                            </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            Le mariage
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          lundi 05 août 2019                                           à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Jean Luc  Jeener                                                                       </Auteur>.
+                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Le mariage
 
-                                    <p>       <Horaire>          lundi 05 août 2019                                           à              17h00      </Horaire>,
+                        </TitreSpectacle>,
 
-                                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
+                        de    <Auteur>          Jean Luc  Jeener                                                                       </Auteur>.
 
-                                        présente
+                        </p>
 
-                                        <TitreSpectacle>
 
-                                            Le prophète
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          lundi 05 août 2019                                           à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Khalil Gibran                                                                          </Auteur>.
+                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
-                                    <p>       <Horaire>          lundi 05 août 2019                                           à              20h30      </Horaire>,
+                            Le prophète
 
-                                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
+                        </TitreSpectacle>,
 
-                                        présente
+                        de    <Auteur>          Khalil Gibran                                                                          </Auteur>.
 
-                                        <TitreSpectacle>
+                        </p>
 
-                                            Le marchand de Venise
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          lundi 05 août 2019                                           à              20h30      </Horaire>,
 
-                                        de    <Auteur>          William Shakespeare                                                                    </Auteur>.
+                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                    </p>
+                        présente
 
-                                    <p>       <Horaire>          mardi 06 août 2019                                           à              20h30      </Horaire>,
+                        <TitreSpectacle>
 
-                                        <Troupe>                 Des ils et des elles                                                                   </Troupe>
+                            Le marchand de Venise
 
-                                        présente
+                        </TitreSpectacle>,
 
-                                        <TitreSpectacle>
+                        de    <Auteur>          William Shakespeare                                                                    </Auteur>.
 
-                                            La promesse de l'aube
+                        </p>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          mardi 06 août 2019                                           à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Romain Gary                                                                            </Auteur>.
+                        <Troupe>                 Des ils et des elles                                                                   </Troupe>
 
-                                    </p>
+                        présente
 
-                                </div> <!--Lieu-->
+                        <TitreSpectacle>
 
-                                <div class="Lieu">       <h2 id="a   Château d'Idogne         z">
+                            La promesse de l'aube
 
-                                    Monteignet sur l'Andelot
+                        </TitreSpectacle>,
 
-                                </h2>
+                        de    <Auteur>          Romain Gary                                                                            </Auteur>.
 
-                                <p>
+                        </p>
 
-                                    20 minutes de Vichy, 10 minutes de Gannat
+                    </div> <!--Lieu-->
 
+                    <div class="Lieu">       <h2 id="a   Château d'Idogne         z">
 
+                            Monteignet sur l'Andelot
 
-                                </p>
+                        </h2>
 
+                        <p>
 
-                                <h2>
+                            20 minutes de Vichy, 10 minutes de Gannat
 
-                                    Château d'Idogne
 
 
-                                </h2>
+                        </p>
 
-                                <div>
 
-                                    <figure class="lieu">
+                        <h2>
 
-                                        <img  src="https://www.theatresdebourbon.com/images/imgLieuIdogne2.jpg                                                 "
+                            Château d'Idogne
 
 
-                                        alt="[ Photo du château d'Idogne                                                                          ]"
+                        </h2>
 
-                                        width=100%
-                                        height=100%
+                        <div>
 
-                                        ><figcaption>Photographe&#8239;:
+                            <figure class="lieu">
 
+                                <img  src="https://www.theatresdebourbon.com/images/imgLieuIdogne2.jpg                                                 "
 
-                                        inconnu                                                                                     </figcaption></figure>
 
-                                        <p>
+                                      alt="[ Photo du château d'Idogne                                                                          ]"
 
-                                            La première mention du château d’Idogne figure dans un terrier du 15ème siècle. Il avait à l'époque une fonction défensive dont ne subsistent que
-                                            quelques traces, en particulier la tour Sud. Il passe entre plusieurs mains avant de se fixer en 1628 et jusqu'en 1781 dans celles de la famille de Goy,
-                                            qui entreprend de profondes transformations et lui donne l'aspect qu'il a aujourd'hui : Le manoir bourbonnais est doublé dans la largeur par un
-                                            bâtiment de pur style auvergnat; les petites fenêtres sont bouchées et remplacées par de grandes baies .
+                                      width=100%
+                                      height=100%
 
-                                            En 1892, il est racheté par Henry Kemlin, dont l'épouse est issue d’une famille qui comptait quatre académiciens français ou membres de l’institut, et
-                                            devient chaque été le lieu de joutes littéraires tenues sous la présidence du Cardinal Baudrillard, recteur de l’Institut Catholique. Avec ce festival, ses
-                                            descendants perpétuent cette tradition littéraire.
+                                      ><figcaption>Photographe&#8239;:
 
-                                            Idogne est depuis 1993 inscrit dans son intégralité (y compris les décors intérieurs, le parc et les portails), à l’inventaire supplémentaire des
-                                            monuments historiques et a bénéficié d'une restauration en profondeur  qui se poursuit encore.
 
-                                            Monteignet sur l'Andelot
+                                    inconnu                                                                                     </figcaption></figure>
 
-                                        </p>
+                            <p>
 
-                                    </div>      <div><h2>
+                                La première mention du château d’Idogne figure dans un terrier du 15ème siècle. Il avait à l'époque une fonction défensive dont ne subsistent que
+                                quelques traces, en particulier la tour Sud. Il passe entre plusieurs mains avant de se fixer en 1628 et jusqu'en 1781 dans celles de la famille de Goy,
+                                qui entreprend de profondes transformations et lui donne l'aspect qu'il a aujourd'hui : Le manoir bourbonnais est doublé dans la largeur par un
+                                bâtiment de pur style auvergnat; les petites fenêtres sont bouchées et remplacées par de grandes baies .
 
+                                En 1892, il est racheté par Henry Kemlin, dont l'épouse est issue d’une famille qui comptait quatre académiciens français ou membres de l’institut, et
+                                devient chaque été le lieu de joutes littéraires tenues sous la présidence du Cardinal Baudrillard, recteur de l’Institut Catholique. Avec ce festival, ses
+                                descendants perpétuent cette tradition littéraire.
 
-                                        Château d'Idogne         à                                                 Monteignet sur l'Andelot
+                                Idogne est depuis 1993 inscrit dans son intégralité (y compris les décors intérieurs, le parc et les portails), à l’inventaire supplémentaire des
+                                monuments historiques et a bénéficié d'une restauration en profondeur  qui se poursuit encore.
 
+                                Monteignet sur l'Andelot
 
-                                    ,</h2><h2>
+                            </p>
 
-                                        le programme  :
+                        </div>      <div><h2>
 
-                                    </h2></div>
 
+                                Château d'Idogne         à                                                 Monteignet sur l'Andelot
 
 
+                                ,</h2><h2>
 
+                                le programme  :
 
+                            </h2></div>
 
 
 
-                                    <p>       <Horaire>          vendredi 02 août 2019                                        à              14h30      </Horaire>,
 
-                                        <Troupe>                 Rêve général                                                                           </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            Barbara, où rêvent mes saisons
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          vendredi 02 août 2019                                        à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Barbara                                                                                </Auteur>.
+                        <Troupe>                 Rêve général                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Barbara, où rêvent mes saisons
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Barbara                                                                                </Auteur>.
 
+                        </p>
 
 
 
@@ -1125,26 +1027,26 @@
 
 
 
-                                    <p>       <Horaire>          vendredi 02 août 2019                                        à              17h00      </Horaire>,
 
-                                        <Troupe>                 labelles&cie                                                                           </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            Les soliloques de Mariette
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          vendredi 02 août 2019                                        à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Albert Cohen                                                                           </Auteur>.
+                        <Troupe>                 labelles&cie                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Les soliloques de Mariette
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Albert Cohen                                                                           </Auteur>.
 
+                        </p>
 
 
 
@@ -1158,26 +1060,26 @@
 
 
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              14h30      </Horaire>,
 
-                                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            La gloire de mon père
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
+                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            La gloire de mon père
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
 
+                        </p>
 
 
 
@@ -1188,26 +1090,26 @@
 
 
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              17h00      </Horaire>,
 
-                                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            Le château de ma mère
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
+                        <Troupe>                 L'Accompagnie                                                                          </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Le château de ma mère
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
 
+                        </p>
 
 
 
@@ -1221,26 +1123,26 @@
 
 
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              14h30      </Horaire>,
 
-                                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            Le Tartuffe ou l'imposteur
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Molière                                                                                </Auteur>.
+                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Le Tartuffe ou l'imposteur
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Molière                                                                                </Auteur>.
 
+                        </p>
 
 
 
@@ -1251,26 +1153,26 @@
 
 
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              17h00      </Horaire>,
 
-                                        <Troupe>                 Des ils et des elles                                                                   </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            La promesse de l'aube
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Romain Gary                                                                            </Auteur>.
+                        <Troupe>                 Des ils et des elles                                                                   </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            La promesse de l'aube
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Romain Gary                                                                            </Auteur>.
 
+                        </p>
 
 
 
@@ -1284,26 +1186,26 @@
 
 
 
-                                    <p>       <Horaire>          lundi 05 août 2019                                           à              14h30      </Horaire>,
 
-                                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            La demande en mariage et L'ours
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          lundi 05 août 2019                                           à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Anton Tchekhov                                                                         </Auteur>.
+                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            La demande en mariage et L'ours
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Anton Tchekhov                                                                         </Auteur>.
 
+                        </p>
 
 
 
@@ -1314,26 +1216,26 @@
 
 
 
-                                    <p>       <Horaire>          lundi 05 août 2019                                           à              17h00      </Horaire>,
 
-                                        <Troupe>                 Alterthéâtre                                                                           </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            Titre Provisoire
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          lundi 05 août 2019                                           à              17h00      </Horaire>,
 
-                                        de    <Auteur>          Pauline Mornet                                                                         </Auteur>.
+                        <Troupe>                 Alterthéâtre                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Titre Provisoire
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Pauline Mornet                                                                         </Auteur>.
 
+                        </p>
 
 
 
@@ -1347,26 +1249,26 @@
 
 
 
-                                    <p>       <Horaire>          mardi 06 août 2019                                           à              14h30      </Horaire>,
 
-                                        <Troupe>                 labelles&cie                                                                           </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            Port Racines
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          mardi 06 août 2019                                           à              14h30      </Horaire>,
 
-                                        de    <Auteur>          Pierre Bertand, Anne Danais,  et Anaïs Renaudie                                        </Auteur>.
+                        <Troupe>                 labelles&cie                                                                           </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Port Racines
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Pierre Bertand, Anne Danais,  et Anaïs Renaudie                                        </Auteur>.
 
+                        </p>
 
 
 
@@ -1377,12 +1279,12 @@
 
 
 
-                                </div> <!--Lieu-->
 
 
 
 
 
+                    </div> <!--Lieu-->
 
 
 
@@ -1411,63 +1313,63 @@
 
 
 
-                                <div class="Lieu">       <h2 id="a   Domaine de la Quérye     z">
 
-                                    Monteignet sur l'Andelot
 
-                                </h2>
 
-                                <p>
 
-                                    20 minutes de Vichy, 10 minutes de Gannat
 
+                    <div class="Lieu">       <h2 id="a   Domaine de la Quérye     z">
 
+                            Monteignet sur l'Andelot
 
-                                </p>
+                        </h2>
 
+                        <p>
 
-                                <h2>
+                            20 minutes de Vichy, 10 minutes de Gannat
 
-                                    Domaine de la Quérye
 
 
-                                </h2>
+                        </p>
 
-                                <div>
 
-                                    <figure class="lieu">
+                        <h2 id="Domaine_de_la_Querye">
 
-                                        <img  src="https://www.theatresdebourbon.com/images/imgLieuQuerye1.jpg                                                 "
+                            Domaine de la Quérye
 
 
-                                        alt="[ Photo du domaine de la Querye                                                                      ]"
+                        </h2>
 
-                                        width=100%
-                                        height=100%
+                        <div>
 
-                                        ><figcaption>Photographe&#8239;:
+                            <figure class="lieu">
 
+                                <img  src="https://www.theatresdebourbon.com/images/imgLieuQuerye1.jpg                                                 "
 
-                                        inconnu                                                                                     </figcaption></figure>
 
-                                        <p>
+                                      alt="[ Photo du domaine de la Querye                                                                      ]"
 
-                                            Le domaine de la Quérye est au XVème siècle une des Seigneuries qui défendent la châtellenie de Gannat, contrôlée par les seigneurs de Bourbon.
-                                            Si la Quérye a conservé des éléments architecturaux caractéristiques de sa fonction défensive originelle, elle a été remaniée au XVIIème, et plus
-                                            encore au XIXème siècle.
-                                            Vers 1850 notamment, Jean Francisque Jusseraud, médecin, agronome idéaliste et philanthrope, Député de la Constituante, et fortement influencé
-                                            par son ami Abel Transon, disciple de Saint-Simon et de Fourier, décide d'y transformer ses rêves en réalité. Il entreprend d’y développer un vaste
-                                            domaine, dont le grand parc sert d’écrin à un ensemble agricole modèle complet et parfaitement cohérent (fermes, pigeonnier, étables, moulin,
-                                            lavoir, source, fontaine, fours à pain...). Un complexe et très original réseau hydraulique (Source, lavoir, fontaines, bassins, moulin île, pièce d’eau,
-                                            ouvrages d’irrigation cascade) illustre la capacité des St Simoniens à mettre la technique au service du progrès tout en recherchant à rendre le
-                                            monde plus beau.
-                                            En faisant partager à Théâtres de Bourbon son cadre et ses arbres centenaires, le domaine de la Quérye s'inscrit donc pleinement dans cette
-                                            ancienne volonté de mettre l'homme au cœur de toute chose et de changer quotidiennement et spirituellement le monde!
+                                      width=100%
+                                      height=100%
 
+                                      ><figcaption>Photographe&#8239;:
 
 
+                                    inconnu                                                                                     </figcaption></figure>
 
+                            <p>
 
+                                Le domaine de la Quérye est au XVème siècle une des Seigneuries qui défendent la châtellenie de Gannat, contrôlée par les seigneurs de Bourbon.
+                                Si la Quérye a conservé des éléments architecturaux caractéristiques de sa fonction défensive originelle, elle a été remaniée au XVIIème, et plus
+                                encore au XIXème siècle.
+                                Vers 1850 notamment, Jean Francisque Jusseraud, médecin, agronome idéaliste et philanthrope, Député de la Constituante, et fortement influencé
+                                par son ami Abel Transon, disciple de Saint-Simon et de Fourier, décide d'y transformer ses rêves en réalité. Il entreprend d’y développer un vaste
+                                domaine, dont le grand parc sert d’écrin à un ensemble agricole modèle complet et parfaitement cohérent (fermes, pigeonnier, étables, moulin,
+                                lavoir, source, fontaine, fours à pain...). Un complexe et très original réseau hydraulique (Source, lavoir, fontaines, bassins, moulin île, pièce d’eau,
+                                ouvrages d’irrigation cascade) illustre la capacité des St Simoniens à mettre la technique au service du progrès tout en recherchant à rendre le
+                                monde plus beau.
+                                En faisant partager à Théâtres de Bourbon son cadre et ses arbres centenaires, le domaine de la Quérye s'inscrit donc pleinement dans cette
+                                ancienne volonté de mettre l'homme au cœur de toute chose et de changer quotidiennement et spirituellement le monde!
 
 
 
@@ -1504,58 +1406,58 @@
 
 
 
-                                            Monteignet sur l'Andelot
 
 
 
 
 
+                                Monteignet sur l'Andelot
 
 
 
 
 
-                                        </p>
 
-                                    </div>      <div><h2>
 
 
-                                        Domaine de la Quérye     à                                                 Monteignet sur l'Andelot
 
 
-                                    ,</h2><h2>
+                            </p>
 
-                                        le programme  :
+                        </div>      <div><h2>
 
-                                    </h2></div>
 
+                                Domaine de la Quérye     à                                                 Monteignet sur l'Andelot
 
 
+                                ,</h2><h2>
 
+                                le programme  :
 
+                            </h2></div>
 
 
 
-                                    <p>       <Horaire>          vendredi 02 août 2019                                        à              20h30      </Horaire>,
 
-                                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            Le prophète
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          vendredi 02 août 2019                                        à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Khalil Gibran                                                                          </Auteur>.
+                        <Troupe>                 Le Théâtre du partage                                                                  </Troupe>
 
-                                    </p>
+                        présente
 
+                        <TitreSpectacle>
 
+                            Le prophète
 
+                        </TitreSpectacle>,
 
+                        de    <Auteur>          Khalil Gibran                                                                          </Auteur>.
 
+                        </p>
 
 
 
@@ -1566,151 +1468,156 @@
 
 
 
-                                    <p>       <Horaire>          samedi 03 août 2019                                          à              20h30      </Horaire>,
 
-                                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                        présente
 
-                                        <TitreSpectacle>
 
-                                            Le mariage
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          samedi 03 août 2019                                          à              20h30      </Horaire>,
 
-                                        de    <Auteur>          Jean Luc  Jeener                                                                       </Auteur>.
+                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                    </p>
+                        présente
 
-                                    <p>       <Horaire>          dimanche 04 août 2019                                        à              20h30      </Horaire>,
+                        <TitreSpectacle>
 
-                                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
+                            Le mariage
 
-                                        présente
+                        </TitreSpectacle>,
 
-                                        <TitreSpectacle>
+                        de    <Auteur>          Jean Luc  Jeener                                                                       </Auteur>.
 
-                                            Le marchand de Venise
+                        </p>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          dimanche 04 août 2019                                        à              20h30      </Horaire>,
 
-                                        de    <Auteur>          William Shakespeare                                                                    </Auteur>.
+                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                    </p>
+                        présente
 
-                                    <p>       <Horaire>          lundi 05 août 2019                                           à              20h30      </Horaire>,
+                        <TitreSpectacle>
 
-                                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
+                            Le marchand de Venise
 
-                                        présente
+                        </TitreSpectacle>,
 
-                                        <TitreSpectacle>
+                        de    <Auteur>          William Shakespeare                                                                    </Auteur>.
 
-                                            Mademoiselle Julie
+                        </p>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          lundi 05 août 2019                                           à              20h30      </Horaire>,
 
-                                        de    <Auteur>          August Strindberg                                                                      </Auteur>.
+                        <Troupe>                 L'Ecume des ours                                                                       </Troupe>
 
-                                    </p>
+                        présente
 
-                                </div> <!--Lieu-->
+                        <TitreSpectacle>
 
+                            Mademoiselle Julie
 
+                        </TitreSpectacle>,
 
-                                <div class="Lieu">       <h2 id="a   Centre National du       z">
-                                    Costume de Scène
-                                    Moulins
+                        de    <Auteur>          August Strindberg                                                                      </Auteur>.
 
-                                </h2>
+                        </p>
 
-                                <p>
+                    </div> <!--Lieu-->
 
 
 
+                    <div class="Lieu">       <h2 id="a   Centre National du       z">
+                            Costume de Scène
+                            Moulins
 
+                        </h2>
 
-                                </p>
+                        <p>
 
 
-                                <h2>
 
-                                    Centre National du Costume de Scène
 
 
-                                </h2>
+                        </p>
 
-                                <div>
 
-                                    <figure class="lieu">
+                        <h2>
 
-                                        <img  src="https://www.theatresdebourbon.com/images/imgLieuCNCS.jpg                                                    "
+                            Centre National du Costume de Scène
 
 
-                                        alt="[ Photo du Centre national du costume de scène                                                       ]"
+                        </h2>
 
-                                        width=100%
-                                        height=100%
+                        <div>
 
-                                        ><figcaption>Photographe&#8239;:
+                            <figure class="lieu">
 
+                                <img  src="https://www.theatresdebourbon.com/images/imgLieuCNCS.jpg                                                    "
 
-                                        inconnu                                                                                     </figcaption></figure>
 
-                                        <p>
+                                      alt="[ Photo du Centre national du costume de scène                                                       ]"
 
-                                            Moulins
-                                        </p>
+                                      width=100%
+                                      height=100%
 
-                                    </div>      <div><h2>
+                                      ><figcaption>Photographe&#8239;:
 
 
-                                        Centre National du       à                                                                  Moulins
-                                        Costume de Scène
+                                    inconnu                                                                                     </figcaption></figure>
 
-                                    ,</h2><h2>
+                            <p>
 
-                                        le programme  :
+                                Moulins
+                            </p>
 
-                                    </h2></div>
+                        </div>      <div><h2>
 
-                                    <p>       <Horaire>          mardi 06 août 2019                                           à              20h00      </Horaire>,
 
-                                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
+                                Centre National du       à                                                                  Moulins
+                                Costume de Scène
 
-                                        présente
+                                ,</h2><h2>
 
-                                        <TitreSpectacle>
+                                le programme  :
 
-                                            Le Tartuffe ou l'imposteur
+                            </h2></div>
 
-                                        </TitreSpectacle>,
+                        <p>       <Horaire>          mardi 06 août 2019                                           à              20h00      </Horaire>,
 
-                                        de    <Auteur>          Molière                                                                                </Auteur>.
+                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
 
-                                    </p>
+                        présente
 
-                                </div> <!--Lieu-->
+                        <TitreSpectacle>
 
-                                <date>   programmation telle que définie au              dimanche 28 juillet 2019                                       </date>
+                            Le Tartuffe ou l'imposteur
 
-                            </div><!--decalage-->
-                        </section>
+                        </TitreSpectacle>,
 
-        <!-- Mettre une information en évidence dans une bulle rouge 
-        <div id="comment">
-        <p> Page Provisoire à commenter par les autres membres du CA...</p> 
-    </div>-->
-</main>
+                        de    <Auteur>          Molière                                                                                </Auteur>.
 
-<footer>	
-    Lieu par Lieu
-    <!-- Signer et dater la page, c'est une question de politesse! -->
-    <address>	Page conçue par Sylvie Delaët mercredi 28 novembre 2018;
-    Photo du fond d'écran Pierre Deusy.</address>
-</footer>
+                        </p>
 
-</body>
+                    </div> <!--Lieu-->
+
+                    <date>   programmation telle que définie au              dimanche 28 juillet 2019                                       </date>
+
+                </div><!--decalage-->
+            </section>
+
+            <!-- Mettre une information en évidence dans une bulle rouge 
+            <div id="comment">
+            <p> Page Provisoire à commenter par les autres membres du CA...</p> 
+        </div>-->
+        </main>
+
+        <footer>	
+            Lieu par Lieu
+            <!-- Signer et dater la page, c'est une question de politesse! -->
+            <address>	Page conçue par Sylvie Delaët mercredi 28 novembre 2018;
+                Photo du fond d'écran Pierre Deusy.</address>
+        </footer>
+
+    </body>
 </html>
 
 

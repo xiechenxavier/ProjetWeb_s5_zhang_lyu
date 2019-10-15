@@ -96,10 +96,6 @@ and open the template in the editor.
                 </table>
             </form>
         </div>
-
-
-
-        <div id="ensemble">
             <div class="menu">
                 <ul class="navbar">
                     Le site&#8239;:
@@ -119,15 +115,7 @@ and open the template in the editor.
                     <li><a href="./Reservation.php">Reserver les billes</li>
                     <!--<li><a href="Festival2018ProgrammationVueGlobale.php">Planning</a> </li>-->       
                 </ul>
-
-                <ul class="navbar">
-
-                    La page&#8239;: 
-                </ul>           
-
-
-
-                <div id="vignette">
+ <div id="vignette">
                     <a href="#a   Eglise                   z">
                         <img    class="vignette"
                                 src="https://www.theatresdebourbon.com/images/imgLieuVeauceEglise.jpg"
@@ -174,6 +162,7 @@ and open the template in the editor.
                                 >
                     </a>                    
                 </div><!--Vignette-->
+               
             </div><!-- class="menu"-->
             <!--                <button class="btn_hide">
                                 cacher navigateur
@@ -185,6 +174,5 @@ and open the template in the editor.
             <div class="btn_show">
                 <img  src="./images/flaish_r2_c2.png">
             </div>
-        </div>
     </body>
 </html>
