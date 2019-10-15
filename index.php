@@ -16,6 +16,7 @@
                     <option value="selecte une page à visiter"></option>
                     <option value="notre Accueil">notre Accueil</option>
                     <option value="les lieus">les lieus</option>
+                    <option value="reserver les billes">reserver les billes</option>
                 </select>
             </p>
             <p class="par2">    <input type="submit" value="Allez-y" class="signup-btn" /></p>

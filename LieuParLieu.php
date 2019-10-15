@@ -7,16 +7,6 @@
     <title> Lieux&#8239;; Théâtres de Bourbon </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="./CSS/style.css" />
-    <link rel="stylesheet" type="text/css" href="./CSS/style2.css" />
-    <link rel="stylesheet" href="Lieux%E2%80%AF;%20Th%C3%A9%C3%A2tres%20de%20Bourbon_fichiers/styleTheatresDeBourbonPourPHP.css">
-    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
-    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script>
-        $(function() {
-            $( "#datepicker" ).datepicker();
-        });
-    </script>
 </head>
 
 <!-- Corps de la page-->
@@ -228,12 +218,6 @@
 
                             <section>
                                 <div class= "decalage">
-                                   <form action="welcome.php" method="post">
-                                    Lieu: <input type="text" name="lieu">
-                                    Date：<input type="text" id="datepicker">
-                                    <input type="submit" value="提交">
-                                </form>
-
 
                                 <h2> Quatres demeures de l'Allier, un musée et une église vous ouvrent leurs grilles pour assister aux représentations théâtrales. </h2>
 

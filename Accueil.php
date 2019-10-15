@@ -22,6 +22,7 @@ and open the template in the editor.
                 <ul class="navbar">
                     <li><a href="#">Accueil</a></li>
                     <li><a href="./LieuParLieu.php">Lieu par Lieu</a></li>
+                    <li><a href="./Reservation.php">Reservation</a></li>
                     <li>Centre National du Costume de Scène</li>
                 </ul>
             </div>
