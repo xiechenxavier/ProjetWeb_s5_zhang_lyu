@@ -29,6 +29,8 @@
         height: 100%;
     }
     body {
+             
+            font-family:  Vijaya, Garamond, sans-serif; 
             font-size: 100%;
             background-size: 100%;
             background-repeat: repeat;
@@ -137,6 +139,24 @@
      li {
       margin-bottom: 0.02em;
     }
+   /*******************************   Gestion des liens *****************************/	
+    a:link {
+     color: white;
+     }
+    a:visited {
+     color: white;
+     }
+    a:hover {
+     color: white;
+     background-color: #0f3187;
+     }
+    a:active, a:focus {
+     color: black;
+     background-color: white;
+    }
+    
+
+
       
 
     /*****************************************est ce utilisé*/
@@ -237,14 +257,14 @@
     }
     
     .service{
-    	position: absolute;
-    	top: 4%;
+    	position: relative;
+    	top: 20px;
     	left: 8%;
 
     }
 
     #Form_distance{
-    	position: absolute;
-    	top: 10%;
-    	left:8%;
+    	position: relative;
+    	top:25px;
+    	left: 8%;
     }
