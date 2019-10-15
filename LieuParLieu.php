@@ -104,7 +104,6 @@
                 >
             </a>					
         </div><!--Vignette-->
-
     </div><!-- class="menu"-->
         <!--				<div class="patchwork">
 <div id="ContenantVignetteP">
