@@ -42,6 +42,7 @@
             </div><!-- div vignette-->
             <li><a href="./Accueil.php">Accueil</a></li>
             <li><a href="#">Lieu par Lieu</a></li>
+            <li><a href="./Reservation.php">Reserver les billes</li>
             <!--<li><a href="Festival2018ProgrammationVueGlobale.php">Planning</a> </li>-->		  
         </ul>
 
