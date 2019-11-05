@@ -16,8 +16,17 @@ $(function () {
         $(".menu").toggle("slow");
         $(".btn_hide").toggle("slow");
         $(this).toggle("slow");
-       
-    });
 
+    });
+    $(document).on('click', '.but_hide_tab', function () {
+        $("#tableau").toggle("slow");
+        $(".but_show_tab").toggle(1000);
+        $(this).toggle();
+    });
+    $(document).on('click', '.but_show_tab', function () {
+        $("#tableau").toggle("slow");
+        $(".but_hide_tab").toggle("slow");
+        $(this).toggle();
+    });
 });
 

@@ -1,282 +1,85 @@
-.par1,.par2{
-    text-align: center
+body{
+    overflow-x: hidden;
 }
-
-/******************************** Feuille de Style *********************************/
-/* anciennes couleurs:   	fond bleu trop foncé: #016bc3 /*bleu un peu foncé*//*
-				caractères initiaux vert clair: #b9e398 *vert clair *//*
-				fond bleu trop clair: #27a0e7 *bleu un clair*//*
-				Fond choisi trop beau: #077bd2 *bleu beau*//*
-				Joue de la statue /*
-				bras de la statue: #305370; /*bronze*/ /*
-				bleu choisi: #0f3187; /*bleu contraste*/ /*
-				vertFondEcran: #B7CF2F;
-				vertClair fond titre: #CCFF66;
-				autreVert: #b7cf53;
-				vert flyerPierre: #B5CD51;
-				rose: #CC3333;
-*/ 
-/*nouvelles couleurs: ;
-	fond vert criard:#b9e398 *vert clair */
-    
-
-
-    html, body {
-        margin:0;
-        padding:0;
-     }
-    html {
-        height: 100%;
-    }
-    body {
-             
-            font-family:  Vijaya, Garamond, sans-serif; 
-            font-size: 100%;
-            background-size: 100%;
-            background-repeat: repeat;
-     }
-     
-
-    
-    footer {
-        position: fixed;
-        bottom: 0%;
-        height: 2,5em;/*taille3 du footer*/
-        width:100%;
-        padding-bottom:0;
-        background:#B7CF2F;
-        color: gray;
-        font-size:70%;
-    }
-     
-    section, article, aside, header, footer, nav, hgroup {
-      display: block;
-    }
-     
-    h1 {
-     font-size: 200%; 
-     color: white;
-     text-align: center;
-     font-family: Viner Hand ITC;
-     }
-     
-    h2 {
-     font-size: 150%; 
-     font-family: Viner Hand ITC;
-     color: #ffffff; 
-     padding-left: 0em;
-     text-align: left;
-     clear: left;
-     }
-     
-     h2::first-letter {
-      text-transform: capitalize;
-    }
-    
-    titreSpectacle{
-        text-transform: uppercase;
-        font-size:95%;
-        font-weight: bold;
-        color:white;
-        }
-        
-    bandeau>titreSpectacle{
-        text-transform: uppercase;
-        font-size:50%;
-        font-weight: bold;
-        color:white;
-    }
-    
-    Horaire{
-        font-weight: bold;
-    }
-    
-    Lieu{	
-            font-weight: normal;
-    }
-    
-    Auteur{
-        font-family: italic;
-    /*	color: black;*/
-    }
-    
-    main{
-        padding-bottom: 11em;
-        Padding-top:10em;
-    
-    }
-    
-    .decalage{ 
-    /*Décaler le texte pour voir la statue...*/
-     padding: 0% 5% 0% 35%;
-     font-size: 100%
-    }
-    /*Decaler le texte pour voir la statue...*/
-    .decalage30{ 
-     padding: 0% 5% 0% 30%;
-     font-size: 100%
-    }
-    
-    /*reflechir s'il n'y a pas du netoyage à faire ici*/
-    p{
-     color: white ; 
-     padding: 0% 5% 0% 10%;
-     text-indent: 3 em;
-     font-size: 100%;
-     text-align:justify;
-     }
-    
-    
-    
-     p::first-letter {
-      text-transform: capitalize;
-    }
-     
-     ul,li,td {
-     /*text-indent: 0.02em;*/
-     }
-     
-     li {
-      margin-bottom: 0.02em;
-    }
-   /*******************************   Gestion des liens *****************************/	
-    a:link {
-     color: white;
-     }
-    a:visited {
-     color: white;
-     }
-    a:hover {
-     color: white;
-     background-color: #0f3187;
-     }
-    a:active, a:focus {
-     color: black;
-     background-color: white;
-    }
-    
-
-
-      
-
-    /*****************************************est ce utilisé*/
-    /*/ est ce utilisé?*/ 
-    #pastille{
-        float: left;
-        display: block;
-        border:10px solid black;
-        border-radius:1em;
-        text-align: center;
-        margin-left: 0;
-        margin-right:0;
-    }
-    
-    
-    /*Bandeau D'image menu de page*/
-    #vignette{
-        width: 100%;
-        border-radius:1em;
-        margin-left: 1em;
-        margin-right:0;
-        bottom:0;
-        float:left;
-    }
-    
-    /*******************************   Gestion des images *****************************/	
-    img{
-        border:1px solid #b9e398;
-        border-radius:0.5em;
-        /*text-align: left;*/	
-    }
-    
-    img.displayed {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    img.vignette {
-        height:40%;
-        width: 40%;
-        /*display: float;*/
-        margin-left: auto;
-        margin-right: auto;
-    }
-    img.petiteVignette {
-        height:20%;
-        width: 20%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    figure{
-        display: inline-block;
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    figure.lieu{
-        float:left;
-        width: 60%;
-        margin-left: 1em;
-        margin-right: 1em;
-        padding-right: 1em;
-    }
-    
-    figure.apercu{
-        display: inline-block;
-        width: 20%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    figcaption{
-        font-size : 50%;
-        width: 100%;
-    }
-    
-    
-    
-    
-    
-    
-    #contact{
-        font-size:150%;
-        color:white;
-        text-align: right;
-        font-variant:small-caps;
-    }
-    
-    
-    .menu{
-      position: fixed;
-      left: 0em;
-       top: 4%;
-      bottom: 3%;
-      width:9em;
-      border:1px solid white;
-      background-color:#0f3187; /*bleu contraste*/
-    }
-    
-    .service{
-    	position: relative;
-    	top: 20px;
-    	left: 8%;
-
-    }
-
-    #Form_distance{
-    	position: relative;
-    	top:25px;
-    	left: 8%;
-    }
-    .btn_hide{
-        position: fixed;
-        left: 126px;
-        top: 50%;
-    }
-    .btn_show{
-        position: fixed;
-        top: 50%;
-        left: 0;
-        display: none;
-    }
-    
+.bandeau{
+    z-index: 1;
+}
+.service{
+    /*background: white;*/
+    color: black;
+    position: relative;
+    top: 20px;
+    left: 8%;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+#form_input{
+    position:relative;
+    left: 15%;
+    top: 120px;
+    width: 85%;
+    /*color: black;*/
+}
+.Form_distance{
+    position: relative;
+    top:25px;
+    left: 8%;
+}
+.theatre{
+    position: relative;
+    left: 22%;
+    top: 150px;
+}
+#ui-datepicker-div{
+    background: grey;
+}
+#tableau{
+    /*    position: absolute;
+        left: 2%;
+        text-align: center;*/
+    border:1px solid wheat; 
+    font-size: 1.2em;
+    text-align: center;
+}
+.depart>td{
+    border:1px solid wheat; 
+}
+.btn_hide{
+    position: fixed;
+    left: 126px;
+    top: 50%;
+}
+.btn_hide:hover{
+    /*    background-color: rgba(0, 0, 0, 0.15);*/
+    opacity: 0.6;
+}
+.btn_show{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    display: none;
+}
+.btn_show:hover{
+    opacity: 0.6;
+}
+.but_hide_tab:hover{
+    /*position: absolute;*/
+    background: #077bd2;
+    color: white;
+}
+.but_hide_tab{
+    background: whitesmoke;
+}
+.but_show_tab{
+    /*position: absolute;*/
+    background: whitesmoke;
+    display: none;
+}
+.but_show_tab:hover{
+    background: #077bd2;
+    color: white;
+}
+.btn_part{
+    width: 75%;
+    text-align: center;   
+}

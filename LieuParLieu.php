@@ -28,9 +28,6 @@
                 Attention! à Moulins le début du spectacle à 20h00. </table></div><!-- class="petitPanier"-->							
 
         <div class="menu">
-
-
-
             <ul class="navbar">
                 Le site&#8239;:
                 <div id="vignette">						
@@ -50,37 +47,13 @@
                 <!--<li><a href="Festival2018ProgrammationVueGlobale.php">Planning</a> </li>-->		  
             </ul>
 
-
-
-
-
-
-
             <ul class="navbar">
 
                 La page&#8239;:	
             </ul>			
 
             <div id="vignette">
-                <a href="#a   Eglise                   z">
-                    <img  	class="vignette"
-                           src="https://www.theatresdebourbon.com/images/imgLieuVeauceEglise.jpg"
-                           alt="[ Eglise de Veauce      ]"
-                           width=30%
-                           height=30%
-
-                           >
-                </a>
-                <a href="#a   Château de Lachaise      z">
-                    <img  	class="vignette"
-                           src="https://www.theatresdebourbon.com/images/imgLieuLachaise2.jpg"
-                           alt="[ Photo du château de Lachaise      ]"
-                           width=30%
-                           height=30%
-
-                           >
-                </a>
-                <a href="#a   Manoir des noix          z">		
+                <a href="#Manoir_de_noix">		
                     <img  	class="vignette"
                            src="https://www.theatresdebourbon.com/images/imgLieuVeauceManoirEtEglise.jpg "
                            alt="[ Pigeonnier du manoir des noix et de l'église de Veauce vue du ciel           ]"		
@@ -89,7 +62,26 @@
 
                            >
                 </a>
-                <a href="#a   Château d'Idogne         z">		
+                <a href="#a_Eglise_z">
+                    <img  	class="vignette"
+                           src="https://www.theatresdebourbon.com/images/imgLieuVeauceEglise.jpg"
+                           alt="[ Eglise de Veauce      ]"
+                           width=30%
+                           height=30%
+
+                           >
+                </a>
+                <a href="#a_Château_de_Lachaise_z">
+                    <img  	class="vignette"
+                           src="https://www.theatresdebourbon.com/images/imgLieuLachaise2.jpg"
+                           alt="[ Photo du château de Lachaise      ]"
+                           width=30%
+                           height=30%
+
+                           >
+                </a>
+
+                <a href="#a_Château_d'Idogne_z">		
                     <img  	class="vignette"
                            src="https://www.theatresdebourbon.com/images/imgLieuIdogne2.jpg"
                            alt="[ Photo du château d'Idogne     ]"
@@ -111,13 +103,13 @@
 
 
         </div ><!--pachtwork-->
-         <div class="btn_hide">
-                <img  src="./images/flaish2.png">
-            </div>
-            
-            <div class="btn_show">
-                <img  src="./images/flaish_r2_c2.png">
-            </div>
+        <div class="btn_hide">
+            <img  src="./images/flaish2.png">
+        </div>
+
+        <div class="btn_show">
+            <img  src="./images/flaish_r2_c2.png">
+        </div>
 
         <main>
 
@@ -142,7 +134,7 @@
                     </figure>
                     ﻿
 
-                    <div class="Lieu">       <h2 id="a   Manoir des noix          z">
+                    <div class="Lieu">       <h2 id="Manoir_de_noix">
 
                             Veauce
 
@@ -449,7 +441,7 @@
 
                     </div> <!--Lieu-->
 
-                    <div class="Lieu">       <h2 id="a   Eglise                   z">
+                    <div class="Lieu">       <h2 id="a_Eglise_z">
 
                             Veauce
 
@@ -498,61 +490,7 @@
                                 pigeonnier.
                                 . Les représentations prennent place dans l'église.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 Veauce
-
-
-
-
-
-
-
-
-
-
                             </p>
 
                         </div>      <div><h2>
@@ -626,39 +564,7 @@
 
                     </div> <!--Lieu-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div class="Lieu">       <h2 id="a   Château de Lachaise      z">
+                    <div class="Lieu">       <h2 id="a_Château_de_Lachaise_z">
 
                             Monétay sur Allier
 
@@ -926,7 +832,7 @@
 
                     </div> <!--Lieu-->
 
-                    <div class="Lieu">       <h2 id="a   Château d'Idogne         z">
+                    <div class="Lieu">       <h2 id="a_Château_d'Idogne_z">
 
                             Monteignet sur l'Andelot
 
@@ -995,13 +901,6 @@
 
                             </h2></div>
 
-
-
-
-
-
-
-
                         <p>       <Horaire>          vendredi 02 août 2019                                        à              14h30      </Horaire>,
 
                         <Troupe>                 Rêve général                                                                           </Troupe>
@@ -1017,20 +916,6 @@
                         de    <Auteur>          Barbara                                                                                </Auteur>.
 
                         </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                         <p>       <Horaire>          vendredi 02 août 2019                                        à              17h00      </Horaire>,
 
@@ -1051,20 +936,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <p>       <Horaire>          samedi 03 août 2019                                          à              14h30      </Horaire>,
 
                         <Troupe>                 L'Accompagnie                                                                          </Troupe>
@@ -1081,20 +952,6 @@
 
                         </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <p>       <Horaire>          samedi 03 août 2019                                          à              17h00      </Horaire>,
 
                         <Troupe>                 L'Accompagnie                                                                          </Troupe>
@@ -1110,20 +967,6 @@
                         de    <Auteur>          Marcel Pagnol                                                                          </Auteur>.
 
                         </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1146,18 +989,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
                         <p>       <Horaire>          dimanche 04 août 2019                                        à              17h00      </Horaire>,
 
                         <Troupe>                 Des ils et des elles                                                                   </Troupe>
@@ -1173,22 +1004,6 @@
                         de    <Auteur>          Romain Gary                                                                            </Auteur>.
 
                         </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                         <p>       <Horaire>          lundi 05 août 2019                                           à              14h30      </Horaire>,
@@ -1207,20 +1022,6 @@
 
                         </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <p>       <Horaire>          lundi 05 août 2019                                           à              17h00      </Horaire>,
 
                         <Troupe>                 Alterthéâtre                                                                           </Troupe>
@@ -1236,23 +1037,6 @@
                         de    <Auteur>          Pauline Mornet                                                                         </Auteur>.
 
                         </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                         <p>       <Horaire>          mardi 06 août 2019                                           à              14h30      </Horaire>,
 
@@ -1270,55 +1054,10 @@
 
                         </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </div> <!--Lieu-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div class="Lieu">       <h2 id="a   Domaine de la Quérye     z">
+                    <div class="Lieu">       <h2 id="a_Domaine_de_la_Quérye_z">
 
                             Monteignet sur l'Andelot
 
