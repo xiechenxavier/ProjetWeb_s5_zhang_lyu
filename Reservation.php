@@ -24,9 +24,24 @@ and open the template in the editor.
         <div id="form_input">
             <div class="service">
                 <form action="./Services.php" method="post">
-                    <label>Lieu_depart:</label> <input type="text" name="d_lieu">
-                    <label>Lieu_arrivé:</label> <input type="text" name="a_lieu">
-                    Date：<input type="text" id="datepicker" name="Date">
+                    <label>Lieu_depart:</label>  
+                    <select name='d_lieu'>
+                        <option value ='Moulins'>Moulins</option>
+                        <option value ='Veauce'>Veauce</option>
+                        <option value='Vichy'>Vichy</option>
+                        <option value='Monétay'>Monétay</option>
+                        <option value='Monteignet'>	Monteignet</option>
+                        <option value='Clermont-Ferrand'>Clermont-Ferrand</option></select>
+                    <label>Lieu_arrivé:</label> 
+                    <select name='a_lieu'>
+                        <option value ='Moulins'>Moulins</option>
+                        <option value ='Veauce'>Veauce</option>
+                        <option value='Vichy'>Vichy</option>
+                        <option value='Monétay'>Monétay</option>
+                        <option value='Monteignet'>	Monteignet</option>
+                        <option value='Clermont-Ferrand'>Clermont-Ferrand</option>
+                    </select>
+                    Date：<input type="datetime-local"  name="Date">
                     <input type="submit" value="submit" name="submit">
                 </form>            
             </div>
