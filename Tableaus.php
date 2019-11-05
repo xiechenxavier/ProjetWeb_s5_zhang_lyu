@@ -5,7 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$dist_time = array(
+class Tableaus{
+public static $dist_time = array(
     "Moulins" => array(
         "Moulins" => "0km/0h0",
         "Monétay" => "25km/0h30",
@@ -56,7 +57,7 @@ $dist_time = array(
     )
 );
 
-$table1 = array
+public static $table1 = array
     (
     "Veauce" => array
         (
@@ -344,3 +345,4 @@ $table1 = array
         )
     )
 );
+}

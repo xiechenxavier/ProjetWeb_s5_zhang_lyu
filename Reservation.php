@@ -24,12 +24,11 @@ and open the template in the editor.
         <div id="form_input">
             <div class="service">
                 <form action="./Services.php" method="post">
-                    <label>Lieu_depart:</label> <input type="text" name="lieu">
-                    <label>Lieu_arrivé:</label> <input type="text" name="lieu">
-                    Date：<input type="text" id="datepicker">
+                    <label>Lieu_depart:</label> <input type="text" name="d_lieu">
+                    <label>Lieu_arrivé:</label> <input type="text" name="a_lieu">
+                    Date：<input type="text" id="datepicker" name="Date">
                     <input type="submit" value="submit" name="submit">
                 </form>            
-                <button class="btn">Try it</button>
             </div>
 
             <div class="Form_distance">
