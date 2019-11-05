@@ -10,14 +10,13 @@ include_once './Reservation.php';
 include_once './Fonctions.php';
 
 $fs = new Fonctions();
-// function chercherTheatres() {
 $tab = Tableaus::$table1;
-if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'])) {
+if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'])&&!empty($_POST['heure'])) {
     $lieua = $_POST['a_lieu']; //lieu arrive
     $lieud = $_POST['d_lieu']; //lieu depart
     $Dist_temps = $fs->getDistanceTempsdesLieus($lieud, $lieua);
     $TempsBesoin = $fs->getTemps_DistanceEtTemps($Dist_temps);
-    $HeureArrive = $fs->CalculateTime($TempsBesoin);
+    $HeureArrive = $fs->CalculateTime($TempsBesoin,$_POST['heure']);
     $formal_date = $_POST['Date'];
     $date_v = $fs->ReformerDate($formal_date);
     $arr = $tab["$lieua"];

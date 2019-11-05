@@ -38,10 +38,11 @@ and open the template in the editor.
                         <option value ='Veauce'>Veauce</option>
                         <option value='Vichy'>Vichy</option>
                         <option value='Monétay'>Monétay</option>
-                        <option value='Monteignet'>	Monteignet</option>
+                        <option value='Monteignet'>Monteignet</option>
                         <option value='Clermont-Ferrand'>Clermont-Ferrand</option>
                     </select>
-                    Date：<input type="datetime-local"  name="Date">
+                    Date:<input type="datetime" id="datepicker" name="Date">
+                    Heure:<input type="time" name="heure">
                     <input type="submit" value="submit" name="submit">
                 </form>            
             </div>

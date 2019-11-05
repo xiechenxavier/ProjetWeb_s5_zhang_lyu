@@ -112,8 +112,8 @@ class Fonctions {
 
     /*     * afin de calculer le temp et retourne l'heure arrive */
 
-    function CalculateTime($dist_time) {
-        $current_time = date("H:i"); //get the current time by H:i
+    function CalculateTime($dist_time,$current_time) {
+//        $current_time = date("H:i"); //get the current time by H:i
         $ct_arr = explode(":", $current_time); //traite the formal of time
         $int_arr = array(); //it's used to hold the hour and minute of current time
         $res = array(); //it's used to get the result after calculate
