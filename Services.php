@@ -32,7 +32,7 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
                         echo "<p>" . $val2["Jour"] . " " . $val2["Heure"] . " " . $val2["title"] . " de " . $val2["spectateur"];
                         //$racine = $this->Path();
                         //$racine .= "ReservationForm";
-                        echo "&nbsp<button><a href='#' style='color:black;text-decoration:none'>Reserver</a></button>" . "</p>";
+                        echo "&nbsp<button><a href='./PageReservation.php' style='color:black;text-decoration:none'>Reserver</a></button>" . "</p>";
                     }
                 }
                 echo "<br><br>";
