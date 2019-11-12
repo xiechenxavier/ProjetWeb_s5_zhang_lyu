@@ -26,6 +26,7 @@ and open the template in the editor.
                 <form action="./Services.php" method="post">
                     <label>Lieu_depart:</label>  
                     <select name='d_lieu'>
+                         <option disabled="disabled"  selected="true"> choisir la ville de départ </option>
                         <option value ='Moulins'>Moulins</option>
                         <option value ='Veauce'>Veauce</option>
                         <option value='Vichy'>Vichy</option>
@@ -34,6 +35,7 @@ and open the template in the editor.
                         <option value='Clermont-Ferrand'>Clermont-Ferrand</option></select>
                     <label>Lieu_arrivé:</label> 
                     <select name='a_lieu'>
+                        <option disabled="disabled"  selected="true"> choisir une ville d'arrivée</option>
                         <option value ='Moulins'>Moulins</option>
                         <option value ='Veauce'>Veauce</option>
                         <option value='Vichy'>Vichy</option>
