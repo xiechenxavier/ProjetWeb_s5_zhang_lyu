@@ -16,12 +16,14 @@
 <body>
 
 	<div id="divinput">
-		
-		Nom:<input type="text" id="nom" name="nom" style="width:200px;">
-		<br>
-		Adresse Mail:<input type="text" id="nom" name="nom" style="width:200px;">	
-		<br>
-		
+            <table>
+                <tr><td>Nom:</td>
+                    <td><input type="text" id="nom" name="nom" style="width:200px;"></td>
+                </tr>
+                <tr><td>Adresse Mail:</td>
+                    <td><input type="text" id="nom" name="nom" style="width:200px;"></td>
+                </tr>
+            </table>
 	</div>
 
 	<div id="divselect">
