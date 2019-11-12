@@ -26,7 +26,7 @@
 
 	<div id="divselect">
 		
-		Nombre:<select id="nombre" name="nombre" >
+		<label class="dselect">Nombre:<select id="nombre" name="nombre" >
 			<option value="0" disabled="disabled" selected="true">Select Nombre</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -38,16 +38,16 @@
 			<option value="8">8</option>
 			<option value="9">9</option>
 			<option value="10">10</option>
-		</select>
+		</select></label>
 
-		Type:<select id="type" name="type" >
+		<label class="dselect">Type:<select id="type" name="type" >
 			<option value="0" disabled="disabled" selected="true">Select Type</option>
 			<option value="1">Plein tarif</option>
 			<option value="2">Tarif réduit</option>
 			<option value="3">Enfent graduit</option>
-		</select>
+		</select></label>
 
-		Prix:X
+		<label class="dselect">Prix:X</label>
 
 		<script type="text/javascript">
 			var  obj=document.getElementById( 'nombre' );
@@ -72,10 +72,12 @@
 			</tr>
 		</table>
 
-		total:X
+		<div id ="tp">
 
-		<button class='payer'>Payer</button>
+			<label class="total">total:X</label>
 
+			<button class='payer'>Payer</button>
+		</div>
 
 	</div>
 

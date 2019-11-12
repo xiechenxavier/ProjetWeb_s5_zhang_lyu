@@ -23,17 +23,28 @@ body {
     margin-top:3%;
 }
 
+.dselect{
+    padding-right: 50px;
+}
+
 
 #divselect{
 
     margin-top: 3%;
-}
-
-#divselect.nombre{
-    padding-left: 10;
+    padding: 10px;
 }
 
 #divtableau{
-
     margin-top:3%;
+}
+
+#tp{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:flex-end;
+}
+
+.total{
+    padding-right: 50px;
 }
