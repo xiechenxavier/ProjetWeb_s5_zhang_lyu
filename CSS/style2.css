@@ -71,7 +71,6 @@ body{
     background: whitesmoke;
 }
 .but_show_tab{
-    /*position: absolute;*/
     background: whitesmoke;
     display: none;
 }
@@ -83,4 +82,45 @@ body{
     width: 75%;
     text-align: center;   
 }
+/*page formulaire d'achat des billets'*/
+#nom{
+    width:200px;   
+}
+#Corps{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+.divinput{
+    margin-top:12%;
+}
 
+.dselect{
+    padding-right: 40px;
+}
+.divselect{
+    margin-top: 3%;
+    padding: 10px;
+}
+
+.divtableau{
+    margin-top:3%;
+}
+
+.tp{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:flex-end;
+}
+
+.total{
+    padding-right: 50px;
+}
+.ajouter>img{
+    top: 3px;
+    right: 3px;
+    position: relative;
+    width: 15px;
+}
