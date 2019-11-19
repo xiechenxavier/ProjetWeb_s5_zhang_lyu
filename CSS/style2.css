@@ -1,5 +1,6 @@
 body{
     overflow-x: hidden;
+    /* height: 100%;*/
 }
 .bandeau{
     z-index: 1;
@@ -87,25 +88,25 @@ body{
     width:200px;   
 }
 #Corps{
+    margin-top:150px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column
 }
-.divinput{
-    margin-top:12%;
-}
+/*.divinput{
 
+}*/
 .dselect{
     padding-right: 40px;
 }
 .divselect{
-    margin-top: 3%;
+    margin-top: 15px;
     padding: 10px;
 }
 
 .divtableau{
-    margin-top:3%;
+    margin-top:10px;
 }
 
 .tp{
@@ -124,3 +125,40 @@ body{
     position: relative;
     width: 15px;
 }
+.Curr_price,.total{
+    color: #f40;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: tohoma,arial;
+    padding: 0 5px;
+}
+
+/*  confirmation notification*/
+.jc-bs3-container{
+    position: absolute;
+    color: black;
+    top: 40%;
+    left: 27%;
+    width: 46%;
+}
+.jconfirm-title{
+    font-weight: bolder;
+    color: royalblue;
+}
+.commande{
+    background: royalblue;
+}
+.ann_label{
+    position: relative;
+    left: 2px;
+    font-weight: bold;
+    top: -6px;
+}
+.annule_tous:hover,.ajouter:hover,.payer:hover{
+    background: #077bd2;
+    color: white
+}
+#btn_delete:hover{
+    opacity: 0.6;
+}
+

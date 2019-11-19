@@ -8,6 +8,8 @@
         <link rel="stylesheet" type="text/css" href="./CSS/style2.css" />
         <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
         <script type="text/javascript" src="./JS/Front.js"></script>
 
     </head>
@@ -61,35 +63,40 @@
                         <option value="0" disabled="disabled" selected="true">Select Type</option>
                         <option value="1">Plein tarif</option>
                         <option value="2">Tarif réduit</option>
-                        <option value="3">Enfent graduit</option>
+                        <option value="3">Enfant gratuit</option>
                     </select></label>
 
-                <label class="dselect">Prix:X</label>
+                <b>Prix:<lable class="Curr_price">X</lable></b>
 
                 <button class='ajouter'><img id="add" src="./images/plus.png">Ajouter</button>
 
             </div>
 
             <div class="divtableau">
-
                 <table bgcolor="black" cellpadding="5" border="0">
                     <tr>
-				　<td bgcolor="red">紅色的表格欄位背景顏色</td>
-				　<td bgcolor="yellow">黃色的表格欄位背景顏色</td>
-				　<td bgcolor="blue">藍色的表格欄位背景顏色</td>
+				　<td bgcolor="red">Nom spectacle</td>
+				　<td bgcolor="orange">Quantités des billes</td>
+				　<td bgcolor="orange">Prix</td>
+                        <td bgcolor="orange">Annulation</td>
                     </tr>
                 </table>
-
                 <div class ="tp">
 
-                    <label class="total">total:X</label>
+                    total:<label class="total">X</label>
 
                     <button class='payer'>Payer</button>
                 </div>
-
+                <div>
+                    <button class="annule_tous"><img src="./images/poubelle.png"/><label class="ann_label">Annuler tous</label></button></div>
             </div>
         </div>
-
+        <footer>	
+            formulaire de la reservation
+            <!-- Signer et dater la page, c'est une question de politesse! -->
+            <address>	Page conçue par Lyu Ruoxi 12 novembre 2019;
+                icone des button et les fonctions par Zhang Xiechen.</address>
+        </footer>
 
     </body>
 </html>
