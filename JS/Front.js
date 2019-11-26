@@ -82,6 +82,28 @@ $(function () {
                         let Ville_a = $("#a_lieu option:selected").text();
                         let str = "<p class='added'>" + Ville_a + "*" + Date + "*" + Day_time + "*" + tit_contenu + "*" + nom_acteur + "</p>";
                         $(".spect_Ajoute").append(str);
+                        /*ajouter les enregistrements dans la fichier*/
+                        var array_added = new Array();
+                        $(".added").each(function () {
+                            var add_ele = $(this).html();
+                            array_added.push(add_ele);
+                        });
+                        $.ajax({
+                            url: "./Temporaire.php",
+                            type: 'POST',
+                            async: false,
+                            data: {
+                                arrayAdded: array_added
+                            },
+                            success: function (data) {
+                                // window.location.href = "./PageReservation.php";
+                                // alert("marcher bien");
+                                //window.location.href = "";
+                            },
+                            error: function () {
+                                alert("#");
+                            }
+                        });
                     });
                 });
             },
@@ -93,29 +115,7 @@ $(function () {
     /**Cliquer l'icone de panier pour transmettre les enregistrement des commandes:
      *  */
     $(document).on("click", ".icone", function () {
-        var array_added = new Array();
-        $(".added").each(function () {
-            var add_ele = $(this).html();
-            array_added.push(add_ele);
-        });
-        $.ajax({
-            url: "./Temporaire.php",
-            type: 'POST',
-            async: false,
-            data: {
-                arrayAdded: array_added
-            },
-            success: function (data) {
-                // window.location.href = "./PageReservation.php";
-                // alert("marcher bien");
-                //window.location.href = "";
-                window.open("./PageReservation.php","_blank");
-
-            },
-            error: function () {
-                alert("#");
-            }
-        });
+        window.open("./PageReservation.php", "_blank");
     });
 
     /**Cette partie parmet de calculer le prix des billes  */
