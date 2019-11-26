@@ -108,7 +108,9 @@ $(function () {
             success: function (data) {
                 // window.location.href = "./PageReservation.php";
                 // alert("marcher bien");
-                window.location.href = "./PageReservation.php";
+                //window.location.href = "";
+                window.open("./PageReservation.php","_blank");
+
             },
             error: function () {
                 alert("#");
