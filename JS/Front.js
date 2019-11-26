@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 $(function () {
+    //show a calendar to promote user to choose date 
     $("#datepicker").datepicker();
     $(document).on('click', '.btn_hide', function () {
         $(".menu").toggle("slow");
@@ -11,66 +12,110 @@ $(function () {
         //$(".btn_show").css("display","fixed");
         $(this).toggle("slow");
     });
+    //A button which is used to show or hide the navigator left 
     $(document).on('click', '.btn_show', function () {
         $(".menu").toggle("slow");
         $(".btn_hide").toggle("slow");
         $(this).toggle("slow");
     });
+    //A button which is used to show the complete form Time and distance
     $(document).on('click', '.but_hide_tab', function () {
         $("#tableau").toggle("slow");
         $(".but_show_tab").toggle(1000);
         $(this).toggle();
     });
+    //A button which is used to hide the complete form Time and distance
     $(document).on('click', '.but_show_tab', function () {
         $("#tableau").toggle("slow");
         $(".but_hide_tab").toggle("slow");
         $(this).toggle();
     });
-    /*pour obtenir le tableau qui contient tous les titles de spectacles possible à participer*/
-    var tab_titles = $(".tit_spect");
-    var tab_titles = new Array();
-    $(".tit_spect").each(function () {
-        let item_tit = $(this);
-        tab_titles.push(item_tit.html());
-    });
-    /* utilise Ajax d'envoyer les donnes a*/
-    $(".spect_dispo").each(function () {
-        var parag = $(this);
-        var title = parag.children(".tit_spect");
-        var btn_reserv = parag.children(".btn_reserv");
-        btn_reserv.click(function () {
-            var tit_contenu = title.html(); //obtient le contenu de titre du spectacle en clique
-            let count = 0;
-            let temp = "";
-            for (let i = 0; i < tab_titles.length; i++) {//循环查找到点击所对应的下标记为count
-                if (tit_contenu === tab_titles[i]) {
-                    count = i;
-                }
+    /*utilise Ajax de traiter les donnees de tableaux de reservation*/
+    $("#submit").click(function () {
+        var lieu_d = $("#d_lieu option:selected").text();
+        var lieu_a = $("#a_lieu option:selected").text();
+        var Date = $("#datepicker").val();
+        var heure = $("#Heure").val();
+        $.ajax({
+            url: "./Services.php",
+            type: 'POST',
+            datatype: "HTML",
+            async: false,
+            data: {d_lieu: lieu_d,
+                a_lieu: lieu_a,
+                Date: Date,
+                heure: heure},
+            success: function (data) {
+                $('.theatre').html(data);
+                /* ajouter les commandes des options de spectacle dans le panier:
+                 * clique le bouton pour ajouter un spectacle dans le panier*/
+                $(".spect_dispo").each(function () {
+                    var parag = $(this);
+                    var title = parag.children(".tit_spect");
+                    var Daytime = parag.children(".Day_time");
+                    var spectateur = parag.children(".spec_acteur");
+                    var btn_reserv = parag.children(".btn_reserv");
+                    btn_reserv.click(function () {
+                        //Obtenir l'ordonnee de la position du bouton en cliquant
+                        var y = $(this).offset().top;
+                        var res = parseInt($('.on').html());
+                        /*l'Animation d'ajouter le spectacle*/
+                        if (isNaN(res) || res === 0) {
+                            $('.on').html(res + 1 + "");
+                            $('.on').show("slow");
+//                            $(".on").css("left", -7);
+                            $(".on").css("top", y - 120);
+                            $('.on').animate({left: 18});
+                            $('.on').animate({top: 3});
+                        } else {
+//                            $(".on").css("left", -7);
+                            $(".on").css("top", y - 120);
+                            $('.on').animate({left: 18});
+                            $('.on').animate({top: 3});
+                            $('.on').html(res + 1 + "");
+                        }
+                        parag.hide("slow");
+                        var tit_contenu = title.html();
+                        var Day_time = Daytime.html();
+                        var nom_acteur = spectateur.html();
+                        var Date = $("#datepicker").val();
+                        let Ville_a = $("#a_lieu option:selected").text();
+                        let str = "<p class='added'>" + Ville_a + "*" + Date + "*" + Day_time + "*" + tit_contenu + "*" + nom_acteur + "</p>";
+                        $(".spect_Ajoute").append(str);
+                    });
+                });
+            },
+            error: function () {
+                alert("#");
             }
-            temp = tab_titles[0];
-            tab_titles[0] = tab_titles[count];
-            tab_titles[count] = temp; //将第一个title认定为用户点击的那一个以便之后进行调用
-            //接下来要做的是将数组中的所有元素拼接为一个长字符串以便更容易传递
-            //如果用Ajax传递数组的话之后在php后台对数组同样需要处理，因此我尝试两种方式来做
-            let String_buff = "";
-            for (let j = 0; j < tab_titles.length - 1; j++) {
-                String_buff += tab_titles[j] + "/";
-            }
-            String_buff += tab_titles[tab_titles.length - 1];
-            $.ajax({
-                url: "./Temporaire.php",
-                async: false,
-                type: 'POST',
-                data: {username: String_buff},
-                success: function (data) {
-                    window.location.href = "./PageReservation.php";
-                },
-                error: function () {
-                    alert("#");
-                }
-            });
         });
     });
+    /**Cliquer l'icone de panier pour transmettre les enregistrement des commandes:
+     *  */
+    $(document).on("click", ".icone", function () {
+        var array_added = new Array();
+        $(".added").each(function () {
+            var add_ele = $(this).html();
+            array_added.push(add_ele);
+        });
+        $.ajax({
+            url: "./Temporaire.php",
+            type: 'POST',
+            async: false,
+            data: {
+                arrayAdded: array_added
+            },
+            success: function (data) {
+                // window.location.href = "./PageReservation.php";
+                // alert("marcher bien");
+                window.location.href = "./PageReservation.php";
+            },
+            error: function () {
+                alert("#");
+            }
+        });
+    });
+
     /**Cette partie parmet de calculer le prix des billes  */
     var nb = 0;
     var price_bille = 0;
@@ -150,4 +195,3 @@ $(function () {
         }
     });
 });
-

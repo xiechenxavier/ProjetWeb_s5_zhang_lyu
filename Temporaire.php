@@ -5,7 +5,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$txt = $_POST['username'];
+//$txt = $_POST['date']."/".$_POST['Day_time']."/".$_POST['title']."/".$_POST["spectateur"];
+$arrayadd=$_POST["arrayAdded"];
+$txt="";
+foreach ($arrayadd as $val){
+    $txt.=$val."\n";
+}
 $filename="newfile.txt";
 if (!is_file($filename)) {
     $myfile = fopen($filename, "w") or die("Unable to open file!");
@@ -13,4 +18,3 @@ if (!is_file($filename)) {
 } else {
     file_put_contents($filename, $txt);
 }
-

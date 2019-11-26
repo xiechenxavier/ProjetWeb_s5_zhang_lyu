@@ -33,13 +33,19 @@
                 $filename = "newfile.txt";
                 $myfile = fopen("$filename", "r") or die("Unable to open file!");
                 $str = fread($myfile, filesize("$filename"));
-                $tab_titles = explode("/", $str);
+                $tab_titles = explode("\n", $str); //每一段是一个选择的列表
                 fclose($myfile);
-                echo "<select class='Spec_Options'>";
+                /* echo "<select class='Spec_Options'>";
+                  foreach ($tab_titles as $value) {
+                  echo "<option>" . "$value" . "</option>";
+                  } */
+                 // $tab_simple=[];
                 foreach ($tab_titles as $value) {
-                    echo "<option>" . "$value" . "</option>";
+                   // $temp_arr= explode("*", $value);
+                    //array_push($tab_simple, $temp_arr);   
+                    echo "<p>".$value."</p>";
                 }
-                echo "</select>";
+                
                 ?>
                 <!--</select>-->
             </div>

@@ -11,7 +11,7 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="./CSS/style.css" />
         <link rel="stylesheet" type="text/css" href="./CSS/style2.css" />
-        <link rel="stylesheet" href="Lieux%E2%80%AF;%20Th%C3%A9%C3%A2tres%20de%20Bourbon_fichiers/styleTheatresDeBourbonPourPHP.css">
+        <!--<link rel="stylesheet" href="Lieux%E2%80%AF;%20Th%C3%A9%C3%A2tres%20de%20Bourbon_fichiers/styleTheatresDeBourbonPourPHP.css">-->
         <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
         <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -22,31 +22,35 @@ and open the template in the editor.
             <h1> Reserver les billes</h1>
         </div><!--bandeau-->
         <div id="form_input">
+            <div id="shopcar">
+            <img src="./images/shopcar.png" class="icone"/>
+            <span class="on">0</span>
+            </div>
             <div class="service">
-                <form action="./Services.php" method="post">
-                    <label>Lieu_depart:</label>  
-                    <select name='d_lieu'>
-                         <option disabled="disabled"  selected="true"> choisir la ville de départ </option>
-                        <option value ='Moulins'>Moulins</option>
-                        <option value ='Veauce'>Veauce</option>
-                        <option value='Vichy'>Vichy</option>
-                        <option value='Monétay'>Monétay</option>
-                        <option value='Monteignet'>	Monteignet</option>
-                        <option value='Clermont-Ferrand'>Clermont-Ferrand</option></select>
-                    <label>Lieu_arrivé:</label> 
-                    <select name='a_lieu'>
-                        <option disabled="disabled"  selected="true"> choisir une ville d'arrivée</option>
-                        <option value ='Moulins'>Moulins</option>
-                        <option value ='Veauce'>Veauce</option>
-                        <option value='Vichy'>Vichy</option>
-                        <option value='Monétay'>Monétay</option>
-                        <option value='Monteignet'>Monteignet</option>
-                        <option value='Clermont-Ferrand'>Clermont-Ferrand</option>
-                    </select>
-                    Date:<input type="datetime" id="datepicker" name="Date">
-                    Heure:<input type="time" name="heure">
-                    <input type="submit" value="submit" name="submit">
-                </form>            
+                <!--<form action="./Services.php" method="post">-->
+                <label>Lieu_depart:</label>  
+                <select name='d_lieu' id="d_lieu">
+                    <option disabled="disabled"  selected="true"> choisir la ville de départ </option>
+                    <option value ='Moulins'>Moulins</option>
+                    <option value ='Veauce'>Veauce</option>
+                    <option value='Vichy'>Vichy</option>
+                    <option value='Monétay'>Monétay</option>
+                    <option value='Monteignet'>	Monteignet</option>
+                    <option value='Clermont-Ferrand'>Clermont-Ferrand</option></select>
+                <label>Lieu_arrivé:</label> 
+                <select name='a_lieu' id="a_lieu">
+                    <option disabled="disabled"  selected="true"> choisir une ville d'arrivée</option>
+                    <option value ='Moulins'>Moulins</option>
+                    <option value ='Veauce'>Veauce</option>
+                    <option value='Vichy'>Vichy</option>
+                    <option value='Monétay'>Monétay</option>
+                    <option value='Monteignet'>Monteignet</option>
+                    <option value='Clermont-Ferrand'>Clermont-Ferrand</option>
+                </select>
+                Date:<input type="datetime" id="datepicker" name="Date">
+                Heure:<input type="time" name="heure" id="Heure">
+                <button id="submit">submit</button>
+                <!--</form>-->            
             </div>
 
             <div class="Form_distance">
@@ -198,5 +202,12 @@ and open the template in the editor.
     <div class="btn_show">
         <img  src="./images/flaish_r2_c2.png">
     </div>
+    <div class='theatre'>
+
+    </div>
+    <div class="spect_Ajoute" style="display: none">
+        
+    </div>
+
 </body>
 </html>
