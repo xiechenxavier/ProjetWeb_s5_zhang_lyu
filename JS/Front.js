@@ -163,10 +163,13 @@ $(function () {
     $(document).on("click", ".ajouter", function () {
         let nom_spectacle = $(".Spec_Options").find("option:selected").text();
         let quantite_billes = $("#nombre").find("option:selected").text();
-        let prix = parseInt($(".Curr_price").html());
+       let prix = parseInt($(".Curr_price").html());
+        var Date = $("#datepicker").val();
+        let Ville_a = $("#a_lieu option:selected").text();
+
         if (!(isNaN(prix))) {
             let str = "<tr class='commande'><td>" + nom_spectacle + "</td>" + "<td>" + quantite_billes + "</td>" + "<td>" + prix + "</td>"
-                    + "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td>";
+                    +"<td>"+ Ville_a+"</td>"+"<td>"+ Date+"</td>"+ "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
             $(".divtableau>table").append(str);
             $("#type").find("option[value='1']").attr("selected", true);
         }

@@ -80,11 +80,13 @@
 
             <div class="divtableau">
                 <table bgcolor="black" cellpadding="5" border="0">
-                    <tr>
-				　<td bgcolor="red">Nom spectacle</td>
-				　<td bgcolor="orange">Quantités des billes</td>
-				　<td bgcolor="orange">Prix</td>
-                        <td bgcolor="orange">Annulation</td>
+                   <tr>
+                　<td bgcolor="red">Nom spectacle</td>
+                　<td bgcolor="orange">Quantités des billes</td>
+                　<td bgcolor="orange">Prix</td>
+                  <td bgcolor="orange">Ville</td>
+                  <td bgcolor="orange">Date</td>
+                  <td bgcolor="orange">Annulation</td>
                     </tr>
                 </table>
                 <div class ="tp">
