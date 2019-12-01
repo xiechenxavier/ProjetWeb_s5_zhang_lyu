@@ -137,54 +137,100 @@ $(function () {
                 price_bille = 0;
         }
     }
-    $("#nombre").change(function () {
-        nb = parseInt($(this).find("option:selected").text());
-        bille_type = $("#type").find("option:selected").text();
-        if (isNaN(nb) || bille_type === "Select Type" || nb === 0) {
-            $(".Curr_price").html("X");
-        } else {
-            judgeBillePrice();
-            let prix_total = price_bille * nb;
-            $(".Curr_price").html("" + prix_total);
-        }
-    });
-    $("#type").change(function () {
-        nb = parseInt($("#nombre").find("option:selected").text());
-        bille_type = $(this).find("option:selected").text();
-        if (isNaN(nb) || nb === 0 || bille_type === "Select Type") {
-            $(".Curr_price").html("X");
-        } else {
-            judgeBillePrice();
-            let prix_total = price_bille * nb;
-            $(".Curr_price").html("" + prix_total);
-        }
-    });
-    /** apres terminer de choisir le nombre des billes et le type des billes, ensuite l'ajoute dans le panier*/
-    $(document).on("click", ".ajouter", function () {
-        let nom_spectacle = $(".Spec_Options").find("option:selected").text();
-        let quantite_billes = $("#nombre").find("option:selected").text();
-       let prix = parseInt($(".Curr_price").html());
-        var Date = $("#datepicker").val();
-        let Ville_a = $("#a_lieu option:selected").text();
+    $(".item_spectacles").each(function () {
+        var curr_item = $(this).children(".item_contenu");
+        var Ville_a = $(this).children(".villes").html();//戏在哪个城市
+        var Date_spect = $(this).children(".date_spect").html();//看戏的日期
+        curr_item.each(function () {
+            var nombre = $(this).children("#nombre");
+            var type = $(this).children("#type");
+            var spectacle_name = $(this).children(".name_Spectacle").html();
+            var btn_ajoute = $(this).children(".ajouter");
+            var Curr_prix = $(this).children(".Curr_price");
+            nombre.change(function () {
+                nb = parseInt($(this).find("option:selected").text());
+                bille_type = type.find("option:selected").text();
+                if (isNaN(nb) || bille_type === "Select Type" || nb === 0) {
+                    Curr_prix.html("X");
+                } else {
+                    judgeBillePrice();
+                    let prix_total = price_bille * nb;
+                    Curr_prix.html("" + prix_total);
+                }
+            });
+            type.change(function () {
+                nb = parseInt(nombre.find("option:selected").text());
+                bille_type = $(this).find("option:selected").text();
+                if (isNaN(nb) || nb === 0 || bille_type === "Select Type") {
+                    Curr_prix.html("X");
+                } else {
+                    judgeBillePrice();
+                    let prix_total = price_bille * nb;
+                    Curr_prix.html("" + prix_total);
+                }
+            });
+            btn_ajoute.click(function () {
+//                let nom_spectacle = $(".Spec_Options").find("option:selected").text();
+                let quantite_billes = nombre.find("option:selected").text();
+                let prix = parseInt(Curr_prix.html());
+                var Date = $("#datepicker").val();
+                // let Ville_a = $("#a_lieu option:selected").text();
 
-        if (!(isNaN(prix))) {
-            let str = "<tr class='commande'><td>" + nom_spectacle + "</td>" + "<td>" + quantite_billes + "</td>" + "<td>" + prix + "</td>"
-                    +"<td>"+ Ville_a+"</td>"+"<td>"+ Date+"</td>"+ "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
-            $(".divtableau>table").append(str);
-            $("#type").find("option[value='1']").attr("selected", true);
-        }
-        /*Annuler une ligne de la commande*/
-        $(".commande").each(function () {
-            let curr_com = $(this);
-            let obj = curr_com.children('td').children("img");
-            obj.click(function () {
-                curr_com.remove();
+                if (!(isNaN(prix))) {
+                    let str = "<tr class='commande'><td>" + spectacle_name + "</td>" + "<td>" + quantite_billes + "</td>" + "<td>" + prix + "</td>"
+                            + "<td>" + Ville_a + "</td>" + "<td>" + Date_spect + "</td>" + "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
+                    $(".divtableau>table").append(str);
+                    $("#type").find("option[value='1']").attr("selected", true);
+                }
+                /*Annuler une ligne de la commande*/
+                $(".commande").each(function () {
+                    let curr_com = $(this);
+                    let obj = curr_com.children('td').children("img");
+                    obj.click(function () {
+                        curr_com.remove();
+                    });
+                });
+                //有可能是在这里添加
             });
         });
-        //有可能是在这里添加
+
+    });
+//vider la liste des spectacles
+    $('.vider_liste').click(function () {
+        if ($(".item_spectacles").length !== 0) {
+            $.confirm({
+                title: 'confirmation!',
+                content: 'Vous êtes sur à Vider la contenu de la liste?',
+                buttons: {
+                    confirm: function () {
+                        //$(".commande").remove();
+                        $.ajax({
+                            url: "./EmptyRecord.php",
+                            type: 'POST',
+                            async: false,
+                            data: {
+                                ViderListe: "TRUE"
+                            },
+                            success: function (data) {
+                                //window.opener 就是当前页面内的打开者，我们要对该页面进行刷新
+                                window.opener.location.reload();
+                                window.location.reload();//刷新当前页面
+                                //window.parent.location.reload();
+                            },
+                            error: function () {
+                                alert("#");
+                            }
+                        });
+                    },
+                    cancel: function () {
+                        $.alert("operation annulée");
+                    }
+                }
+            });
+        }
     });
     $(".annule_tous").click(function () {
-        if ($(".commande").length !== 0) {
+        if ($(".commande").length !== 0) {//表示如果整个表格中里面有元素时
             $.confirm({
                 title: 'confirmation!',
                 content: 'Vous êtes sur pour annuler toutes les commandes?',
@@ -198,5 +244,6 @@ $(function () {
                 }
             });
         }
-    });
+    }
+    );
 });

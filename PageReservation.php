@@ -15,6 +15,9 @@
     </head>
 
     <body>
+        <div class="bandeau">
+            <h1> Votre Panier</h1>
+        </div><!--bandeau-->
         <div id="Corps">
             <div class="divinput">
                 <table>
@@ -26,33 +29,13 @@
                     </tr>
                 </table>
             </div>
-            <div id="champ_spectacle">
-                <label>Nom de Spectacle:</label>
+            <div class="champ_spectacle">
+                <label><h2>Listes des Spectacles:</h2></label>
+                <button class="vider_liste">Vider Listes</button>
                 <!--<select class="Spec_Options">-->
                 <?php
-                $filename = "newfile.txt";
-                $myfile = fopen("$filename", "r") or die("Unable to open file!");
-                $str = fread($myfile, filesize("$filename"));
-                $tab_titles = explode("\n", $str); //每一段是一个选择的列表
-                fclose($myfile);
-                /* echo "<select class='Spec_Options'>";
-                  foreach ($tab_titles as $value) {
-                  echo "<option>" . "$value" . "</option>";
-                  } */
-                 // $tab_simple=[];
-                foreach ($tab_titles as $value) {
-                   // $temp_arr= explode("*", $value);
-                    //array_push($tab_simple, $temp_arr);   
-                    echo "<p>".$value."</p>";
-                }
-                
-                ?>
-                <!--</select>-->
-            </div>
-            <div class="divselect">
-
-                <label class="dselect">Nombre:<select id="nombre" name="nombre" >
-                        <option value="0" disabled="disabled" selected="true">Select Nombre</option>
+                $select_cond = '<select id="nombre" name="nombre" >
+                        <option value="0" disabled="disabled" selected="true">Nombre</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -63,30 +46,86 @@
                         <option value="8">8</option>
                         <option value="9">9</option>
                         <option value="10">10</option>
-                    </select></label>
-
-                <label class="dselect">Type:<select id="type" name="type" >
-                        <option value="0" disabled="disabled" selected="true">Select Type</option>
+                    </select>
+                    <select id="type" name="type" >
+                        <option value="0" disabled="disabled" selected="true">Type</option>
                         <option value="1">Plein tarif</option>
                         <option value="2">Tarif réduit</option>
                         <option value="3">Enfant gratuit</option>
-                    </select></label>
+                    </select>
+                    Prix:<lable class="Curr_price">X</lable>
+                <button class="ajouter"><img id="add" src="./images/plus.png">Ajouter</button>';
+                $filename = "newfile.txt";
+                //$str = fread($myfile, filesize("$filename"));
+                if (file_exists($filename)) {
+                    $tab_titles = file($filename); //获得了数组，方便读取每一行的内容
+                    if (!empty($tab_titles)) {
+                        $arr_details_elems = []; //四维大数组方便按照城市和日期装入所有的戏剧信息
+                        $first_Spectacle = $tab_titles[0]; //The first ligne（first spectacle）
+                        $first_Spect_Arr = explode("*", $first_Spectacle); //分割成数组的形式，方便操作
+                        $first_key_city = array_shift($first_Spect_Arr); //这个获取的就是下标为0的信息（城市）
+                        $arr_details_elems[$first_key_city] = []; //初始化以第一个城市名为键的数组
+                        $first_key_Date = array_shift($first_Spect_Arr);
+                        $arr_details_elems[$first_key_city][$first_key_Date] = []; //初始化以第一个日期为键的二维数组
+                        array_push($arr_details_elems[$first_key_city][$first_key_Date], $first_Spect_Arr); //加入子数组
 
-                <b>Prix:<lable class="Curr_price">X</lable></b>
-
-                <button class='ajouter'><img id="add" src="./images/plus.png">Ajouter</button>
-
+                        for ($i = 1; $i < count($tab_titles); $i++) {
+                            $value = $tab_titles[$i];
+                            if ($value != '') {
+//                        $value2=str_replace("*", " ", "$value");
+                                $cur_arr_elem_spect = explode("*", $value);
+                                $curr_key_city = array_shift($cur_arr_elem_spect);
+                                $curr_key_date = array_shift($cur_arr_elem_spect);
+                                if (array_key_exists("$curr_key_city", $arr_details_elems)) {//有这个城市
+                                    if (array_key_exists($curr_key_city, $arr_details_elems)) {
+                                        array_push($arr_details_elems[$curr_key_city][$curr_key_date], $cur_arr_elem_spect); //加入子数组
+                                    } else {
+                                        $arr_details_elems[$curr_key_city][$curr_key_date] = [];
+                                        array_push($arr_details_elems[$curr_key_city][$curr_key_date], $cur_arr_elem_spect); //加入子数组
+                                    }
+                                } else {
+                                    $arr_details_elems[$curr_key_city] = []; //初始化以当前城市名为键的数组
+                                    $arr_details_elems[$curr_key_city][$curr_key_date] = [];
+                                    array_push($arr_details_elems[$curr_key_city][$curr_key_date], $cur_arr_elem_spect); //加入子数组
+                                }
+                            }
+                        }
+                        //  le tableau est bien rempli, on commence afficher tous les items enregistres         
+                        $contenu = "";
+                        foreach ($arr_details_elems as $city => $val) {
+                            echo "<section class='item_spectacles'><h3 class='villes'>" . $city . "</h3>";
+                            foreach ($val as $date => $val2) {
+                                echo "<h4 class='date_spect'>" . $date . "</h4>";
+                                foreach ($val2 as $val3) {
+                                    echo "<p class='item_contenu'>";
+                                    foreach ($val3 as $num => $val4) {
+                                        if ($num === 1) {
+                                            echo "<label class='name_Spectacle'>" . $val4 . "</label>";
+                                        } else
+                                        if ($num === 2) {//如果是表演者那一项
+                                            echo "<label class='Spectateur'><br><br>" . $val4 . "</label>";
+                                        } else {
+                                            echo "<label class='Spect_time'>" . $val4 ." "."</label>";
+                                        }
+                                    }
+                                    echo "<br><br>" . $select_cond . "</p>";
+                                }
+                            }
+                        }
+                    }
+                }
+                echo "</section><hr class='diviser'>";
+                ?>
             </div>
-
             <div class="divtableau">
                 <table bgcolor="black" cellpadding="5" border="0">
-                   <tr>
+                    <tr>
                 　<td bgcolor="red">Nom spectacle</td>
                 　<td bgcolor="orange">Quantités des billes</td>
                 　<td bgcolor="orange">Prix</td>
-                  <td bgcolor="orange">Ville</td>
-                  <td bgcolor="orange">Date</td>
-                  <td bgcolor="orange">Annulation</td>
+                        <td bgcolor="orange">Ville</td>
+                        <td bgcolor="orange">Date</td>
+                        <td bgcolor="orange">Annulation</td>
                     </tr>
                 </table>
                 <div class ="tp">
