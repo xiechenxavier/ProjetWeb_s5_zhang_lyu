@@ -130,7 +130,7 @@
                 </table>
                 <div class ="tp">
 
-                    total:<label class="total">X</label>
+                    total:<label class="total"></label>
 
                     <button class='payer'>Payer</button>
                 </div>
