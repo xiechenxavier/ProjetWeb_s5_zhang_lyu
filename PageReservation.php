@@ -10,6 +10,8 @@
         <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        <script src="./JS/tableExport.jquery.plugin-master/libs/FileSaver/FileSaver.min.js"></script>
+        <script src="./JS/tableExport.jquery.plugin-master/tableExport.min.js"></script>
         <script type="text/javascript" src="./JS/Front.js"></script>
 
     </head>
@@ -118,7 +120,7 @@
                 ?>
             </div>
             <div class="divtableau">
-                <table bgcolor="black" cellpadding="5" border="0">
+                <table id="tables" bgcolor="black" cellpadding="5" border="0">
                     <tr>
                 　<td bgcolor="red">Nom spectacle</td>
                 　<td bgcolor="orange">Quantités des billes</td>
