@@ -222,19 +222,33 @@ $(function () {
                     let curr_com = $(this);
                     let obj = curr_com.children('td').children("#btn_delete");
                     obj.click(function () {
-                        let x = parseInt(curr_com.children(".prix").html());
-                        if (prix_t - x >= 0) {
-                            prix_t -= x;
-                        }
-                        $(".total").html(prix_t);
                         curr_com.remove();
-                        prix_t -= x;
+                        checkTotal();
                     });
                 });
                 //有可能是在这里添加
             });
         });
     });
+
+
+   function checkTotal(){
+            if ($(".commande").length === 0 ) {
+                prix_t = 0;
+                $(".total").html(prix_t);
+            }else{
+                var somme = 0;
+                for (var i = 0; i < $(".commande").length; i++) { 
+                    let x = $(".prix").get(i).innerText;                
+                    somme = somme + parseInt($(".prix").get(i).innerText);
+                }
+                if (somme != prix_t){
+                    prix_t = somme;
+                    $(".total").html(prix_t);
+                }
+            } 
+        }
+
     //vider la liste des spectacles
     $('.vider_liste').click(function () {
         if ($(".item_spectacles").length !== 0) {
