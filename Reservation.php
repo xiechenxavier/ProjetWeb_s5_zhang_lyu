@@ -15,7 +15,10 @@ and open the template in the editor.
         <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
         <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
         <script type="text/javascript" src="./JS/Front.js"></script>
+        <script type="text/javascript" src="./JS/CloseNavigateur.js"></script>
     </head>
     <body>
         <div class="bandeau">
@@ -23,8 +26,8 @@ and open the template in the editor.
         </div><!--bandeau-->
         <div id="form_input">
             <div id="shopcar">
-            <img src="./images/shopcar.png" class="icone"/>
-            <span class="on">0</span>
+                <img src="./images/shopcar.png" class="icone"/>
+                <span class='on'>0</span>
             </div>
             <div class="service">
                 <!--<form action="./Services.php" method="post">-->
@@ -134,7 +137,7 @@ and open the template in the editor.
             <div id="vignette">                     
                 <a href="index.php">
                     <img class="vignette"
-                         src="https://www.theatresdebourbon.com/images/logo.jpg"
+                         src="./images/logo.jpg"
                          alt="[logo de l'association vers l'accueil du site]"
                          width=30%
                          height=30%
@@ -143,46 +146,48 @@ and open the template in the editor.
                 </a>
             </div>  <!-- div vignette-->
             <li><a href="./Accueil.php">Accueil</a></li>
-            <li><a href="./LieuParLieu.php">Lieu par Lieu</a></li>
+            <li><a href="./FirstPart/LieuParLieu.php">Lieu par Lieu</a></li>
+            <li><a href="./FirstPart/JourParJour.php">Jour par Jour</a></li>
+            <li><a href="./FirstPart/TroupeParTroupe.php">Jour par Jour</a></li>
             <li><a href="./Reservation.php">Reserver les billes</li>
             <!--<li><a href="Festival2018ProgrammationVueGlobale.php">Planning</a> </li>-->       
         </ul>
         <div id="vignette">
-            <a href="./LieuParLieu.php#Manoir_de_noix">      
+            <a href="./FirstPart/LieuParLieu.php#Manoir_de_noix">      
                 <img    class="vignette"
-                        src="https://www.theatresdebourbon.com/images/imgLieuVeauceManoirEtEglise.jpg "
+                        src="./images/manoir_des_noix_a_veauce.jpeg "
                         alt="[ Pigeonnier du manoir des noix et de l'église de Veauce vue du ciel           ]"      
                         width=30%
                         height=30%
 
                         >
             </a>
-            <a href="./LieuParLieu.php#a_Eglise_z">
+            <a href="./FirstPart/LieuParLieu.php#a_Eglise_z">
                 <img    class="vignette"
-                        src="https://www.theatresdebourbon.com/images/imgLieuVeauceEglise.jpg"
+                        src="./images/Eglise_Sainte_Croix_de_Veauce.jpg"
                         alt="[ Eglise de Veauce      ]"
                         width=30%
                         height=30%>
             </a>
-            <a href="./LieuParLieu.php#a_Château_de_Lachaise_z">
+            <a href="./FirstPart/LieuParLieu.php#a_Château_de_Lachaise_z">
                 <img    class="vignette"
-                        src="https://www.theatresdebourbon.com/images/imgLieuLachaise2.jpg"
+                        src="./images/monetay_la_chaise.jpg"
                         alt="[ Photo du château de Lachaise      ]"
                         width=30%
                         height=30%>
             </a>
-            <a href="./LieuParLieu.php#a_Château_d'Idogne_z">      
+            <a href="./FirstPart/LieuParLieu.php#a_Château_d'Idogne_z">      
                 <img    class="vignette"
-                        src="https://www.theatresdebourbon.com/images/imgLieuIdogne2.jpg"
+                        src="./images/Château_d'Idogne.jpg"
                         alt="[ Photo du château d'Idogne     ]"
                         width=30%
                         height=30%
 
                         >
             </a>
-            <a href="./LieuParLieu.php#Domaine_de_la_Querye">      
+            <a href="./FirstPart/LieuParLieu.php#Domaine_de_la_Querye">      
                 <img    class="vignette"
-                        src="https://www.theatresdebourbon.com/images/imgLieuQuerye1.jpg"
+                        src="./images/Domaine_de_la_Quérye.png"
                         alt="[ Photo du domaine de la Querye     ]"
                         width=30%
                         height=30%
@@ -206,7 +211,7 @@ and open the template in the editor.
 
     </div>
     <div class="spect_Ajoute" style="display: none">
-        
+
     </div>
 
 </body>
