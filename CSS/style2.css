@@ -5,12 +5,70 @@ body{
 .bandeau{
     z-index: 1;
 }
+#fix{
+    position: fixed; top: 140px;
+    right: 204px;
+    z-index: 1000;
+}
+#theResult{
+    position: absolute;
+    top: 240px;
+    left: 345px;   
+    background-color: #305370;
+    box-shadow: 8px 8px 4px black;
+    border-radius: 10px;
+    width: 800px;
+}
+#theResult>h3{
+    position: relative;
+    left: 20px;
+}
+#Programme_Troupes{
+    position: absolute;
+    top: 240px;
+    left: 345px;   
+    background-color: #305370;
+    box-shadow: 8px 8px 4px black;
+    border-radius: 10px;
+    width: 800px;
+}
+#Programme_Troupes>h3{
+    position: relative;
+    left: 20px;
+}
+#top_btn>.top {
+    width: 50px;
+    height: 37px;
+    background: skyblue;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    padding-top: 13px;
+    position: fixed;
+    right: 100px;
+    bottom: 50px;
+    display: none;
+}
+
+#top_btn>.top:hover {
+    background: yellowgreen;
+}
+
+#top_btn>a{
+    text-decoration: none;
+}
+
+.programme{
+    position: absolute;
+    top: 150px;
+    left: 345px;  
+}
 .service{
     /*background: white;*/
     color: black;
     position: relative;
     top: 20px;
-    left: 8%;
+    left: 1%;
     font-size: 1.3em;
     font-weight: bold;
 }
@@ -30,8 +88,8 @@ body{
 }
 .on{
     position: absolute;
-    /*top: 3px;
-    left: 18px;*/
+    top: 3px;
+    left: 18px;
     width: 18px;
     height: 18px;
     font-weight: bold;
@@ -211,4 +269,22 @@ body{
 }
 footer{
     left: 0;
+}
+#mode_options{
+    left: 79.2%;
+    position: relative;
+    display: none;
+}
+.list_modes{
+    list-style-type: none;
+    position: relative;
+    top: -16px;
+}
+.list_modes>li{
+    background: white;
+    font-size: 17px;
+    width: 172px;
+}
+.list_modes>li:hover{
+    background: #077bd2;
 }
