@@ -30,6 +30,37 @@ $(function () {
         $(".but_hide_tab").toggle("slow");
         $(this).toggle();
     });
+    $("#submit").click(function () {
+        //$("#mode_options").toggle(800);
+        if (parseInt($(".on").html()) > 0) {//表示如果整个表格中里面有元素时
+            $.confirm({
+                title: 'Notification!',
+                content: 'Parceque vous avez deja choisi des spectacles dans au moins une ville, \n\
+                          Veuillez utiliser vos reservation d\'histoire pour modifier \n\
+                          l\'heure à laquelle vous prévoyez de réserver un spectacle dans la prochaine ville',
+                buttons: {
+                    confirm: function () {
+
+                        $("#Heure").attr("value", "");
+                    },
+                    cancel: function () {
+                    }
+                }
+            });
+        }
+    });
+//    $(".aide_qqn").click(function () {
+//        $("#mode_options").hide(300);
+//    });
+    $(document).ready(function () {
+        //do something
+        var res = parseInt($('.on').html());
+        if (res > 0) {
+            $(".on").show();
+        } else {
+            $(".on").hide();
+        }
+    });
     /*utilise Ajax de traiter les donnees de tableaux de reservation*/
     $("#submit").click(function () {
         var lieu_d = $("#d_lieu option:selected").text();
@@ -80,7 +111,8 @@ $(function () {
                         var nom_acteur = spectateur.html();
                         var Date = $("#datepicker").val();
                         let Ville_a = $("#a_lieu option:selected").text();
-                        let str = "<p class='added'>" + Ville_a + "*" + Date + "*" + Day_time + "*" + tit_contenu + "*" + nom_acteur + "</p>";
+                        let village = parag.parents(".SpectsPart").children("h3").children("Lieu").html();
+                        let str = "<p class='added'>" + Ville_a + "*" + Date + "*" + Day_time + "*" + tit_contenu + "*" + nom_acteur + "*" + village + "</p>";
                         $(".spect_Ajoute").append(str);
                         /*ajouter les enregistrements dans la fichier*/
                         var array_added = new Array();
@@ -148,6 +180,7 @@ $(function () {
             var nombre = $(this).children("#nombre");
             var type = $(this).children("#type");
             var spectacle_name = $(this).children(".name_Spectacle").html();
+            var Village = $(this).children(".Lieu_village").html(); //看戏的地点在哪个
             var btn_ajoute = $(this).children(".ajouter");
             var Curr_prix = $(this).children(".Curr_price");
             nombre.change(function () {
@@ -176,7 +209,7 @@ $(function () {
                 //                let nom_spectacle = $(".Spec_Options").find("option:selected").text();
                 let quantite_billes = nombre.find("option:selected").text();
                 let prix = parseInt(Curr_prix.html());
-                var Date = $("#datepicker").val();
+               // var Date = $("#datepicker").val();
                 // let Ville_a = $("#a_lieu option:selected").text();
                 if (!(isNaN(prix))) {
 
@@ -200,7 +233,7 @@ $(function () {
 
                         if (!flag) {  /*如果购物篮内没有重复的,flag仍为false,此处则新建一个*/
                             let str = "<tr class='commande'><td class = 'name'>" + spectacle_name + "</td>" + "<td class = 'quantite'>" + quantite_billes + "</td>" + "<td class = 'prix'>" + prix + "</td>"
-                                    + "<td class='ville'>" + Ville_a + "</td>" + "<td class = 'date'>" + Date_spect + "</td>" + "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
+                                    + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>" + "<td class = 'date'>" + Date_spect + "</td>" + "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
                             $(".divtableau>table").append(str);
                             $("#type").find("option[value='1']").attr("selected", true);
                             flag = false;
@@ -209,7 +242,7 @@ $(function () {
 
                     } else {
                         let str = "<tr class='commande'><td class = 'name'>" + spectacle_name + "</td>" + "<td class = 'quantite'>" + quantite_billes + "</td>" + "<td class = 'prix'>" + prix + "</td>"
-                                + "<td class='ville'>" + Ville_a + "</td>" + "<td class = 'date'>" + Date_spect + "</td>" + "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
+                                + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>" + "<td class = 'date'>" + Date_spect + "</td>" + "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
                         $(".divtableau>table").append(str);
                         $("#type").find("option[value='1']").attr("selected", true);
                     }
@@ -232,22 +265,24 @@ $(function () {
     });
 
 
-   function checkTotal(){
-            if ($(".commande").length === 0 ) {
-                prix_t = 0;
+    function checkTotal() {
+        //如果当前.commande篮子里面没有订单
+        if ($(".commande").length === 0) {
+            prix_t = 0;
+            $(".total").html(prix_t);
+        } else {
+            //有订单的时候
+            var somme = 0;
+            for (var i = 0; i < $(".commande").length; i++) {
+                let x = $(".prix").get(i).innerText;
+                somme = somme + parseInt($(".prix").get(i).innerText);
+            }
+            if (somme != prix_t) {
+                prix_t = somme;
                 $(".total").html(prix_t);
-            }else{
-                var somme = 0;
-                for (var i = 0; i < $(".commande").length; i++) { 
-                    let x = $(".prix").get(i).innerText;                
-                    somme = somme + parseInt($(".prix").get(i).innerText);
-                }
-                if (somme != prix_t){
-                    prix_t = somme;
-                    $(".total").html(prix_t);
-                }
-            } 
+            }
         }
+    }
 
     //vider la liste des spectacles
     $('.vider_liste').click(function () {
@@ -267,7 +302,7 @@ $(function () {
                             },
                             success: function (data) {
 
-                                if (window.opener!==null) {
+                                if (window.opener !== null) {
                                     //window.opener 就是当前页面内的打开者，我们要对该页面进行刷新
                                     window.opener.location.reload();
                                 }
@@ -313,11 +348,5 @@ $(function () {
         }
     });
 });
-
-
-
-
-
-
 
 /*test*/

@@ -106,8 +106,10 @@
                                         } else
                                         if ($num === 2) {//如果是表演者那一项
                                             echo "<label class='Spectateur'><br><br>" . $val4 . "</label>";
+                                        } else if ($num === 3) {
+                                            echo "<label class='Lieu_village'>" . $val4 . "</label>";
                                         } else {
-                                            echo "<label class='Spect_time'>" . $val4 ." "."</label>";
+                                            echo "<label class='Spect_time'>" . $val4 . " " . "</label>";
                                         }
                                     }
                                     echo "<br><br>" . $select_cond . "</p>";
@@ -126,6 +128,7 @@
                 　<td bgcolor="orange">Quantités des billes</td>
                 　<td bgcolor="orange">Prix</td>
                         <td bgcolor="orange">Ville</td>
+                        <td bgcolor="orange">Lieu</td>
                         <td bgcolor="orange">Date</td>
                         <td bgcolor="orange">Annulation</td>
                     </tr>
