@@ -53,7 +53,14 @@ and open the template in the editor.
                 Date:<input type="datetime" id="datepicker" name="Date">
                 Heure:<input type="time" name="heure" id="Heure">
                 <button id="submit">submit</button>
-                <!--</form>-->            
+                <!--</form>-->        
+
+                <div id="mode_options">
+                    <ul class="list_modes">
+                        <li class="reserv_soi_meme">Reserver vous-même</li>
+                        <li class="aide_qqn">aider les amis</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="Form_distance">
