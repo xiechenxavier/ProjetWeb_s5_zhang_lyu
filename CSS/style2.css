@@ -117,193 +117,205 @@ body{
     /*    position: absolute;
         left: 2%;
         text-align: center;*/
-    border:1px solid wheat; 
-    font-size: 1.2em;
-    text-align: center;
-}
-.depart>td{
-    border:1px solid wheat; 
-}
-.btn_hide{
-    position: fixed;
-    left: 126px;
-    top: 50%;
-}
-.btn_hide:hover{
-    /*    background-color: rgba(0, 0, 0, 0.15);*/
-    opacity: 0.6;
-}
-.btn_show{
-    position: fixed;
-    top: 50%;
-    left: 0;
-    display: none;
-}
-.btn_show:hover{
-    opacity: 0.6;
-}
-.but_hide_tab:hover{
-    /*position: absolute;*/
-    background: #077bd2;
-    color: white;
-}
-.but_hide_tab{
-    background: whitesmoke;
-}
-.but_show_tab{
-    background: whitesmoke;
-    display: none;
-}
-.but_show_tab:hover{
-    background: #077bd2;
-    color: white;
-}
-.btn_part{
-    width: 75%;
-    text-align: center;   
-}
-/*page formulaire d'achat des billets'*/
-#nom{
-    width:200px;   
-}
-#Corps{
-    margin-top:240px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    bottom: 85px;
-}
-.item_contenu{
-    padding-top: 15px;
-    width: 100%;
-    height: 115px;
-    background-color:rgba(0,0,0,0.5);
-    -moz-box-shadow: 8px 8px 4px black; /* 老的 Firefox */
-    box-shadow: 8px 8px 4px black;
-    border-radius: 10px;
-}
+        border:1px solid wheat; 
+        font-size: 1.2em;
+        text-align: center;
+    }
+    .depart>td{
+        border:1px solid wheat; 
+    }
+    .btn_hide{
+        position: fixed;
+        left: 126px;
+        top: 50%;
+    }
+    .btn_hide:hover{
+        /*    background-color: rgba(0, 0, 0, 0.15);*/
+        opacity: 0.6;
+    }
+    .btn_show{
+        position: fixed;
+        top: 50%;
+        left: 0;
+        display: none;
+    }
+    .btn_show:hover{
+        opacity: 0.6;
+    }
+    .but_hide_tab:hover{
+        /*position: absolute;*/
+        background: #077bd2;
+        color: white;
+    }
+    .but_hide_tab{
+        background: whitesmoke;
+    }
+    .but_show_tab{
+        background: whitesmoke;
+        display: none;
+    }
+    .but_show_tab:hover{
+        background: #077bd2;
+        color: white;
+    }
+    .btn_part{
+        width: 75%;
+        text-align: center;   
+    }
+    /*page formulaire d'achat des billets'*/
+    #nom{
+        width:200px;   
+    }
+    #Corps{
+        margin-top:240px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        bottom: 85px;
+    }
+    .item_contenu{
+        padding-top: 15px;
+        width: 100%;
+        height: 115px;
+        background-color:rgba(0,0,0,0.5);
+        -moz-box-shadow: 8px 8px 4px black; /* 老的 Firefox */
+        box-shadow: 8px 8px 4px black;
+        border-radius: 10px;
+    }
 /*.divinput{
 
-}*/
-.dselect{
-    padding-right: 40px;
-}
-.divselect{
-    margin-top: 15px;
-    padding: 10px;
-}
-.diviser{
-    width: 115%
-}
-.divtableau{
-    margin-top:10px;
-    position: relative;
-    left: 30px;
-}
+    }*/
+    .dselect{
+        padding-right: 40px;
+    }
+    .divselect{
+        margin-top: 15px;
+        padding: 10px;
+    }
+    .diviser{
+        width: 115%
+    }
+    .divtableau{
+        margin-top:10px;
+        position: relative;
+        left: 30px;
+    }
 
-.tp,.valide{
-    padding-top: 20px;
-    position: relative;
-    left: 91%;
-}
-.final_total{
-    padding-top: 20px;
-    position: relative;
-    left: 85%;
-    display: none;
-}
-.reduction{
-    padding-top: 20px;
-    position: relative;
-    left: 64%;
-    font-size: 15px;
-    display: none;
-}
-.total{
-    padding-right: 50px;
-}
-.ajouter>img{
-    top: 3px;
-    right: 3px;
-    position: relative;
-    width: 15px;
-}
-.Curr_price,.total,.nb1,.nb2,.nb3,.prix_final,.nb_reduit{
-    color: #f40;
-    font-weight: 700;
-    font-size: 18px;
-    font-family: tohoma,arial;
-    padding: 0 5px;
-}
+    .tp,.valide{
+        padding-top: 20px;
+        position: relative;
+        left: 91%;
+    }
+    .final_total{
+        padding-top: 20px;
+        position: relative;
+        left: 85%;
+        display: none;
+    }
+    .reduction{
+        padding-top: 20px;
+        position: relative;
+        left: 64%;
+        font-size: 15px;
+        display: none;
+    }
+    .total{
+        padding-right: 50px;
+    }
+    .ajouter>img{
+        top: 3px;
+        right: 3px;
+        position: relative;
+        width: 15px;
+    }
+    .Curr_price,.total,.nb1,.nb2,.nb3,.prix_final,.nb_reduit{
+        color: #f40;
+        font-weight: 700;
+        font-size: 18px;
+        font-family: tohoma,arial;
+        padding: 0 5px;
+    }
 
-/*  confirmation notification*/
-.jc-bs3-container{
-    position: absolute;
-    color: black;
-    top: 40%;
-    left: 27%;
-    width: 46%;
-}
-.jconfirm-title{
-    font-weight: bolder;
-    color: royalblue;
-}
-.commande{
-    background: royalblue;
-}
-.ann_label{
-    position: relative;
-    left: 2px;
-    font-weight: bold;
-    top: -6px;
-}
-.annule_tous:hover,.ajouter:hover,.payer:hover{
-    background: #077bd2;
-    color: white
-}
-#btn_delete:hover{
-    opacity: 0.6;
-}
-.btn_reserv:hover{
-    opacity: 0.6;
-}
-.vider_liste{
-    position: relative;
-    left: 84%;
-}
-.Spectateur{
-    position: relative;
-    left: 72%;
-    font-weight: bolder;
-}
-footer{
-    left: 0;
-}
-#mode_options{
-    left: 79.2%;
-    position: relative;
-    display: none;
-}
-.list_modes{
-    list-style-type: none;
-    position: relative;
-    top: -16px;
-}
-.list_modes>li{
-    background: white;
-    font-size: 17px;
-    width: 172px;
-}
-.list_modes>li:hover{
-    background: #077bd2;
-}
-.tr{
-    position: relative;
-    left: 120px;
-}
-.bo{
-    position:relative;
-    left: 232px;
-}
+    /*  confirmation notification*/
+    .jc-bs3-container{
+        position: absolute;
+        color: black;
+        top: 40%;
+        left: 27%;
+        width: 46%;
+    }
+    .jconfirm-title{
+        font-weight: bolder;
+        color: royalblue;
+    }
+    .commande{
+        background: royalblue;
+    }
+    .ann_label{
+        position: relative;
+        left: 2px;
+        font-weight: bold;
+        top: -6px;
+    }
+    .annule_tous:hover,.ajouter:hover,.payer:hover{
+        background: #077bd2;
+        color: white
+    }
+    #btn_delete:hover{
+        opacity: 0.6;
+    }
+    .btn_reserv:hover{
+        opacity: 0.6;
+    }
+    .vider_liste{
+        position: relative;
+        left: 84%;
+    }
+    .Spectateur{
+        position: relative;
+        left: 72%;
+        font-weight: bolder;
+    }
+    footer{
+        left: 0;
+    }
+    #mode_options{
+        left: 79.2%;
+        position: relative;
+        display: none;
+    }
+    .list_modes{
+        list-style-type: none;
+        position: relative;
+        top: -16px;
+    }
+    .list_modes>li{
+        background: white;
+        font-size: 17px;
+        width: 172px;
+    }
+    .list_modes>li:hover{
+        background: #077bd2;
+    }
+    .tr{
+        position: relative;
+        left: 120px;
+    }
+    .bo{
+        position:relative;
+        left: 232px;
+    }
+
+    .select{
+        position: relative;
+        left:350px;
+
+    }
+
+    .canvas{
+        position: relative;
+        left: 232px;
+        top:32px;
+    }
