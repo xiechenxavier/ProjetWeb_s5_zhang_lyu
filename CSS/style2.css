@@ -203,13 +203,24 @@ body{
     left: 30px;
 }
 
-.tp{
+.tp,.valide{
     padding-top: 20px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content:flex-end;
+    position: relative;
+    left: 91%;
 }
-
+.final_total{
+    padding-top: 20px;
+    position: relative;
+    left: 85%;
+    display: none;
+}
+.reduction{
+    padding-top: 20px;
+    position: relative;
+    left: 64%;
+    font-size: 15px;
+    display: none;
+}
 .total{
     padding-right: 50px;
 }
@@ -219,7 +230,7 @@ body{
     position: relative;
     width: 15px;
 }
-.Curr_price,.total{
+.Curr_price,.total,.nb1,.nb2,.nb3,.prix_final,.nb_reduit{
     color: #f40;
     font-weight: 700;
     font-size: 18px;
@@ -287,4 +298,12 @@ footer{
 }
 .list_modes>li:hover{
     background: #077bd2;
+}
+.tr{
+    position: relative;
+    left: 120px;
+}
+.bo{
+    position:relative;
+    left: 232px;
 }

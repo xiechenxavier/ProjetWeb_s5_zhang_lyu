@@ -58,37 +58,42 @@
                     Prix:<lable class="Curr_price">X</lable>
                 <button class="ajouter"><img id="add" src="./images/plus.png">Ajouter</button>';
                 $filename = "newfile.txt";
-                //$str = fread($myfile, filesize("$filename"));
                 if (file_exists($filename)) {
-                    $tab_titles = file($filename); //获得了数组，方便读取每一行的内容
+                    //Obtenir le tableau pour lire les contenus lignes par linges
+                    $tab_titles = file($filename);
                     if (!empty($tab_titles)) {
-                        $arr_details_elems = []; //四维大数组方便按照城市和日期装入所有的戏剧信息
-                        $first_Spectacle = $tab_titles[0]; //The first ligne（first spectacle）
-                        $first_Spect_Arr = explode("*", $first_Spectacle); //分割成数组的形式，方便操作
-                        $first_key_city = array_shift($first_Spect_Arr); //这个获取的就是下标为0的信息（城市）
-                        $arr_details_elems[$first_key_city] = []; //初始化以第一个城市名为键的数组
+                        //Predefinir un tableau en 4 dimensions qui permet de contenir tous les informations des spectacles
+                        $arr_details_elems = [];
+                        //la premiere ligne de fichier de l'entregistrement de spectacles choisis
+                        $first_Spectacle = $tab_titles[0];
+                        //pour traiter les donnes de spectacles enregistres dans la fichier, on separe les infos d'une spectacle en quelques parties
+                        $first_Spect_Arr = explode("*", $first_Spectacle);
+                        //ca permet d'obtenir l'info de la premiere spectacle(indice 0), info: La ville 
+                        $first_key_city = array_shift($first_Spect_Arr);
+                        //initializer le tableau (la clé est la première ville)
+                        $arr_details_elems[$first_key_city] = [];
                         $first_key_Date = array_shift($first_Spect_Arr);
-                        $arr_details_elems[$first_key_city][$first_key_Date] = []; //初始化以第一个日期为键的二维数组
-                        array_push($arr_details_elems[$first_key_city][$first_key_Date], $first_Spect_Arr); //加入子数组
+                        //initializer le tableau en 2 dimensions (la clé est la première date)
+                        $arr_details_elems[$first_key_city][$first_key_Date] = [];
+                        array_push($arr_details_elems[$first_key_city][$first_key_Date], $first_Spect_Arr); //ajouter l'element dans le sous tableau
 
                         for ($i = 1; $i < count($tab_titles); $i++) {
                             $value = $tab_titles[$i];
                             if ($value != '') {
-//                        $value2=str_replace("*", " ", "$value");
                                 $cur_arr_elem_spect = explode("*", $value);
                                 $curr_key_city = array_shift($cur_arr_elem_spect);
                                 $curr_key_date = array_shift($cur_arr_elem_spect);
-                                if (array_key_exists("$curr_key_city", $arr_details_elems)) {//有这个城市
+                                if (array_key_exists("$curr_key_city", $arr_details_elems)) {//cette ville est deja existant dans le tableau
                                     if (array_key_exists($curr_key_city, $arr_details_elems)) {
-                                        array_push($arr_details_elems[$curr_key_city][$curr_key_date], $cur_arr_elem_spect); //加入子数组
+                                        array_push($arr_details_elems[$curr_key_city][$curr_key_date], $cur_arr_elem_spect); //ajouter l'element dans le sous tableau
                                     } else {
                                         $arr_details_elems[$curr_key_city][$curr_key_date] = [];
-                                        array_push($arr_details_elems[$curr_key_city][$curr_key_date], $cur_arr_elem_spect); //加入子数组
+                                        array_push($arr_details_elems[$curr_key_city][$curr_key_date], $cur_arr_elem_spect); //ajouter l'element dans le sous tableau
                                     }
                                 } else {
-                                    $arr_details_elems[$curr_key_city] = []; //初始化以当前城市名为键的数组
+                                    $arr_details_elems[$curr_key_city] = []; //initializer le tableau (avec la clé de la ville courante)
                                     $arr_details_elems[$curr_key_city][$curr_key_date] = [];
-                                    array_push($arr_details_elems[$curr_key_city][$curr_key_date], $cur_arr_elem_spect); //加入子数组
+                                    array_push($arr_details_elems[$curr_key_city][$curr_key_date], $cur_arr_elem_spect); //ajouter l'element dans le sous tableau
                                 }
                             }
                         }
@@ -101,13 +106,15 @@
                                 foreach ($val2 as $val3) {
                                     echo "<p class='item_contenu'>";
                                     foreach ($val3 as $num => $val4) {
-                                        if ($num === 1) {
+                                        if ($num === 1) {//la partie de spectacle
                                             echo "<label class='name_Spectacle'>" . $val4 . "</label>";
                                         } else
-                                        if ($num === 2) {//如果是表演者那一项
+                                        if ($num === 2) {//la partie de spectateur
                                             echo "<label class='Spectateur'><br><br>" . $val4 . "</label>";
-                                        } else {
-                                            echo "<label class='Spect_time'>" . $val4 ." "."</label>";
+                                        } else if ($num === 3) {//la partie de village
+                                            echo "<label class='Lieu_village'>" . $val4 . "</label>";
+                                        } else {//la partie de l'heure
+                                            echo "<label class='Spect_time'>" . $val4 . " " . "</label>";
                                         }
                                     }
                                     echo "<br><br>" . $select_cond . "</p>";
@@ -126,18 +133,20 @@
                 　<td bgcolor="orange">Quantités des billes</td>
                 　<td bgcolor="orange">Prix</td>
                         <td bgcolor="orange">Ville</td>
+                        <td bgcolor="orange">Lieu</td>
                         <td bgcolor="orange">Date</td>
                         <td bgcolor="orange">Annulation</td>
                     </tr>
                 </table>
-                <div class ="tp">
-
-                    total:<label class="total"></label>
-
-                    <button class='payer'>Payer</button>
-                </div>
-                <div>
-                    <button class="annule_tous"><img src="./images/poubelle.png"/><label class="ann_label">Annuler tous</label></button></div>
+                <label class="pt">plein tarif:<label class="nb1">0</label></label>
+                <label class="tr">tarif reduit:<label class="nb2">0</label></label>
+                <label class="bo">bille offert:<label class="nb3">0</label></label>
+                <!--</div>-->
+                <div class ="tp">total:<label class="total"></label></div>
+                <div class="reduction">Selon votre reservation vous avez&nbsp;<label class="nb_reduit"></label>&nbsp;tarif reduit</div>
+                <div class="final_total">total final:&nbsp;<label class="prix_final"></label></div>
+                <div class="valide"><button class='payer'>Valider</button></div>
+                <div><button class="annule_tous"><img src="./images/poubelle.png"/><label class="ann_label">Annuler tous</label></button></div>
             </div>
         </div>
         <footer>	

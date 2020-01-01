@@ -5,7 +5,7 @@
  */
 
 $(function () {
-    //get 请求，请求加载数据
+    //La requette pour charger des données, GET fontion
     $.get("./ResultatsFestival.csv", function (theData) {
         var data = $.csv.toObjects(theData);
         /*La partie de Jour Par Jour**/
@@ -27,16 +27,18 @@ $(function () {
         }
         $("#Programme_Troupes").html(theHtml2);
         /*la partie de Lieu par Lieu*/
-        $(".Lieu").each(function(){
-            let titre=$(this).children("#title").html();
+        $(".Lieu").each(function () {
+            let titre = $(this).children("#title").html();
             $(this).append(ChercheParLieu(data, titre));
         });
 
     });
-    //get all dates 
+
+    /** @param {data} les donnees de la fichier csv 
+     * @param {jour} la date de chaque spectacle*/
     function ChercheParJour(data, jour) {
         var html = '';
-        //下面的执行的是传说中的replaceAll,但是在JQ中，这个函数并不存在
+        //cette fontion qui perment de remplacer tous les charactères espace par '_'
         var Id = jour.replace(new RegExp(/( )/g), "_");
         html = '<h3 id=' + Id + '>' + jour + '</h3><br>';
         for (let row in data) {
@@ -44,7 +46,6 @@ $(function () {
             if (data[row]["jour"] !== jour) {
                 continue;
             } else {
-                //for (var item in data[row]) {
                 html += "<Horaire>" + data[row]["Heure"] + "<Troupe>&nbsp" + data[row]["Compagnie"] + "&nbsp</Troupe>" +
                         "présente<TitreSpectacle>&nbsp" + data[row]["TitreSpectacle"] + "&nbsp</TitreSpectacle>" +
                         "à" + "<Lieu>&nbsp" + data[row]["Lieu"] + "</Lieu>" + "&nbsp dans <Ville>&nbsp" + data[row]["Village"] + "</Ville>";
@@ -82,9 +83,10 @@ $(function () {
         }
         return   unique(Troupes);
     }
+    /** @param {data} les donnees de la fichier csv 
+     * @param {Troupe} la Troupe de chaque spectacle*/
     function ChercheParTroupe(data, Troupe) {
         var html = '';
-        //下面的执行的是传说中的replaceAll,但是在JQ中，这个函数并不存在
         var Id = Troupe.replace(new RegExp(/( )/g), "_");
         html = '<h3 id=' + Id + '>' + Troupe + '</h3><br>';
         for (let row in data) {
@@ -109,9 +111,6 @@ $(function () {
                         case "Village":
                             html += "dans <Ville>" + data[row][item] + "</Ville>";
                             break;
-                            /*  case "Compagnie":
-                             html += "&nbsp par <Troupe>" + data[row][item] + "</Troupe>";
-                             break;*/
                         default:
                             continue;
                             break;
@@ -122,6 +121,8 @@ $(function () {
         html += "</p>";
         return html;
     }
+      /** @param {data} les donnees de la fichier csv 
+     * @param {Troupe} le lieu de chaque spectacle*/
     function ChercheParLieu(data, lieu) {
         var html = '';
         for (let row in data) {
@@ -129,8 +130,7 @@ $(function () {
             if (data[row]["Lieu"] !== lieu) {
                 continue;
             } else {
-                //for (var item in data[row]) {
-                html += "<Horaire>" +data[row]['jour']+ " à "+data[row]["Heure"] + "<Troupe>&nbsp" + data[row]["Compagnie"] + "&nbsp</Troupe>" +
+                html += "<Horaire>" + data[row]['jour'] + " à " + data[row]["Heure"] + "<Troupe>&nbsp" + data[row]["Compagnie"] + "&nbsp</Troupe>" +
                         "présente<TitreSpectacle>&nbsp" + data[row]["TitreSpectacle"] + "&nbsp</TitreSpectacle>";
             }
         }
@@ -138,21 +138,21 @@ $(function () {
         return html;
     }
 
-    //Top Button
-    //返回顶部===>出现与消失
-    //当屏幕滚动，触生 scroll 事件
+    /*Top Button
+     haut de page ===> apparaître et disparaître
+     Lorsque l'écran défile, déclenchez l'événement scroll*/
     $(window).scroll(function () {
 
-        var top1 = $(this).scrollTop();     //获取相对滚动条顶部的偏移
+        var top1 = $(this).scrollTop();     //Obtenir le décalage depuis le haut de la barre de défilement
 
-        if (top1 > 200) {      //当偏移大于200px时让图标淡入（css设置为隐藏）
+        if (top1 > 200) {      //Fondu dans les icônes lorsque le décalage est supérieur à 200 px (css est défini sur caché)
             $(".top").fadeIn("slow");
         } else {
-            //当偏移小于200px时让图标淡出
+            //Fondu des icônes lorsque le décalage est inférieur à 200 pixels
             $(".top").fadeOut("slow");
         }
     });
-    //去往顶部
+    //monter en haut
     $(".top").click(function () {
         $("body , html").animate({scrollTop: 0}, 300);   //300是所用时间
     });

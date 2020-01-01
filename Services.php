@@ -56,7 +56,7 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
             array_push($arr_JH_spectacles, $value[1]);
         }
         foreach ($arr as $key => $value) {
-            echo "<h3>" . $key;
+               echo "<div class=SpectsPart><h3><Lieu>" . $key."</Lieu>";
             foreach ($value as $cle => $val) {
                 if ($cle == $date_v) {
                     echo "&nbsp le &nbsp" . $cle . "</h3>";
@@ -75,6 +75,7 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
                     echo "<br><br>";
                 }
             }
+            echo "</div>";
         }
     } else {//如果不一样或者页面不存在，则执行
         /*         * 这里我开始根据所储存的内容来判断是否有跟当前选择的城市相同：
@@ -82,7 +83,8 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
          * 2.如果不存在与已经购票的城市相同，则需要考虑时间问题，然后筛掉时间上发生冲突的     
          */
         foreach ($arr as $key => $value) {
-            echo "<h3>" . $key;
+            //$Classname_Key= str_replace(" ", "_", $key);
+            echo "<div class=SpectsPart><h3><Lieu>" . $key."</Lieu>";
             foreach ($value as $cle => $val) {
                 if ($cle == $date_v) {
                     echo "&nbsp le &nbsp" . $cle . "</h3>";
@@ -98,6 +100,7 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
                     echo "<br><br>";
                 }
             }
+            echo "</div>";
         }
     }
 }    
