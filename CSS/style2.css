@@ -230,7 +230,7 @@ body{
         position: relative;
         width: 15px;
     }
-    .Curr_price,.total,.nb1,.nb2,.nb3,.prix_final,.nb_reduit{
+    .Curr_price,.total,.nb1,.nb2,.nb3,.nb4,.prix_final,.nb_reduit{
         color: #f40;
         font-weight: 700;
         font-size: 18px;
@@ -301,13 +301,16 @@ body{
     }
     .tr{
         position: relative;
-        left: 120px;
+        left: 8%;
     }
-    .bo{
+    .eo{
         position:relative;
-        left: 232px;
+        left: 16%;
     }
-
+    .billet_offert{
+        position: relative;
+        left: 25%;
+    }
     .select{
         position: relative;
         left:350px;

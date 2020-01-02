@@ -140,7 +140,8 @@
                 </table>
                 <label class="pt">plein tarif:<label class="nb1">0</label></label>
                 <label class="tr">tarif reduit:<label class="nb2">0</label></label>
-                <label class="bo">bille offert:<label class="nb3">0</label></label>
+                <label class="eo">Enfant billet:<label class="nb3">0</label></label>
+                <label class="billet_offert">billet_offert:<label class="nb4">0</label></label>
                 <!--</div>-->
                 <div class ="tp">total:<label class="total"></label></div>
                 <div class="reduction">Selon votre reservation vous avez&nbsp;<label class="nb_reduit"></label>&nbsp;tarif reduit</div>
