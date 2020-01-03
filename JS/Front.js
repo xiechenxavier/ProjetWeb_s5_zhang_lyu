@@ -333,6 +333,7 @@ $(function () {
                     $(".nb3").html(parseInt($(".nb3").html()) + nb_off);
                     var reduit = checkReduction();
                     ShowOrHide(reduit);
+
                 }
                 /*Annuler une ligne de la commande*/
                 $(".commande").each(function () {
@@ -350,27 +351,31 @@ $(function () {
                         checkBilleParType();
                         var reduit = checkReduction();
                         ShowOrHide(reduit);
+                        $(".nb4").html(0);
                     });
                 });
             });
         });
     });
+
     function checkReduction() {
         let nb1 = parseInt($(".nb1").html());
         let nb2 = parseInt($(".nb2").html());
-        //let nb3=parseInt($(".nb3").html());
         var reduit = 0;
         var sum = nb1 + nb2;
-        if (sum > 6) {
+        if (sum >= 6) {
             let nbrd = parseInt(sum / 6);//用来计算打折的次数
+            let cpt = 0;//一共有多少张减免的票（nombre de la billet offert）
             while (nbrd > 0) {
                 if (nb2 > 0) {
                     reduit += 10;//有tarif reduit的时候
+                    cpt++;
                 } else {
                     reduit += 5;//全部plein tarif
                 }
                 nbrd--;
             }
+            $(".nb4").html(cpt);
         }
         return reduit;
     }
@@ -385,6 +390,7 @@ $(function () {
             $(".final_total").hide(300);
         }
     }
+
     function checkBilleParType() {
         //如果当前.commande篮子里面没有订单
         if ($(".commande").length === 0) {
@@ -411,6 +417,7 @@ $(function () {
             $(".nb3").html(nb3);
         }
     }
+
     function checkTotal() {
         //如果当前.commande篮子里面没有订单
         if ($(".commande").length === 0) {
@@ -467,16 +474,22 @@ $(function () {
             });
         }
     });
+
     $(".annule_tous").click(function () {
         if ($(".commande").length > 0) {//表示如果整个表格中里面有元素时
             $.confirm({
                 title: 'confirmation!',
-                content: 'Vous êtes sur pour annuler toutes les commandes?',
+                content: 'Etes vous sur pour annuler toutes les commandes?',
                 buttons: {
                     confirm: function () {
                         $(".commande").remove();
                         prix_t = 0;
                         $(".total").html(prix_t);
+                        hashtable.clear();
+                        checkBilleParType();
+                        var reduit = checkReduction();
+                        ShowOrHide(reduit);
+                        $(".nb4").html(0);
                     },
                     cancel: function () {
                         $.alert("operation annulée");
@@ -485,6 +498,7 @@ $(function () {
             });
         }
     });
+
     $(".payer").on("click", function () {
         if ($(".commande").length > 0) {//表示如果整个表格中里面有元素时
             $('#tables').tableExport({
