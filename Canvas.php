@@ -63,6 +63,7 @@
                         <li><a href="./FirstPart/JourParJour.php">Jour par Jour</a></li>
                         <li><a href="./FirstPart/TroupeParTroupe.php">Jour par Jour</a></li>
                         <li><a href="./Reservation.php">Reserver les billes</li>
+                        <li><a href="./Canvas.php">Finances du festival</li>
                             <!--<li><a href="Festival2018ProgrammationVueGlobale.php">Planning</a> </li>-->       
                         </ul>
                         <div id="vignette">

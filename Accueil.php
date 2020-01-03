@@ -23,10 +23,12 @@ and open the template in the editor.
             </h1>
             <div class="menu">
                 <ul class="navbar">
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="./LieuParLieu.php">Lieu par Lieu</a></li>
-                    <li><a href="./Reservation.php">Reservation</a></li>
-                    <li>Centre National du Costume de Scène</li>
+                    <li><a href="./Accueil.php">Accueil</a></li>
+                        <li><a href="./FirstPart/LieuParLieu.php">Lieu par Lieu</a></li>
+                        <li><a href="./FirstPart/JourParJour.php">Jour par Jour</a></li>
+                        <li><a href="./FirstPart/TroupeParTroupe.php">Jour par Jour</a></li>
+                        <li><a href="./Reservation.php">Reserver les billes</li>
+                        <li><a href="./Canvas.php">Finances du festival</li>
                 </ul>
             </div>
             <div class="btn_hide">
