@@ -9,7 +9,6 @@ $(function () {
     $(document).on('click', '.btn_hide', function () {
         $(".menu").toggle("slow");
         $(".btn_show").toggle("slow");
-        //$(".btn_show").css("display","fixed");
         $(this).toggle("slow");
     });
     //A button which is used to show or hide the navigator left 
@@ -98,12 +97,10 @@ $(function () {
                         if (isNaN(res) || res === 0) {
                             $('.on').html(res + 1 + "");
                             $('.on').show("slow");
-                            //                            $(".on").css("left", -7);
                             $(".on").css("top", y - 120);
                             $('.on').animate({left: 18});
                             $('.on').animate({top: 3});
                         } else {
-                            //                            $(".on").css("left", -7);
                             $(".on").css("top", y - 120);
                             $('.on').animate({left: 18});
                             $('.on').animate({top: 3});
@@ -132,9 +129,7 @@ $(function () {
                                 arrayAdded: array_added
                             },
                             success: function (data) {
-                                // window.location.href = "./PageReservation.php";
-                                // alert("marcher bien");
-                                //window.location.href = "";
+
                             },
                             error: function () {
                                 alert("#");
@@ -237,11 +232,15 @@ $(function () {
     $(".item_spectacles").each(function () {
         var curr_item = $(this).children(".item_contenu");
         var Ville_a = $(this).children(".villes").html(); //戏在哪个城市
-        var Date_spect = $(this).children(".date_spect").html(); //看戏的日期
+        var Date_spect1 = $(this).children(".date_spect").html(); //看戏的日期
         curr_item.each(function () {
             var nombre = $(this).children("#nombre");
             var type = $(this).children("#type");
             var spectacle_name = $(this).children(".name_Spectacle").html();
+            var Spect_time = $(this).children(".Spect_time").html();
+            var arr = Spect_time.split(" ");
+            var Date_spect = arr[0] + " " + Date_spect1;
+            var Heures = arr[1];
             var Village = $(this).children(".Lieu_village").html(); //看戏的地点在哪个
             var btn_ajoute = $(this).children(".ajouter"); //bouton "ajouter" permet d'ajouter une commande de theatre
             var Curr_prix = $(this).children(".Curr_price");
@@ -273,7 +272,8 @@ $(function () {
                 bille_type = type.find("option:selected").text();
                 var nb_pl = 0; //统计有多少plein tarif
                 var nb_rd = 0; //多少个tarif reduit
-                var nb_off = 0; //多少个billet offert
+                var nb_Ef = 0; //多少个billet offert
+                var nb_off = 0;
                 //pour get the number of this type of tickets 
                 switch (bille_type) {
                     case "Plein tarif":
@@ -283,7 +283,7 @@ $(function () {
                         nb_rd += parseInt(quantite_billes);
                         break;
                     case "Enfant gratuit":
-                        nb_off += parseInt(quantite_billes);
+                        nb_Ef += parseInt(quantite_billes);
                         break;
                 }
 
@@ -296,44 +296,48 @@ $(function () {
                             let p = parseInt($(".prix").get(i).innerText);
                             let q = parseInt($(".quantite").get(i).innerText);
                             let d = $(".date").get(i).innerText;
-                            if (s_name === spectacle_name && Ville_a === v && d === Date_spect) {
+                            let h = $(".heure_e").get(i).innerText;
+                            if (s_name === spectacle_name && Ville_a === v && d === Date_spect && Heures === h) {
                                 $(".prix").get(i).innerText = p + prix;
                                 $(".quantite").get(i).innerText = q + parseInt(quantite_billes);
                                 flag = true; /*将flag设为真表示这条订单已被添加*/
                                 break;
                             }
                         }
-
+                        
                         if (!flag) {  /*如果购物篮内没有重复的,flag仍为false,此处则新加入一个*/
-
                             let str = "<tr class='commande'><td class = 'name'>" + spectacle_name + "</td>" + "<td class = 'quantite'>" + quantite_billes + "</td>" + "<td class = 'prix'>" + prix + "</td>"
-                                    + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>" + "<td class = 'date'>" + Date_spect + "</td>" + "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
+                                    + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>"
+                                    + "<td class = 'date'>" + Date_spect + "</td>" + "<td class = 'heure_e'>" + Heures + "</td>" +
+                                    "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
                             $(".divtableau>table").append(str);
                             $("#type").find("option[value='1']").attr("selected", true);
                             flag = false;
-                            hashtable.add(Date_spect + spectacle_name + Ville_a, {"Plein_tarif": nb_pl, "Tarif_reduit": nb_rd, "Enfant_gratuit": nb_off});
+                            hashtable.add(Date_spect + spectacle_name + Ville_a, {"Plein_tarif": nb_pl, "Tarif_reduit": nb_rd, "Enfant_gratuit": nb_Ef, "Billet_offert": nb_off});
                         } else {/*如果现在的表单里面已经有了，则flag为true并且在对哈希表记录进行更新*/
                             let cur_nb_pl = hashtable.get(Date_spect + spectacle_name + Ville_a).Plein_tarif + nb_pl;
                             let cur_nb_rd = hashtable.get(Date_spect + spectacle_name + Ville_a).Tarif_reduit + nb_rd;
-                            let cur_nb_off = hashtable.get(Date_spect + spectacle_name + Ville_a).Enfant_gratuit + nb_off;
+                            let cur_nb_Ef = hashtable.get(Date_spect + spectacle_name + Ville_a).Enfant_gratuit + nb_Ef;
+                            let cur_nb_off = hashtable.get(Date_spect + spectacle_name + Ville_a).Billet_offert + nb_off;
                             hashtable.remove(Date_spect + spectacle_name + Ville_a);
-                            hashtable.add(Date_spect + spectacle_name + Ville_a, {"Plein_tarif": cur_nb_pl, "Tarif_reduit": cur_nb_rd, "Enfant_gratuit": cur_nb_off});
+                            hashtable.add(Date_spect + spectacle_name + Ville_a, {"Plein_tarif": cur_nb_pl, "Tarif_reduit": cur_nb_rd, "Enfant_gratuit": cur_nb_Ef, "Billet_offert": cur_nb_off});
                         }
                     } else {
                         let str = "<tr class='commande'><td class = 'name'>" + spectacle_name + "</td>" + "<td class = 'quantite'>" + quantite_billes + "</td>" + "<td class = 'prix'>" + prix + "</td>"
-                                + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>" + "<td class = 'date'>" + Date_spect + "</td>" + "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
+                                + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>"
+                                + "<td class = 'date'>" + Date_spect + "</td>" + "<td class = 'heure_e'>" + Heures + "</td>" +
+                                "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
                         $(".divtableau>table").append(str);
                         $("#type").find("option[value='1']").attr("selected", true);
-                        hashtable.add(Date_spect + spectacle_name + Ville_a, {"Plein_tarif": nb_pl, "Tarif_reduit": nb_rd, "Enfant_gratuit": nb_off});
+                        hashtable.add(Date_spect + spectacle_name + Ville_a, {"Plein_tarif": nb_pl, "Tarif_reduit": nb_rd, "Enfant_gratuit": nb_Ef, "Billet_offert": nb_off});
                     }
                     prix_t = prix_t + prix;
                     $(".total").html(prix_t);
                     $(".nb1").html(parseInt($(".nb1").html()) + nb_pl);
                     $(".nb2").html(parseInt($(".nb2").html()) + nb_rd);
-                    $(".nb3").html(parseInt($(".nb3").html()) + nb_off);
+                    $(".nb3").html(parseInt($(".nb3").html()) + nb_Ef);
                     var reduit = checkReduction();
                     ShowOrHide(reduit);
-
                 }
                 /*Annuler une ligne de la commande*/
                 $(".commande").each(function () {
@@ -351,12 +355,12 @@ $(function () {
                         checkBilleParType();
                         var reduit = checkReduction();
                         ShowOrHide(reduit);
-                        $(".nb4").html(0);
                     });
                 });
             });
         });
     });
+
 
     function checkReduction() {
         let nb1 = parseInt($(".nb1").html());
@@ -379,6 +383,8 @@ $(function () {
         }
         return reduit;
     }
+
+
     function ShowOrHide(x) {
         if (x > 0) {
             $(".nb_reduit").html(x);
@@ -391,6 +397,7 @@ $(function () {
         }
     }
 
+
     function checkBilleParType() {
         //如果当前.commande篮子里面没有订单
         if ($(".commande").length === 0) {
@@ -398,25 +405,30 @@ $(function () {
             $(".nb1").html(0);
             $(".nb2").html(0);
             $(".nb3").html(0);
+            $(".nb4").html(0);
         } else {
             // var size=hashtable.size();
             var nb1 = 0;
             var nb2 = 0;
             var nb3 = 0;
+            var nb4 = 0;
             for (let i = 0; i < $(".commande").length; i++) {
                 let key = $(".date").get(i).innerText + $(".name").get(i).innerText + $(".ville").get(i).innerText;
                 if (hashtable.containsKey(key)) {
                     nb1 += hashtable.get(key).Plein_tarif;
                     nb2 += hashtable.get(key).Tarif_reduit;
                     nb3 += hashtable.get(key).Enfant_gratuit;
+                    nb4 += hashtable.get(key).Billet_offert;
                 }
-                console.log(nb1 + "," + nb2 + "," + nb3);
+                console.log(nb1 + "," + nb2 + "," + nb3 + "," + nb4);
             }
             $(".nb1").html(nb1);
             $(".nb2").html(nb2);
             $(".nb3").html(nb3);
+            $(".nb4").html(nb4);
         }
     }
+
 
     function checkTotal() {
         //如果当前.commande篮子里面没有订单
@@ -435,6 +447,60 @@ $(function () {
                 $(".total").html(prix_t);
             }
 
+        }
+    }
+    
+    function checkQuelleBilletOffert() {
+        let nb4 = parseInt($(".nb4").html());//目前有多少张要送的票？有要送的票说明肯定有reduit的票存在
+        let nb1 = parseInt($(".nb1").html());//一共有多少张满票
+        if (nb4 > 0) {//如果已经有了免费的票
+            let nb2 = 0;
+            let key = "";
+            while (nb4 > 0) {
+                for (let i = 0; i < $(".commande").length; i++) {
+                    key = $(".date").get(i).innerText + $(".name").get(i).innerText + $(".ville").get(i).innerText;
+                    if (hashtable.containsKey(key)) {
+                        nb2 = hashtable.get(key).Tarif_reduit;
+                        if (nb2 > 0) {//这个戏有reduit的票，我们找到后要重新记录这个票
+                            break;
+                        }
+                    }
+                }
+                //找到一个key
+                let nb1_p = hashtable.get(key).Plein_tarif;
+                let nb2_r = hashtable.get(key).Tarif_reduit - 1;
+                let nb3_e = hashtable.get(key).Enfant_gratuit;
+                let nb4_O = parseInt(hashtable.get(key).Billet_offert) + 1;
+
+                hashtable.remove(key);//删除后再重新加入
+                hashtable.add(key, {"Plein_tarif": nb1_p, "Tarif_reduit": nb2_r, "Enfant_gratuit": nb3_e, "Billet_offert": nb4_O});
+                nb4--;
+            }
+        } else {//没有免费的票
+            var nb1_xp = 0;
+            if (nb1 >= 6) {//但是有满票超过六张，这意味着在记录上要把满票的价格变成半票
+                let res = parseInt(nb1 / 6);//变几张
+                while (res > 0) {
+                    //找到一个key
+                    for (let i = $(".commande").length - 1; i >= 0; i--) {
+                        key = $(".date").get(i).innerText + $(".name").get(i).innerText + $(".ville").get(i).innerText;
+                        if (hashtable.containsKey(key)) {
+                            nb1_xp = hashtable.get(key).Plein_tarif;
+                            if (nb1_xp > 0) {//这个戏有reduit的票，我们找到后要重新记录这个票
+                                break;
+                            }
+                        }
+                    }
+                    let nb1_p = hashtable.get(key).Plein_tarif - 1;
+                    let nb2_r = hashtable.get(key).Tarif_reduit + 1;
+                    let nb3_e = hashtable.get(key).Enfant_gratuit;
+                    let nb4_O = parseInt(hashtable.get(key).Billet_offert);
+
+                    hashtable.remove(key);//删除后再重新加入
+                    hashtable.add(key, {"Plein_tarif": nb1_p, "Tarif_reduit": nb2_r, "Enfant_gratuit": nb3_e, "Billet_offert": nb4_O});
+                    res--;
+                }
+            }
         }
     }
 
@@ -498,12 +564,82 @@ $(function () {
             });
         }
     });
+    
+    function ReformerDate(date) {
+        var res = "";
+        var arr_date = [];
+        arr_date['01'] = "janvier";
+        arr_date['02'] = "feverier";
+        arr_date['03'] = "mars";
+        arr_date['04'] = "avril";
+        arr_date['05'] = "mai";
+        arr_date['06'] = "juin";
+        arr_date['07'] = "juille";
+        arr_date['08'] = "août";
+        arr_date['09'] = "septembre";
+        arr_date['10'] = "octobre";
+        arr_date['11'] = "novembre";
+        arr_date['12'] = "décembre";
+        let arr = date.split("/");
+        let mois = arr[0]; //
+        var mois_fr = arr_date[mois];
+        res = arr[1] + " " + mois_fr + " " + arr[2];
+        return res;
+    }
 
     $(".payer").on("click", function () {
+        //步骤：1.首先新建一个json数组（装每一行记录，这里的以json方式来盛装）
+        //2.遍历每一行的记录：然后获取其在hashtable当中的数据信息：即有几张满票，几张reduit，几张儿童票，是否送了票，倒贴了钱的两种
+        //哈希表中只负责记录一下信息：几张满票，几张reduit，几张儿童票，送的票的数量
         if ($(".commande").length > 0) {//表示如果整个表格中里面有元素时
-            $('#tables').tableExport({
-                filename: 'form',
-                format: 'csv'
+            $.confirm({
+                title: 'confirmation!',
+                content: 'Etes vous sûr de valiser vos commandes?',
+                buttons: {
+                    confirm: function () {//确认订单防止用户因为手误按错而造成的问题
+                        checkQuelleBilletOffert();//调用函数找出哪些戏会有免费票方便记录
+                        console.log(hashtable);
+                        var Data = [];
+                        for (let i = 0; i < $(".commande").length; i++) {
+                            let sous_data = {};
+                            let date = ($(".date").get(i).innerText).toLowerCase();
+                            let spectacle = $(".name").get(i).innerText;
+                            let ville = $(".ville").get(i).innerText;
+                            let lieu = $(".Village").get(i).innerText;
+                            let heures = $(".heure_e").get(i).innerText;
+                            let key = date + spectacle + ville;
+                            sous_data["date"] = ReformerDate(date);
+                            sous_data["name"] = spectacle;
+                            sous_data["ville"] = ville;//在csv里面是village  Veauce是village
+                            sous_data["lieu"] = lieu;//csv中指的是lieu
+                            sous_data["heure"] = heures;
+                            sous_data["Plein_tarif"] = hashtable.get(key).Plein_tarif;
+                            sous_data["Tarif_reduit"] = hashtable.get(key).Tarif_reduit;
+                            sous_data["Enfant_gratuit"] = hashtable.get(key).Enfant_gratuit;
+                            sous_data["Billet_offert"] = hashtable.get(key).Billet_offert;
+                            Data.push(sous_data);
+                        }
+                        //   var jsonString = JSON.stringify(Data); //把一个JSON类型数组转化成一个字符串
+                        $.ajax({
+                            url: "./ReadCsv.php",
+                            type: 'POST',
+                            async: false,
+                            data: {
+                                Datascsv: Data
+                            },
+                            success: function (data) {
+                                console.log(data);
+                            },
+                            error: function () {
+                                alert("#");
+                            }
+                        });
+                        //完成上述的操作之后就重新刷新之前页面，以及进入下一个成功通知页面
+                    },
+                    cancel: function () {
+                        $.alert("operation annulée");
+                    }
+                }
             });
         }
     });

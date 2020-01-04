@@ -114,7 +114,7 @@
                                         } else if ($num === 3) {//la partie de village
                                             echo "<label class='Lieu_village'>" . $val4 . "</label>";
                                         } else {//la partie de l'heure
-                                            echo "<label class='Spect_time'>" . $val4 . " " . "</label>";
+                                            echo "<label class='Spect_time'>" .$val4."</label>&nbsp;";
                                         }
                                     }
                                     echo "<br><br>" . $select_cond . "</p>";
@@ -135,6 +135,7 @@
                         <td bgcolor="orange">Ville</td>
                         <td bgcolor="orange">Lieu</td>
                         <td bgcolor="orange">Date</td>
+                        <td bgcolor="orange">Heure</td>
                         <td bgcolor="orange">Annulation</td>
                     </tr>
                 </table>
