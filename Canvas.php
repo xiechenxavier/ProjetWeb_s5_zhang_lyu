@@ -127,7 +127,7 @@
 
 //Obtenir Fichier Csv
 $.ajax({
-    url: "ResultatsFestival.csv",
+    url: "./FirstPart/ResultatsFestival.csv",
     dataType: "text",
     contentType: "application/json; charset=UTF-8",
     async: false,
