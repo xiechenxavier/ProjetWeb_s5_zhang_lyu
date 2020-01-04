@@ -44,6 +44,7 @@ and open the template in the editor.
                 <li><a href="./JourParJour.php">Jour par Jour</a></li>
                 <li><a href="./TroupeParTroupe.php">Troupe par Troupe</a></li>
                 <li><a href="../Reservation.php">Reserver les billes</li>
+                <li><a href="../Canvas.php">Finances du festival</li>
                 <!--<li><a href="Festival2018ProgrammationVueGlobale.php">Planning</a> </li>-->		  
             </ul>
 
