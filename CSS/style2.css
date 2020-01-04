@@ -322,3 +322,36 @@ body{
         left: 232px;
         top:32px;
     }
+
+
+    .tooltip{
+    position:absolute;    height:200px;
+    width:300px;
+    padding:10px;
+}
+
+.tooltip_main{
+    background-image:url(../images/main.png);
+    background-position:center;
+    background-repeat:repeat-y;
+    padding-left:30px;
+    padding-right:30px;
+    color:#C00;
+    font-weight:bold;
+}
+
+.tooltip_top{
+    width:300px;
+    height:40px;
+    background-image:url(../images/top.png);
+    background-repeat:no-repeat;
+    background-position:bottom;
+}
+
+.tooltip_bottom{
+    width:300px;
+    height:20px;
+    background-image:url(../images/bottom.png);
+    background-repeat:no-repeat;
+    background-position:top;
+}
