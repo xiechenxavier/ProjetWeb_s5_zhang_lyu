@@ -1,4 +1,4 @@
-        var csvData;
+var csvData;
 
 
 //Obtenir Fichier Csv
@@ -32,7 +32,6 @@ function arrLieu(csvData) {
             if (data[j].Lieu === csvData[i].Lieu) {
 
                 flag = 1;
-                //data[j].O = parseInt(data[j].O) + parseInt(csvData[i].O);
                 data[j].P = parseInt(data[j].P) + parseInt(csvData[i].P);
                 data[j].R = parseInt(data[j].R) + parseInt(csvData[i].R);
                 data[j].SA = parseInt(data[j].SA) + parseInt(csvData[i].SA);
@@ -69,7 +68,6 @@ function arrSpectacle(csvData) {
             if (data[j].Spectacle === csvData[i].TitreSpectacle) {
 
                 flag = 1;
-                //data[j].O = parseInt(data[j].O) + parseInt(csvData[i].O);
                 data[j].P = parseInt(data[j].P) + parseInt(csvData[i].P);
                 data[j].R = parseInt(data[j].R) + parseInt(csvData[i].R);
                 data[j].SA = parseInt(data[j].SA) + parseInt(csvData[i].SA);
@@ -333,11 +331,15 @@ function goBarChart(dataArr,mode){
                     }
                     var xMarker = parseInt( originX+cWidth*(i/tobalBars)+bMargin+bWidth/2 );
                     var yMarker = originY+30;
+                    
                     if (mode == "Spectacle") {
                             ctx.fillText(LimitNumber(markerVal), xMarker, yMarker, cSpace +100);
                         } else {
                             ctx.fillText(markerVal, xMarker, yMarker, cSpace +100);// 文字 +200以防止文字过于紧凑
                         } // 文字
+
+                    
+
                 }
                 // 绘制标题 y
                 ctx.save();
