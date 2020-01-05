@@ -275,7 +275,7 @@ body{
 }
 .Spectateur{
     position: relative;
-    left: 50%;
+    left: 20%;
     font-weight: bolder;
 }
 footer{
@@ -356,6 +356,5 @@ footer{
     background-position:top;
 }
 .Lieu_village{
-    position: relative;
-    right: 44%;
+   float: left;
 }

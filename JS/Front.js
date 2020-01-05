@@ -240,7 +240,8 @@ $(function () {
             var Spect_time = $(this).children(".Spect_time").html();
             var arr = Spect_time.split(" ");
             var Date_spect = arr[0] + " " + Date_spect1;
-            var Heures = arr[1];
+            var Heures = arr[1];//当天时间
+            var Compagnie = $(this).children(".Spectateur").html();//哪个乐团
             var Village = $(this).children(".Lieu_village").html(); //看戏的地点在哪个
             var btn_ajoute = $(this).children(".ajouter"); //bouton "ajouter" permet d'ajouter une commande de theatre
             var Curr_prix = $(this).children(".Curr_price");
@@ -307,7 +308,7 @@ $(function () {
 
                         if (!flag) {  /*如果购物篮内没有重复的,flag仍为false,此处则新加入一个*/
                             let str = "<tr class='commande'><td class = 'name'>" + spectacle_name + "</td>" + "<td class = 'quantite'>" + quantite_billes + "</td>" + "<td class = 'prix'>" + prix + "</td>"
-                                    + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>"
+                                    + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>" + "<td class='Compagnie'>" + Compagnie + "</td>"
                                     + "<td class = 'date'>" + Date_spect + "</td>" + "<td class = 'heure_e'>" + Heures + "</td>" +
                                     "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
                             $(".divtableau>table").append(str);
@@ -324,7 +325,7 @@ $(function () {
                         }
                     } else {
                         let str = "<tr class='commande'><td class = 'name'>" + spectacle_name + "</td>" + "<td class = 'quantite'>" + quantite_billes + "</td>" + "<td class = 'prix'>" + prix + "</td>"
-                                + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>"
+                                + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>" + "<td class='Compagnie'>" + Compagnie + "</td>"
                                 + "<td class = 'date'>" + Date_spect + "</td>" + "<td class = 'heure_e'>" + Heures + "</td>" +
                                 "<td align='center'><img id='btn_delete' src='./images/delete.png'/></td></tr>";
                         $(".divtableau>table").append(str);
@@ -586,7 +587,6 @@ $(function () {
         res = arr[1] + " " + mois_fr + " " + arr[2];
         return res;
     }
-
     $(".payer").on("click", function () {
         //步骤：1.首先新建一个json数组（装每一行记录，这里的以json方式来盛装）
         //2.遍历每一行的记录：然后获取其在hashtable当中的数据信息：即有几张满票，几张reduit，几张儿童票，是否送了票，倒贴了钱的两种
@@ -598,28 +598,36 @@ $(function () {
                 buttons: {
                     confirm: function () {//确认订单防止用户因为手误按错而造成的问题
                         checkQuelleBilletOffert();//调用函数找出哪些戏会有免费票方便记录
-                        console.log(hashtable);
                         var Data = [];
                         for (let i = 0; i < $(".commande").length; i++) {
                             let sous_data = {};
                             let date = ($(".date").get(i).innerText).toLowerCase();
+                            let datearr = date.split(" ");
+                            let real_jour = datearr[0];
+                            let real_date = "";
+                            for (let i = 1; i < datearr.length - 1; i++) {
+                                real_date += datearr[i] + " ";
+                            }
+                            real_date += datearr[datearr.length - 1];
                             let spectacle = $(".name").get(i).innerText;
                             let ville = $(".ville").get(i).innerText;
                             let lieu = $(".Village").get(i).innerText;
                             let heures = $(".heure_e").get(i).innerText;
+                            let Troupe = $(".Compagnie").get(i).innerText;
                             let key = date + spectacle + ville;
-                            sous_data["date"] = ReformerDate(date);
+                            sous_data["date"] = real_jour + " " + ReformerDate(real_date);
                             sous_data["name"] = spectacle;
                             sous_data["ville"] = ville;//在csv里面是village  Veauce是village
                             sous_data["lieu"] = lieu;//csv中指的是lieu
                             sous_data["heure"] = heures;
+                            sous_data["Compagnie"] = Troupe;
                             sous_data["Plein_tarif"] = hashtable.get(key).Plein_tarif;
                             sous_data["Tarif_reduit"] = hashtable.get(key).Tarif_reduit;
                             sous_data["Enfant_gratuit"] = hashtable.get(key).Enfant_gratuit;
                             sous_data["Billet_offert"] = hashtable.get(key).Billet_offert;
                             Data.push(sous_data);
                         }
-                        //   var jsonString = JSON.stringify(Data); //把一个JSON类型数组转化成一个字符串
+//                           var jsonString = JSON.stringify(Data); //把一个JSON类型数组转化成一个字符串
                         $.ajax({
                             url: "./ReadCsv.php",
                             type: 'POST',
@@ -629,6 +637,10 @@ $(function () {
                             },
                             success: function (data) {
                                 console.log(data);
+                                if (window.opener !== null) {
+                                    //window.opener 就是当前页面内的打开者，我们要对该页面进行刷新
+                                    window.opener.location.reload();
+                                }
                                 window.location.href = "./CommandeValider.html";
                             },
                             error: function () {

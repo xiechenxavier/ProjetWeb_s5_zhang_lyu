@@ -7,14 +7,18 @@
  */
 include_once './Tableaus.php';
 include_once './Fonctions.php';
+header("Content-type:text/html;charset=utf-8");
 static $tab_enr = []; //tableau d'enregistrement qui permet d'enregistrer les spectacles possibles
 /* Services importants */
 //les fonctions qui permettent de traiter les données saisi à partir de formulaires
 $fs = new Fonctions();
 $tab = Tableaus::createtable();
 if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date']) && !empty($_POST['heure'])) {
-    $lieua = $_POST['a_lieu']; //lieu arrivé
-    $lieud = $_POST['d_lieu']; //lieu depart
+    $la1 = explode(" ", $_POST["a_lieu"]);
+//    $ld=explode(" ",$_POST["d_lieu"]);
+    $lieud = $_POST["d_lieu"];
+    //$lieua = $la1[0];
+    $lieua = $_POST["a_lieu"];
     $Dist_temps = $fs->getDistanceTempsdesLieus($lieud, $lieua); //获取两个地点相隔的距离
     $TempsBesoin = $fs->getTemps_DistanceEtTemps($Dist_temps); //获取两地所需要的时间（从字符串*地点-时间中获取）
     $HeureArrive = $fs->CalculateTime($TempsBesoin, $_POST['heure']); //计算Client到达看戏地点的时间
@@ -56,7 +60,7 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
             array_push($arr_JH_spectacles, $value[1]);
         }
         foreach ($arr as $key => $value) {
-               echo "<div class=SpectsPart><h3><Lieu>" . $key."</Lieu>";
+            echo "<div class=SpectsPart><h3><Lieu>" . $key . "</Lieu>";
             foreach ($value as $cle => $val) {
                 if ($cle == $date_v) {
                     echo "&nbsp le &nbsp" . $cle . "</h3>";
@@ -84,7 +88,7 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
          */
         foreach ($arr as $key => $value) {
             //$Classname_Key= str_replace(" ", "_", $key);
-            echo "<div class=SpectsPart><h3><Lieu>" . $key."</Lieu>";
+            echo "<div class=SpectsPart><h3><Lieu>" . $key . "</Lieu>";
             foreach ($value as $cle => $val) {
                 if ($cle == $date_v) {
                     echo "&nbsp le &nbsp" . $cle . "</h3>";

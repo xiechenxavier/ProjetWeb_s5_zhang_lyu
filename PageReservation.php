@@ -110,7 +110,7 @@
                                             echo "<label class='name_Spectacle'>" . $val4 . "</label>";
                                         } else
                                         if ($num === 2) {//la partie de spectateur
-                                            echo "<label class='Spectateur'><br><br>" . $val4 . "</label>";
+                                            echo "<br><br><label class='Spectateur'>" . $val4 . "</label>";
                                         } else if ($num === 3) {//la partie de village
                                             echo "<label class='Lieu_village'>" . $val4 . "</label>";
                                         } else {//la partie de l'heure
@@ -134,6 +134,7 @@
                 　<td bgcolor="orange">Prix</td>
                         <td bgcolor="orange">Ville</td>
                         <td bgcolor="orange">Lieu</td>
+                        <td bgcolor="orange">Compagnie</td>
                         <td bgcolor="orange">Date</td>
                         <td bgcolor="orange">Heure</td>
                         <td bgcolor="orange">Annulation</td>

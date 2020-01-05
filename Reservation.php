@@ -45,10 +45,10 @@ and open the template in the editor.
                     <option disabled="disabled"  selected="true"> choisir une ville d'arrivée</option>
                     <option value ='Moulins'>Moulins</option>
                     <option value ='Veauce'>Veauce</option>
-                    <option value='Vichy'>Vichy</option>
-                    <option value='Monétay'>Monétay</option>
-                    <option value='Monteignet'>Monteignet</option>
-                    <option value='Clermont-Ferrand'>Clermont-Ferrand</option>
+<!--                    <option value='Vichy'>Vichy</option>-->
+                    <option value='Monétay'>Monétay sur Allier</option>
+                    <option value='Monteignet'>Monteignet sur l'Andelot</option>
+                    <!--<option value='Clermont-Ferrand'>Clermont-Ferrand</option>-->
                 </select>
                 Date:<input type="datetime" id="datepicker" name="Date">
                 Heure:<input type="time" name="heure" id="Heure">

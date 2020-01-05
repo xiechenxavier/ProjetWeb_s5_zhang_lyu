@@ -51,8 +51,10 @@ class Fonctions {
     function getDistanceTempsdesLieus($d_lieu, $a_lieu) {
         $tab = Tableaus::$dist_time;
         $res = "";
-        if (isset($tab[$d_lieu][$a_lieu])) {
-            $res = $tab[$d_lieu][$a_lieu];
+        $arr_lieua= explode(" ", $a_lieu);
+        $v_lieua=$arr_lieua[0];
+        if (isset($tab[$d_lieu][$v_lieua])) {
+            $res = $tab[$d_lieu][$v_lieua];
         } else {
             throw new Exception("Erreur, le lieu existe pas");
         }
