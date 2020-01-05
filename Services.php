@@ -17,7 +17,6 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
     $la1 = explode(" ", $_POST["a_lieu"]);
 //    $ld=explode(" ",$_POST["d_lieu"]);
     $lieud = $_POST["d_lieu"];
-    //$lieua = $la1[0];
     $lieua = $_POST["a_lieu"];
     $Dist_temps = $fs->getDistanceTempsdesLieus($lieud, $lieua); //获取两个地点相隔的距离
     $TempsBesoin = $fs->getTemps_DistanceEtTemps($Dist_temps); //获取两地所需要的时间（从字符串*地点-时间中获取）
@@ -25,6 +24,7 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
     $formal_date = $_POST['Date']; //获得日期
     $date_v = $fs->ReformerDate($formal_date); //重新格式化获得的日期，方便后序打印和处理
     $arr = $tab["$lieua"]; //到达的城市根据数组中储存的所有信息来处理之后的满足条件的信息并打印
+    
     /*     * 读取现有储存的所有订单（commandes）部分，也就是读取在newfile.txt中储存的所有订单 */
     /** Ici pour optimatiser la facon de lire la contenu d'une fichier on fait la lecture ligne par ligne */
     $file_path = "./newfile.txt";

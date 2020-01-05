@@ -82,19 +82,15 @@ for ($i = 2; $i < count($arr); $i++) {
                 array_push($tableau_mult[$curr_ville][$curr_lieu][$curr_date], $mini_arr);
             }
         } else {//这个lieu还不存在
-            $tableau_mult[$curr_ville][$curr_lieu] = []; //创建这个地点
-            $ff = [];
-            $ff[$curr_date] = [];
-            array_push($ff, $mini_arr);
-            array_push($tableau_mult[$curr_ville][$curr_lieu], $ff);
+            $tableau_mult[$curr_ville][$curr_lieu] = []; //创建这个地点,这个地点是一个数组
+            $tableau_mult[$curr_ville][$curr_lieu][$curr_date] = [];
+            array_push($tableau_mult[$curr_ville][$curr_lieu][$curr_date], $mini_arr);
         }
     } else {//城市不存在
         $tableau_mult[$curr_ville] = [];
-        $tab2_lieu = [];
-        $ff = [];
-        array_push($ff, $mini_arr);
-        array_push($tab2_lieu, $ff);
-        array_push($tableau_mult[$curr_ville], $tab2_lieu);
+        $tableau_mult[$curr_ville][$curr_lieu] = [];
+        $tableau_mult[$curr_ville][$curr_lieu][$curr_date] = [];
+        array_push($tableau_mult[$curr_ville][$curr_lieu][$curr_date], $mini_arr);
     }
 }
-
+print_r($tableau_mult);
