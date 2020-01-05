@@ -629,7 +629,7 @@ $(function () {
                             },
                             success: function (data) {
                                 console.log(data);
-                                window.location.href = "./PageReservation.php";
+                                window.location.href = "./CommandeValider.html";
                             },
                             error: function () {
                                 alert("#");
