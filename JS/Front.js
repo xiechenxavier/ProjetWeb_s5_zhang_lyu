@@ -304,7 +304,7 @@ $(function () {
                                 break;
                             }
                         }
-                        
+
                         if (!flag) {  /*如果购物篮内没有重复的,flag仍为false,此处则新加入一个*/
                             let str = "<tr class='commande'><td class = 'name'>" + spectacle_name + "</td>" + "<td class = 'quantite'>" + quantite_billes + "</td>" + "<td class = 'prix'>" + prix + "</td>"
                                     + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>"
@@ -449,7 +449,7 @@ $(function () {
 
         }
     }
-    
+
     function checkQuelleBilletOffert() {
         let nb4 = parseInt($(".nb4").html());//目前有多少张要送的票？有要送的票说明肯定有reduit的票存在
         let nb1 = parseInt($(".nb1").html());//一共有多少张满票
@@ -564,7 +564,7 @@ $(function () {
             });
         }
     });
-    
+
     function ReformerDate(date) {
         var res = "";
         var arr_date = [];
@@ -629,6 +629,7 @@ $(function () {
                             },
                             success: function (data) {
                                 console.log(data);
+                                window.location.href = "./PageReservation.php";
                             },
                             error: function () {
                                 alert("#");

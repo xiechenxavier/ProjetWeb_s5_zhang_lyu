@@ -11,7 +11,7 @@ static $tab_enr = []; //tableau d'enregistrement qui permet d'enregistrer les sp
 /* Services importants */
 //les fonctions qui permettent de traiter les données saisi à partir de formulaires
 $fs = new Fonctions();
-$tab = Tableaus::$table1;
+$tab = Tableaus::createtable();
 if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date']) && !empty($_POST['heure'])) {
     $lieua = $_POST['a_lieu']; //lieu arrivé
     $lieud = $_POST['d_lieu']; //lieu depart
