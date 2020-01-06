@@ -19,6 +19,9 @@ switch ($adr) {
     case 'reserver les billes':
         $url = "Reservation.php";
         break;
+    case 'Finances du festival':
+        $url = "./Canvas.php";
+        break;
     default :
         break;
 }

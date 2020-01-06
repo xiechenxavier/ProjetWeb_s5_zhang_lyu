@@ -32,6 +32,7 @@ and open the template in the editor.
         <a href="./FirstPart/JourParJour.php">Jour par Jour</a>
         <a href="./FirstPart/TroupeParTroupe.php">Troupe par Troupe</a>
         <a href="./Reservation.php">Reserver les billes</a>
+        <a href="./Canvas.php">Finances du festival</a>
     </p>
 
 </body>

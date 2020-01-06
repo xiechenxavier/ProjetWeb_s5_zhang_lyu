@@ -19,6 +19,7 @@
                     <option value="Programme par jour">Programme par jour</option>
                     <option value="Programme par Troupe">Programme par Troupe</option>
                     <option value="reserver les billes">reserver les billes</option>
+                    <option value="Finances du festival">Finances du festival</option>
                 </select>
             </p>
             <p class="par2">    <input type="submit" value="Allez-y" class="signup-btn" /></p>
