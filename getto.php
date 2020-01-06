@@ -7,9 +7,14 @@ switch ($adr) {
     case 'notre Accueil':
         $url = "Accueil.php";
         break;
-        ;
-    case 'les lieus':
-        $url = "LieuParLieu.php";
+    case 'Programme par lieus':
+        $url = "./FirstPart/LieuParLieu.php";
+        break;
+    case 'Programme par jour':
+        $url = "./FirstPart/JourParJour.php";
+        break;
+    case 'Programme par Troupe':
+        $url = "./FirstPart/TroupeParTroupe.php";
         break;
     case 'reserver les billes':
         $url = "Reservation.php";

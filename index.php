@@ -15,7 +15,9 @@
                 <select name="url" id="url">
                     <option value="selecte une page à visiter"></option>
                     <option value="notre Accueil">notre Accueil</option>
-                    <option value="les lieus">les lieus</option>
+                    <option value="Programme par lieus">Programme par lieus</option>
+                    <option value="Programme par jour">Programme par jour</option>
+                    <option value="Programme par Troupe">Programme par Troupe</option>
                     <option value="reserver les billes">reserver les billes</option>
                 </select>
             </p>
