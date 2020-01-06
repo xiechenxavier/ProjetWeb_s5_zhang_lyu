@@ -58,7 +58,8 @@ class Tableaus {
             "Clermont-Ferrand" => "0km/0h0"
         )
     );
-
+    /** @param $filePath: fichier csv importe
+     * return le tableau des donnes de fichier csv ligne par ligne */
     static function parse_csv($filePath) {
         $handle = fopen($filePath, 'r');
         $out = array();
@@ -75,7 +76,8 @@ class Tableaus {
 
         return $out;
     }
-
+ /** @param $Date le date sous le format dans le fichier csv qui contient jour et date  
+     *  return: le seul date sans jour */
     static function getRealDate($Date) {
         $Str_Date = explode(" ", $Date);
         $real_date = "";
@@ -86,25 +88,26 @@ class Tableaus {
         return $real_date;
     }
 
-//get quel jour
+/** @param $Date le date sous le format dans le fichier csv qui contient jour et date  
+     *  return: le seul jour sans date*/
     static function getRealJour($Date) {
         $Str_Date = explode(" ", $Date);
         return $Str_Date[0];
     }
-
+/* cette fontion permet d'obtenir un tableau en 4 dimension ville=>lieu=>date=>[title,jour,compagine,heure]*/
     public static function createtable() {
         //获取了每一行的数据，然后开始分类
         $arr = self::parse_csv("./FirstPart/ResultatsFestival.csv");
 
-        $sous_arr_start = $arr[1]; //以第一行的各个数据为基准点，进行创建多维数组
+        $sous_arr_start = $arr[1]; //dans le premier temps, on ajoute le premier element dans le tableau pour le structurer  
 
         $Date1 = $sous_arr_start[0];
-        $res_date1 = self::getRealDate($Date1); //la vraie date 第一个日期
-        $res_jour = self::getRealJour($Date1); //le vrai jour 星期几
-        $ville = $sous_arr_start[4]; //第一个城市，所以所有城市的下标都是4
-        $Lieu = $sous_arr_start[3]; //第一个lieu，所以所有地点的下标都是3
-        $tableau_mult = []; //这个是一个四维的数组，计划以城市，地点以及日期进行分类
-        $mini_arr1 = []; //这是一个需要反复初始化的数组
+        $res_date1 = self::getRealDate($Date1); //la vraie date de la premiere ligne
+        $res_jour = self::getRealJour($Date1); //le vrai jour 
+        $ville = $sous_arr_start[4]; //la premiere ville
+        $Lieu = $sous_arr_start[3]; //le premier lieu
+        $tableau_mult = []; //c'est un tableau en 4 dimension ville=>lieu=>date=>[title,jour,compagine,heure]
+        $mini_arr1 = []; //ce tableau doit etre initialise chaque fois de parcours
         $mini_arr1["Jour"] = $res_jour;
         $mini_arr1["Heure"] = $sous_arr_start[1];
         $mini_arr1["title"] = $sous_arr_start[2];
@@ -122,25 +125,25 @@ class Tableaus {
             $curr_Heure = $arr[$i][1];
             $curr_title = $arr[$i][2];
             $curr_spectateur = $arr[$i][5];
-            $mini_arr = []; //这是一个需要反复初始化的数组
+            $mini_arr = []; //ce tableau doit etre initialise chaque fois de parcours
             $mini_arr["Jour"] = $curr_jour;
             $mini_arr["Heure"] = $curr_Heure;
             $mini_arr["title"] = $curr_title;
             $mini_arr["spectateur"] = $curr_spectateur;
-            if (array_key_exists($curr_ville, $tableau_mult)) {//如果这个城市已经存在于数组中
+            if (array_key_exists($curr_ville, $tableau_mult)) {//si cette ville existant dans le tableau
                 if (array_key_exists($curr_lieu, $tableau_mult[$curr_ville])) {
                     if (array_key_exists($curr_date, $tableau_mult[$curr_ville][$curr_lieu])) {
                         array_push($tableau_mult[$curr_ville][$curr_lieu][$curr_date], $mini_arr);
                     } else {
-                        $tableau_mult[$curr_ville][$curr_lieu][$curr_date] = []; //这个日期还不存在，现在存在了
+                        $tableau_mult[$curr_ville][$curr_lieu][$curr_date] = []; //la date courante n'existe pas pour l'instant
                         array_push($tableau_mult[$curr_ville][$curr_lieu][$curr_date], $mini_arr);
                     }
-                } else {//这个lieu还不存在
-                    $tableau_mult[$curr_ville][$curr_lieu] = []; //创建这个地点,这个地点是一个数组
+                } else {//ce lieu n'existe pas
+                    $tableau_mult[$curr_ville][$curr_lieu] = []; //inserer ce lieu comme le cle, et creer en meme temp un tableau pour contenir les informations suivantes
                     $tableau_mult[$curr_ville][$curr_lieu][$curr_date] = [];
                     array_push($tableau_mult[$curr_ville][$curr_lieu][$curr_date], $mini_arr);
                 }
-            } else {//城市不存在
+            } else {//Ville n'existe pas 
                 $tableau_mult[$curr_ville] = [];
                 $tableau_mult[$curr_ville][$curr_lieu] = [];
                 $tableau_mult[$curr_ville][$curr_lieu][$curr_date] = [];

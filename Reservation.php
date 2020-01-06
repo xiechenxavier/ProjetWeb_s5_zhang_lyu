@@ -204,10 +204,7 @@ and open the template in the editor.
             </a>                    
         </div><!--Vignette-->
 
-    </div><!-- class="menu"-->
-    <!--                <button class="btn_hide">
-                        cacher navigateur
-                    </button>-->
+    </div>
     <div class="btn_hide">
         <img  src="./images/flaish2.png">
     </div>

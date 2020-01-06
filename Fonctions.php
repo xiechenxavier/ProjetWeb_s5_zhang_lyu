@@ -33,16 +33,6 @@ class Fonctions {
         return $res;
     }
 
-    /** @param $date c'est un date sous une forme qu'on definit
-     *  @return boolean,si vrai cette date est sous la forme defini, false sinon.
-     */
-    /* function CheckDate($date) {
-      if (date('d/m/Y', strtotime($date)) == $date) {
-      return true;
-      } else {
-      return false;
-      }
-      } */
 
     /** @param String $d_lieu c'est le lieu de depart
      *  @param String $a_lieu c'est la lieu d'arrive

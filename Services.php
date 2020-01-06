@@ -18,29 +18,29 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
 //    $ld=explode(" ",$_POST["d_lieu"]);
     $lieud = $_POST["d_lieu"];
     $lieua = $_POST["a_lieu"];
-    $Dist_temps = $fs->getDistanceTempsdesLieus($lieud, $lieua); //获取两个地点相隔的距离
-    $TempsBesoin = $fs->getTemps_DistanceEtTemps($Dist_temps); //获取两地所需要的时间（从字符串*地点-时间中获取）
-    $HeureArrive = $fs->CalculateTime($TempsBesoin, $_POST['heure']); //计算Client到达看戏地点的时间
-    $formal_date = $_POST['Date']; //获得日期
-    $date_v = $fs->ReformerDate($formal_date); //重新格式化获得的日期，方便后序打印和处理
-    $arr = $tab["$lieua"]; //到达的城市根据数组中储存的所有信息来处理之后的满足条件的信息并打印
-    
-    /*     * 读取现有储存的所有订单（commandes）部分，也就是读取在newfile.txt中储存的所有订单 */
+    $Dist_temps = $fs->getDistanceTempsdesLieus($lieud, $lieua); // Obtenez la distance entre deux villes
+    $TempsBesoin = $fs->getTemps_DistanceEtTemps($Dist_temps); //Le temps nécessaire pour obtenir les deux places (à partir de la chaîne * place-time)
+    $HeureArrive = $fs->CalculateTime($TempsBesoin, $_POST['heure']); // Calculez l'heure à laquelle le client arrive au théâtre
+    $formal_date = $_POST['Date']; // obtenir la date
+    $date_v = $fs->ReformerDate($formal_date); // Reformatez la date obtenue pour l'impression et le traitement ultérieurs
+    $arr = $tab["$lieua"]; // La ville arrivée traite toutes les informations qui remplissent les conditions et les imprime en fonction de toutes les informations stockées dans le tableau
+
+    /** Lire toutes les commandes (commandes) du stockage existant, c'est-à-dire lire toutes les commandes stockées dans newfile.txt */
     /** Ici pour optimatiser la facon de lire la contenu d'une fichier on fait la lecture ligne par ligne */
     $file_path = "./newfile.txt";
-    $arr_details_Elem = []; //一个二维数组，用来盛装每一个拆分后的信息数组
+    $arr_details_Elem = []; //Un tableau multidimensionnel pour contenir chaque tableau d'informations divisé
     if (file_exists($file_path)) {
-        $file_arr = file($file_path); //获得了数组，方便读取每一行的内容
+        $file_arr = file($file_path); //Obtention d'un tableau pour lire le contenu de chaque ligne
         if (!empty($file_arr)) {
-            $first_details_Elem = explode("*", $file_arr[0]); //分成完整的信息
-            $first_key_city = array_shift($first_details_Elem); //这个获取的就是下标为0的信息（城市）
-            $arr_details_Elem[$first_key_city] = []; //初始化为空
+            $first_details_Elem = explode("*", $file_arr[0]); //separer les infos par * et stocker dans un tableau
+            $first_key_city = array_shift($first_details_Elem); //obtenir la ville(l'indice et 0)
+            $arr_details_Elem[$first_key_city] = []; //initialiser ce tableau
             array_push($arr_details_Elem[$first_key_city], $first_details_Elem);
-            for ($i = 1; $i < count($file_arr); $i++) {//逐行分解文件内容
-                $details_Elem = explode("*", $file_arr[$i]); //把每一行的所有详细内容数组都存入数组中
+            for ($i = 1; $i < count($file_arr); $i++) {//Décomposer le contenu du fichier ligne par ligne
+                $details_Elem = explode("*", $file_arr[$i]); //Stockez tous les tableaux détaillés de chaque ligne dans le tableau
                 $curr_key_city = array_shift($details_Elem);
-                //存在与不存在这个键在大数组中，我们都需要把它加入到对应这个键的子数组中
-                /* 不存在就是创造键然后加入值；存在的话直接加入 */
+                //La clé existe ou n'existe pas dans le grand tableau, nous devons l'ajouter au sous-tableau correspondant à cette clé
+                /* S'il n'existe pas, il crée la clé puis ajoute la valeur; s'il existe, il est ajouté directement */
                 if (array_key_exists("$curr_key_city", $arr_details_Elem)) {
                     array_push($arr_details_Elem[$curr_key_city], $details_Elem);
                 } else {
@@ -50,9 +50,9 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
             }
         }
     }
-    //到这里表示当前状态下的数组已经储存了的订单信息，接下来开始判断城市是否相同
-    if (array_key_exists("$lieua", $arr_details_Elem)) {//说明已经存在这个键,表示相同城市，该地点所剩下的戏显示
-        $arr_infos_spect_parcity = $arr_details_Elem["$lieua"]; //获取这个地点的所有戏的信息数组
+    //Ici, cela indique que les informations de commande ont été stockées dans le tableau dans l'état actuel. Ensuite, il commence à déterminer si les villes sont les mêmes.
+    if (array_key_exists("$lieua", $arr_details_Elem)) {//Cette clé existe déjà, indiquant la même ville, le spectacle restant de l'emplacement est affiché
+        $arr_infos_spect_parcity = $arr_details_Elem["$lieua"]; //Obtenez un tableau d'informations sur tous les jeux à cet endroit
         $arr_name_spectacles = [];
         $arr_JH_spectacles = [];
         foreach ($arr_infos_spect_parcity as $value) {
@@ -66,7 +66,7 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
                     echo "&nbsp le &nbsp" . $cle . "</h3>";
                     foreach ($val as $p_cle => $val2) {
                         $res = $fs->comparerDeuxTemps($HeureArrive, $val2["Heure"]);
-                        if ($res > 0) {//表示没有迟到
+                        if ($res > 0) {//Indique que vous n'êtes pas en retard
                             $isin = in_array($val2['spectateur'], $arr_name_spectacles);
                             $isin2 = in_array($val2["Jour"] . " " . $val2["Heure"], $arr_JH_spectacles);
                             if (!$isin && !$isin2) {
@@ -81,20 +81,19 @@ if (!empty($_POST['d_lieu']) && !empty($_POST['a_lieu']) && !empty($_POST['Date'
             }
             echo "</div>";
         }
-    } else {//如果不一样或者页面不存在，则执行
-        /*         * 这里我开始根据所储存的内容来判断是否有跟当前选择的城市相同：
-         * 1.如果是存在相同的城市，则无序考虑时间问题 
-         * 2.如果不存在与已经购票的城市相同，则需要考虑时间问题，然后筛掉时间上发生冲突的     
+    } else {//Si différent ou si la page n'existe pas, exécutez
+        /** Ici, je commence à juger s'il existe la même ville que la ville actuellement sélectionnée en fonction du contenu stocké:
+         * 1. Si les mêmes villes existent, considérez la question du temps hors service
+         * 2. S'il n'y a pas la même ville que le billet déjà acheté, vous devez considérer la question du temps, puis éliminer les conflits d'heure.     
          */
         foreach ($arr as $key => $value) {
-            //$Classname_Key= str_replace(" ", "_", $key);
             echo "<div class=SpectsPart><h3><Lieu>" . $key . "</Lieu>";
             foreach ($value as $cle => $val) {
                 if ($cle == $date_v) {
                     echo "&nbsp le &nbsp" . $cle . "</h3>";
                     foreach ($val as $p_cle => $val2) {
                         $res = $fs->comparerDeuxTemps($HeureArrive, $val2["Heure"]);
-                        if ($res > 0) {//表示没有迟到
+                        if ($res > 0) {//Indique que vous n'êtes pas en retard
                             array_push($tab_enr, $val2["title"]);
                             echo "<p class='spect_dispo'>" . "<label class='Day_time'>" . $val2["Jour"] . " " . $val2["Heure"] . '</label>' . " " . '<label class="tit_spect">' .
                             $val2["title"] . '</label>' . " de " . '<label class="spec_acteur">' . $val2["spectateur"] . '</label>';

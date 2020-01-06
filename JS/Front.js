@@ -167,6 +167,7 @@ $(function () {
                 price_bille = 0;
         }
     }
+    //creer la classe de Hashtable pour l'implementer apres
     jQuery.Hashtable = function () {
         this.items = new Array();
         this.itemsCount = 0;
@@ -180,6 +181,7 @@ $(function () {
             }
         }
 
+        //obtenir une value dans la hashtable
         this.get = function (key) {
             if (this.containsKey(key))
                 return this.items[key];
@@ -187,6 +189,7 @@ $(function () {
                 return null;
         }
 
+        //suprimer une cle dans la table
         this.remove = function (key) {
             if (this.containsKey(key)) {
                 delete this.items[key];
@@ -195,11 +198,12 @@ $(function () {
                 throw "key '" + key + "' does not exists."
 
         }
-
+        //verifier si cette Hashtable contient une cle
         this.containsKey = function (key) {
             return typeof (this.items[key]) != "undefined";
         }
 
+        //verifier si cette Hashtable contient une value
         this.containsValue = function containsValue(value) {
             for (var item in this.items) {
                 if (this.items[item] == value)
@@ -209,30 +213,34 @@ $(function () {
             return false;
         }
 
+        //verifier si cette Hashtable contient une cle ou une value
         this.contains = function (keyOrValue) {
             return this.containsKey(keyOrValue) || this.containsValue(keyOrValue);
         }
 
+        //vider la hashTable
         this.clear = function () {
             this.items = new Array();
             itemsCount = 0;
         }
 
+        //obtenir la taille de la hashtable
         this.size = function () {
             return this.itemsCount;
         }
 
+        //verifier si hashtable est vide
         this.isEmpty = function () {
             return this.size() == 0;
         }
     };
     var prix_t = 0;
-    var hashtable = new jQuery.Hashtable(); //用来存每个加入表单的spectacle的信息
+    var hashtable = new jQuery.Hashtable(); //ca permet d'enregistrer toutes les infos d'une ligne de commande
     $(".total").append(prix_t);
     $(".item_spectacles").each(function () {
         var curr_item = $(this).children(".item_contenu");
-        var Ville_a = $(this).children(".villes").html(); //戏在哪个城市
-        var Date_spect1 = $(this).children(".date_spect").html(); //看戏的日期
+        var Ville_a = $(this).children(".villes").html(); //spectacle de qulle ville
+        var Date_spect1 = $(this).children(".date_spect").html(); //la date de la spectacle
         curr_item.each(function () {
             var nombre = $(this).children("#nombre");
             var type = $(this).children("#type");
@@ -240,9 +248,9 @@ $(function () {
             var Spect_time = $(this).children(".Spect_time").html();
             var arr = Spect_time.split(" ");
             var Date_spect = arr[0] + " " + Date_spect1;
-            var Heures = arr[1];//当天时间
-            var Compagnie = $(this).children(".Spectateur").html();//哪个乐团
-            var Village = $(this).children(".Lieu_village").html(); //看戏的地点在哪个
+            var Heures = arr[1];//L'heure 
+            var Compagnie = $(this).children(".Spectateur").html();//le troupe
+            var Village = $(this).children(".Lieu_village").html(); //le lieu
             var btn_ajoute = $(this).children(".ajouter"); //bouton "ajouter" permet d'ajouter une commande de theatre
             var Curr_prix = $(this).children(".Curr_price");
             nombre.change(function () {
@@ -271,9 +279,9 @@ $(function () {
                 let quantite_billes = nombre.find("option:selected").text();
                 let prix = parseInt(Curr_prix.html());
                 bille_type = type.find("option:selected").text();
-                var nb_pl = 0; //统计有多少plein tarif
-                var nb_rd = 0; //多少个tarif reduit
-                var nb_Ef = 0; //多少个billet offert
+                var nb_pl = 0; //compter le nombre de plein tarif
+                var nb_rd = 0; //compter le nombre de tarif reduit
+                var nb_Ef = 0; //compter le nombre de billet offert
                 var nb_off = 0;
                 //pour get the number of this type of tickets 
                 switch (bille_type) {
@@ -289,7 +297,7 @@ $(function () {
                 }
 
                 if (!(isNaN(prix))) {
-                    var flag = false; /*判断新建的订单是否已经加入*/
+                    var flag = false; /*verifier si la nouovelle commande a bien ete ajoute */
                     if ($(".commande").length !== 0) {
                         for (var i = 0; i < $(".commande").length; i++) {
                             let s_name = $(".name").get(i).innerText;
@@ -301,12 +309,12 @@ $(function () {
                             if (s_name === spectacle_name && Ville_a === v && d === Date_spect && Heures === h) {
                                 $(".prix").get(i).innerText = p + prix;
                                 $(".quantite").get(i).innerText = q + parseInt(quantite_billes);
-                                flag = true; /*将flag设为真表示这条订单已被添加*/
+                                flag = true; /*vrai ssi cette commande existe deja, false sinon*/
                                 break;
                             }
                         }
 
-                        if (!flag) {  /*如果购物篮内没有重复的,flag仍为false,此处则新加入一个*/
+                        if (!flag) {  /*si dans la table, il n'y a pas cette commande avant*/
                             let str = "<tr class='commande'><td class = 'name'>" + spectacle_name + "</td>" + "<td class = 'quantite'>" + quantite_billes + "</td>" + "<td class = 'prix'>" + prix + "</td>"
                                     + "<td class='ville'>" + Ville_a + "</td>" + "<td class='Village'>" + Village + "</td>" + "<td class='Compagnie'>" + Compagnie + "</td>"
                                     + "<td class = 'date'>" + Date_spect + "</td>" + "<td class = 'heure_e'>" + Heures + "</td>" +
@@ -315,7 +323,7 @@ $(function () {
                             $("#type").find("option[value='1']").attr("selected", true);
                             flag = false;
                             hashtable.add(Date_spect + spectacle_name + Ville_a, {"Plein_tarif": nb_pl, "Tarif_reduit": nb_rd, "Enfant_gratuit": nb_Ef, "Billet_offert": nb_off});
-                        } else {/*如果现在的表单里面已经有了，则flag为true并且在对哈希表记录进行更新*/
+                        } else {/*Si le formulaire existant existe déjà, l'indicateur est vrai et l'enregistrement de table de hachage est mis à jour*/
                             let cur_nb_pl = hashtable.get(Date_spect + spectacle_name + Ville_a).Plein_tarif + nb_pl;
                             let cur_nb_rd = hashtable.get(Date_spect + spectacle_name + Ville_a).Tarif_reduit + nb_rd;
                             let cur_nb_Ef = hashtable.get(Date_spect + spectacle_name + Ville_a).Enfant_gratuit + nb_Ef;
@@ -369,14 +377,14 @@ $(function () {
         var reduit = 0;
         var sum = nb1 + nb2;
         if (sum >= 6) {
-            let nbrd = parseInt(sum / 6);//用来计算打折的次数
-            let cpt = 0;//一共有多少张减免的票（nombre de la billet offert）
+            let nbrd = parseInt(sum / 6);//Il est utilisé pour compter le nombre de remises
+            let cpt = 0;//compte le nombre de la billet offert
             while (nbrd > 0) {
                 if (nb2 > 0) {
-                    reduit += 10;//有tarif reduit的时候
+                    reduit += 10;//commande contient la billet tarif reduit 
                     cpt++;
                 } else {
-                    reduit += 5;//全部plein tarif
+                    reduit += 5;//commande ne contient que les billet en plein tarif
                 }
                 nbrd--;
             }
@@ -400,7 +408,7 @@ $(function () {
 
 
     function checkBilleParType() {
-        //如果当前.commande篮子里面没有订单
+        //S'il n'y a pas de commandes dans le panier .commande actuel
         if ($(".commande").length === 0) {
             hashtable.clear();
             $(".nb1").html(0);
@@ -408,7 +416,6 @@ $(function () {
             $(".nb3").html(0);
             $(".nb4").html(0);
         } else {
-            // var size=hashtable.size();
             var nb1 = 0;
             var nb2 = 0;
             var nb3 = 0;
@@ -432,12 +439,12 @@ $(function () {
 
 
     function checkTotal() {
-        //如果当前.commande篮子里面没有订单
+        //S'il n'y a pas de commandes dans le panier .commande actuel
         if ($(".commande").length === 0) {
             prix_t = 0;
             $(".total").html(prix_t);
         } else {
-            //有订单的时候
+            //sinon
             var somme = 0;
             for (var i = 0; i < $(".commande").length; i++) {
                 let x = $(".prix").get(i).innerText;
@@ -452,9 +459,9 @@ $(function () {
     }
 
     function checkQuelleBilletOffert() {
-        let nb4 = parseInt($(".nb4").html());//目前有多少张要送的票？有要送的票说明肯定有reduit的票存在
-        let nb1 = parseInt($(".nb1").html());//一共有多少张满票
-        if (nb4 > 0) {//如果已经有了免费的票
+        let nb4 = parseInt($(".nb4").html());//Combien de billets faut-il envoyer? Il y a des billets à envoyer, il doit y avoir des billets reduit
+        let nb1 = parseInt($(".nb1").html());//Combien de billets complets existe-t-il
+        if (nb4 > 0) {//Si vous avez déjà la billet gratuite
             let nb2 = 0;
             let key = "";
             while (nb4 > 0) {
@@ -462,32 +469,32 @@ $(function () {
                     key = $(".date").get(i).innerText + $(".name").get(i).innerText + $(".ville").get(i).innerText;
                     if (hashtable.containsKey(key)) {
                         nb2 = hashtable.get(key).Tarif_reduit;
-                        if (nb2 > 0) {//这个戏有reduit的票，我们找到后要重新记录这个票
+                        if (nb2 > 0) {//Il y a un ticket reduit pour cette pièce, et nous devons réenregistrer ce ticket quand nous le trouvons
                             break;
                         }
                     }
                 }
-                //找到一个key
+                //trouve une cle
                 let nb1_p = hashtable.get(key).Plein_tarif;
                 let nb2_r = hashtable.get(key).Tarif_reduit - 1;
                 let nb3_e = hashtable.get(key).Enfant_gratuit;
                 let nb4_O = parseInt(hashtable.get(key).Billet_offert) + 1;
 
-                hashtable.remove(key);//删除后再重新加入
+                hashtable.remove(key);//ajouter apres supprimer element original
                 hashtable.add(key, {"Plein_tarif": nb1_p, "Tarif_reduit": nb2_r, "Enfant_gratuit": nb3_e, "Billet_offert": nb4_O});
                 nb4--;
             }
-        } else {//没有免费的票
+        } else {/*Pas de billet gratuit*/
             var nb1_xp = 0;
-            if (nb1 >= 6) {//但是有满票超过六张，这意味着在记录上要把满票的价格变成半票
-                let res = parseInt(nb1 / 6);//变几张
+            if (nb1 >= 6) {// Mais il y a plus de six billets complets, ce qui signifie que le prix des billets complets doit être transformé en demi-billets
+                let res = parseInt(nb1 / 6);//le nombre de reduit
                 while (res > 0) {
-                    //找到一个key
+                    //trouve une cle satisfait
                     for (let i = $(".commande").length - 1; i >= 0; i--) {
                         key = $(".date").get(i).innerText + $(".name").get(i).innerText + $(".ville").get(i).innerText;
                         if (hashtable.containsKey(key)) {
                             nb1_xp = hashtable.get(key).Plein_tarif;
-                            if (nb1_xp > 0) {//这个戏有reduit的票，我们找到后要重新记录这个票
+                            if (nb1_xp > 0) {//Il y a un ticket reduit pour cette pièce, nous devons réenregistrer ce ticket quand nous le trouvons
                                 break;
                             }
                         }
@@ -497,7 +504,7 @@ $(function () {
                     let nb3_e = hashtable.get(key).Enfant_gratuit;
                     let nb4_O = parseInt(hashtable.get(key).Billet_offert);
 
-                    hashtable.remove(key);//删除后再重新加入
+                    hashtable.remove(key);//ajoute apres supprime l'element original
                     hashtable.add(key, {"Plein_tarif": nb1_p, "Tarif_reduit": nb2_r, "Enfant_gratuit": nb3_e, "Billet_offert": nb4_O});
                     res--;
                 }
@@ -523,10 +530,10 @@ $(function () {
                             success: function (data) {
 
                                 if (window.opener !== null) {
-                                    //window.opener 就是当前页面内的打开者，我们要对该页面进行刷新
+                                    //window.opener 
                                     window.opener.location.reload();
                                 }
-                                window.location.reload(); //刷新当前页面
+                                window.location.reload(); //page courant
                                 //window.parent.location.reload();
                             },
                             error: function () {
@@ -543,7 +550,7 @@ $(function () {
     });
 
     $(".annule_tous").click(function () {
-        if ($(".commande").length > 0) {//表示如果整个表格中里面有元素时
+        if ($(".commande").length > 0) {//si la table ou le panier n'est pas vide
             $.confirm({
                 title: 'confirmation!',
                 content: 'Etes vous sur pour annuler toutes les commandes?',
@@ -587,11 +594,16 @@ $(function () {
         res = arr[1] + " " + mois_fr + " " + arr[2];
         return res;
     }
+
+    /* Étapes: 1. Créez d'abord un tableau json (remplissez chaque ligne d'enregistrements, ici en mode json)
+     2. Parcourez les enregistrements de chaque ligne: puis récupérez ses informations dans la table de hachage: 
+     c'est-à-dire qu'il y a quelques tickets complets, quelques reduits, quelques tickets enfants, 
+     si les tickets ont été envoyés et les deux types d'argent sont affichés.
+     La table de hachage est uniquement responsable de l'enregistrement des informations: quelques tickets complets, 
+     quelques reduit, quelques tickets enfants et le nombre de tickets envoyés*/
     $(".payer").on("click", function () {
-        //步骤：1.首先新建一个json数组（装每一行记录，这里的以json方式来盛装）
-        //2.遍历每一行的记录：然后获取其在hashtable当中的数据信息：即有几张满票，几张reduit，几张儿童票，是否送了票，倒贴了钱的两种
-        //哈希表中只负责记录一下信息：几张满票，几张reduit，几张儿童票，送的票的数量
-        if ($(".commande").length > 0) {//表示如果整个表格中里面有元素时
+
+        if ($(".commande").length > 0) {//si le panier ou la table n'est pas vide
             $.confirm({
                 title: 'confirmation!',
                 content: 'Etes vous sûr de valiser vos commandes?',
@@ -617,8 +629,8 @@ $(function () {
                             let key = date + spectacle + ville;
                             sous_data["date"] = real_jour + " " + ReformerDate(real_date);
                             sous_data["name"] = spectacle;
-                            sous_data["ville"] = ville;//在csv里面是village  Veauce是village
-                            sous_data["lieu"] = lieu;//csv中指的是lieu
+                            sous_data["ville"] = ville;
+                            sous_data["lieu"] = lieu;
                             sous_data["heure"] = heures;
                             sous_data["Compagnie"] = Troupe;
                             sous_data["Plein_tarif"] = hashtable.get(key).Plein_tarif;
@@ -627,7 +639,6 @@ $(function () {
                             sous_data["Billet_offert"] = hashtable.get(key).Billet_offert;
                             Data.push(sous_data);
                         }
-//                           var jsonString = JSON.stringify(Data); //把一个JSON类型数组转化成一个字符串
                         $.ajax({
                             url: "./ReadCsv.php",
                             type: 'POST',
@@ -638,7 +649,7 @@ $(function () {
                             success: function (data) {
                                 console.log(data);
                                 if (window.opener !== null) {
-                                    //window.opener 就是当前页面内的打开者，我们要对该页面进行刷新
+                                    //window.opener
                                     window.opener.location.reload();
                                 }
                                 window.location.href = "./CommandeValider.html";
@@ -647,7 +658,7 @@ $(function () {
                                 alert("#");
                             }
                         });
-                        //完成上述的操作之后就重新刷新之前页面，以及进入下一个成功通知页面
+
                     },
                     cancel: function () {
                         $.alert("operation annulée");

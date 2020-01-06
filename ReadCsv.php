@@ -1,11 +1,11 @@
 <?php
 
-$product_json_arr = $_POST['Datascsv']; //获取数组  
+$product_json_arr = $_POST['Datascsv']; //get tableau
 $String = json_encode($product_json_arr, JSON_UNESCAPED_UNICODE);
 $Str2 = substr($String, 0, strlen($String) - 1);
 $Str = substr($Str2, 1);
 $arr_json = explode("},", $Str);
-//读取原有的csv文件
+//lire le fichier csv
 
 $file = "./FirstPart/ResultatsFestival.csv";
 
@@ -27,18 +27,18 @@ function parse_csv($filePath) {
 }
 
 $arr_csv = parse_csv($file);
-for ($i = 0; $i < count($arr_json); $i++) {//传过来的JSON数据数组
-    $sous_Arr = json_decode($arr_json[$i], true); //每一个json字符串化为数组
+for ($i = 0; $i < count($arr_json); $i++) {//le tableau Json envoye par Ajax
+    $sous_Arr = json_decode($arr_json[$i], true); //enregistre la chaine JSON dans un tableau
     $x = 0;
-    $flag = FALSE; //判断有没有找到每次换一个JSON字符串时初始化一次
+    $flag = FALSE; // Juger s'il est trouvé qu'il est initialisé à chaque fois qu'il remplace une chaîne JSON
 //    $z = 0;
     while ($x < count($arr_csv) && $flag === FALSE) {
-        $Val = $arr_csv[$x]; //这一行数据的数组
+        $Val = $arr_csv[$x]; // Tableau de cette ligne de données
         for ($i = 0; $i < count($Val); $i++) {
-            if ($Val[1] == "Heure") {//除了第一行之外
+            if ($Val[1] == "Heure") {//sauf que la tete de toutes les colones
                 continue;
             }
-            //找到这一行数据之后 strpos($Val[0], $sous_Arr["date"]) !== false
+            //Après avoir trouvé cette ligne de données
             if ($Val[0] === $sous_Arr["date"] && $Val[2] === $sous_Arr["name"] && $Val[3] === $sous_Arr["lieu"] && $Val[4] === $sous_Arr["ville"]) {
                 $flag = TRUE;
                 break;
@@ -55,7 +55,7 @@ for ($i = 0; $i < count($arr_json); $i++) {//传过来的JSON数据数组
         $arr_csv[$x - 1][7] = $Tarif_reduit;
         $arr_csv[$x - 1][8] = $Billet_offert;
         $arr_csv[$x - 1][11] = $Enfant_gratuit;
-        continue; //如果找到了就continue这里代表去处理下一个JSON字符串数据
+        continue; //S'il est trouvé, continuez. Cela signifie traiter les prochaines données de chaîne JSON.
     } else {
         $arrayadd = [$sous_Arr["date"],
             $sous_Arr["heure"],

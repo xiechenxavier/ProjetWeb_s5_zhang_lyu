@@ -5,9 +5,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//从之前传来的数据中获取（数据来源于每一个”+“icone的添加事件，我们储存的是所有已经添加进的commandes
+/* Obtenez-le à partir des données précédentes 
+ * (les données proviennent de chaque événement d'ajout d'icône "+", nous stockons toutes les commandes qui ont été ajoutées*/
 $Vide_or_not=$_POST["ViderListe"];
-//创建（如果不存在这个文件就新建成一个这样的文件）然后往文件中写入刚刚传过来的数据）
+//Créez (si ce fichier n'existe pas, créez-en un nouveau) et écrivez les données qui viennent d'être transmises au fichier)
 $filename="newfile.txt";
 if (!is_file($filename)&&$Vide_or_not==="TRUE") {
     $myfile = fopen($filename, "w") or die("Unable to open file!");

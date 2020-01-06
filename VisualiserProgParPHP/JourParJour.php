@@ -134,6 +134,7 @@ and open the template in the editor.
             <h2 class="programme">Le Programme</h2>
             <div id="theResult">
                 <?php
+                //obtenir tous les dates des spectacles et l'inserer dans un tableau apres eliminer tous les elements repetes
                 function algoGetArrayJour($tab) {
                     $arr_jour = [];
                     foreach ($tab as $value) {
@@ -144,11 +145,11 @@ and open the template in the editor.
                     }
                     return array_unique($arr_jour);
                 }
-
+                //affichr les spectacles dans ce programme ligne par linge trier par la date
                 function AfficherProgramParJour($tab) {
                     $Jour_arr = algoGetArrayJour($tab);
                     $html = "";
-                    foreach ($Jour_arr as $Jour) {//每一个date
+                    foreach ($Jour_arr as $Jour) {
                         $Id = str_replace(" ", "_", $Jour);
                         $html .= '<h3 id=' . $Id . '>' . $Jour . '</h3><br>';
                         for ($i = 0; $i < count($tab); $i++) {

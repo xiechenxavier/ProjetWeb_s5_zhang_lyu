@@ -132,7 +132,7 @@ and open the template in the editor.
         </div>
         <div id="Programme_Troupes">
             <?php
-
+            //obtenir tous les troupe/compagnie des spectacles et l'inserer dans un tableau apres eliminer tous les elements repetes
             function algoGetArrayTroupe($tab) {
                 $arr_Troupe = [];
                 foreach ($tab as $value) {
@@ -143,11 +143,11 @@ and open the template in the editor.
                 }
                 return array_unique($arr_Troupe);
             }
-
+            //affichr les spectacles dans ce programme ligne par linge trier par la troupe
             function AfficherProgramParTroupe($tab) {
                 $Troupe_arr = algoGetArrayTroupe($tab);
                 $html = "";
-                foreach ($Troupe_arr as $Troupe) {//每一个date
+                foreach ($Troupe_arr as $Troupe) {//chaque date
                     $Id = str_replace(" ", "_", $Troupe);
                     $html .= '<h3 id=' . $Id . '>' . $Troupe . '</h3><br>';
                     for ($i = 0; $i < count($tab); $i++) {
