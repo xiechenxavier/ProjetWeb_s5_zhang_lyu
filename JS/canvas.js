@@ -18,7 +18,7 @@ var data = arrLieu(csvData);
 console.log(csvData);
 console.log(data);
 
-//创建数组Lieu
+//Créer tableau Lieu
 function arrLieu(csvData) {
     var flag = 0;
     var data = [];
@@ -54,7 +54,7 @@ function arrLieu(csvData) {
 }
 
 
-//创建数组Spectacle
+//Créer tableau Spectacle
 function arrSpectacle(csvData) {
     var flag = 0;
     var data = [];
@@ -90,7 +90,7 @@ function arrSpectacle(csvData) {
 }
 
 
-//创建数组Compagnie
+//Créer tableau Compagnie
 function arrCompagnie(csvData) {
     var flag = 0;
     var data = [];
@@ -148,44 +148,34 @@ function IdentifierNaN(dataArr, i) {
 }
 
 
-function clearCanvas()  
-{  
-    var c=document.getElementById("barChart");  
-    var cxt=c.getContext("2d");  
-      
-    cxt.fillStyle="#000000";  
-    cxt.beginPath();  
-    cxt.fillRect(0,0,c.width,c.height);  
-    cxt.closePath();  
-}  
 
 function goBarChart(dataArr,mode){
-            // 声明所需变量
+            // déclarer les valeur
             var canvas,ctx;
-            // 图表属性
+            // information de chart
             var cWidth, cHeight, cMargin, cSpace;
             var originX, originY;
-            // 柱状图属性
+            // information de rect
             var bMargin, tobalBars, bWidth, maxValue;
             var totalYNomber;
             var gradient;
-            // 运动相关变量
+            // information d'animation
             var ctr, numctr, speed;
-            //鼠标移动
+            //information de souris
             var mousePosition = {};
-            // 获得canvas上下文
+            // get canvas
             canvas = document.getElementById("barChart");
             if(canvas && canvas.getContext){
                 ctx = canvas.getContext("2d");
             }
 
-            initChart(); // 图表初始化
-            drawLineLabelMarkers(); // 绘制图表轴、标签和标记
-            drawBarAnimate(); // 绘制柱状图的动画
+            initChart(); // initialisation
+            drawLineLabelMarkers(); // draw
+            drawBarAnimate(); // animation
 
             
 
-            //检测鼠标移动
+            //Identifier la mouvement
             var mouseTimer = null;
             canvas.addEventListener("mousemove",function(e){
                 e = e || window.event;
@@ -204,23 +194,57 @@ function goBarChart(dataArr,mode){
                     drawBarAnimate(true);
                 },10);
             });
-            //点击刷新图表
+
+            //mise a jour
             canvas.onclick = function(){
-                initChart(); // 图表初始化
-                drawLineLabelMarkers(); // 绘制图表轴、标签和标记
-                drawBarAnimate(); // 绘制折线图的动画
+
+                var mode1 = dataArr[0].Lieu;
+                var mode2 = dataArr[0].Compagnie;
+                var mode3 = dataArr[0].Spectacle;
+
+                $.ajax({
+                url: "./FirstPart/ResultatsFestival.csv",
+                dataType: "text",
+                contentType: "application/json; charset=UTF-8",
+                async: false,
+                success: function (data) {
+                    //csvData = csvJSON(data);  
+                    csvData = $.csv.toObjects(data);
+                }
+
+            });
+
+
+                //console.log(dataArr[0].Lieu);
+
+
+                $("#barChart").remove();  
+                var txt=  $('<canvas id="barChart"> Votre navigateur ne prend pas en charge Canvas </canvas>');
+                $(".canvas").append(txt);
+
+                if (mode1) {
+                                          
+                    data = arrLieu(csvData);
+                    goBarChart(data, "Lieu");
+                } else if (mode2) {
+                                         
+                    data = arrCompagnie(csvData);
+                    goBarChart(data, "Compagnie");
+                } else {
+                                         
+                    data = arrSpectacle(csvData);
+                    goBarChart(data, "Spectacle");
+            }
+
+                
             };
-            // 图表初始化
+
+            // initialisation
             function initChart(){
-                // 图表信息
+                // information de chart
                 cMargin = 60;
                 cSpace = 80;
-                /*这里是对高清屏幕的处理，
-                    方法：先将canvas的width 和height设置成本来的两倍
-                    然后将style.height 和 style.width设置成本来的宽高
-                    这样相当于把两倍的东西缩放到原来的 1/2，这样在高清屏幕上 一个像素的位置就可以有两个像素的值
-                    这样需要注意的是所有的宽高间距，文字大小等都得设置成原来的两倍才可以。
-                    */
+               
                     canvas.width = canvas.parentNode.getAttribute("width")* 2 ;
                     canvas.height = canvas.parentNode.getAttribute("height")* 2;
                     canvas.style.height = canvas.height/2 + "px";
@@ -229,7 +253,7 @@ function goBarChart(dataArr,mode){
                     cWidth = canvas.width - cMargin - cSpace;
                     originX = cMargin + cSpace;
                     originY = cMargin + cHeight;
-                // 柱状图信息
+                // information de rect
                 bMargin = canvas.width/40;
                 tobalBars = dataArr.length;
                 bWidth = parseInt( cWidth/tobalBars - bMargin );
@@ -269,7 +293,7 @@ function goBarChart(dataArr,mode){
                 gradient5.addColorStop(0, '#61737B');
             }
 
-            //一个获取最大值的方法
+            //obtenir une valeur maximum à définir la hauteur de Y
             function getMaxVal(dataArr, i) {
 
                 var barValR = parseInt(dataArr[i].R);
@@ -280,22 +304,22 @@ function goBarChart(dataArr,mode){
 
                 return (barValSA*12.5)+ (barValSJ*9 )+ (barValP*15*0.1) + (barValR*10*0.1);
             }
-            // 绘制图表轴、标签和标记
+            // Draw ligne
             function drawLineLabelMarkers(){
-                //ctx.translate(0.5,0.5);  // 当只绘制1像素的线的时候，坐标点需要偏移，这样才能画出1像素实线
+
                 ctx.font = "24px Arial";
                 ctx.lineWidth = 2;
                 ctx.fillStyle = "#000";
                 ctx.strokeStyle = "#000";
-                // y轴
+                // y
                 drawLine(originX, originY, originX, cMargin);
-                // x轴
+                // x
                 drawLine(originX, originY, originX+cWidth, originY);
-                // 绘制标记
+                // Maruque
                 drawMarkers();
                 //ctx.translate(-0.5,-0.5);  // 还原位置
             }
-            // 画线的方法
+            // Ligne
             function drawLine(x, y, X, Y){
                 ctx.beginPath();
                 ctx.moveTo(x, y);
@@ -303,10 +327,10 @@ function goBarChart(dataArr,mode){
                 ctx.stroke();
                 ctx.closePath();
             }
-            // 绘制标记
+            // Marque
             function drawMarkers(){
                 ctx.strokeStyle = "#E0E0E0";
-                // 绘制 y
+                //  y
                 var oneVal = parseInt(maxValue/totalYNomber);
                 ctx.textAlign = "right";
                 for(var i=0; i<=totalYNomber; i++){
@@ -319,7 +343,7 @@ function goBarChart(dataArr,mode){
                         drawLine(originX+2, yMarker, originX+cWidth, yMarker);
                     }
                 }
-                // 绘制 x
+                // x
                 ctx.textAlign = "center";
                 for(var i=0; i<tobalBars; i++){
                     if (mode == "Lieu") {
@@ -335,19 +359,19 @@ function goBarChart(dataArr,mode){
                     if (mode == "Spectacle") {
                             ctx.fillText(LimitNumber(markerVal), xMarker, yMarker, cSpace +100);
                         } else {
-                            ctx.fillText(markerVal, xMarker, yMarker, cSpace +100);// 文字 +200以防止文字过于紧凑
-                        } // 文字
+                            ctx.fillText(markerVal, xMarker, yMarker, cSpace +100);
+                        } 
 
                     
 
                 }
-                // 绘制标题 y
+                // Titre y
                 ctx.save();
                 ctx.rotate(-Math.PI/2);
                 ctx.fillText("T o t a l", -canvas.height / 2, cSpace - 10);
                 ctx.restore();
-                // 绘制标题 x
-                // 绘制标题 x 判断类型以显示不同标题
+                
+                // Titre x avec différence type
                 if (mode == "Lieu") {
 
                     ctx.fillText("Lieu", originX + cWidth / 2, originY + cSpace / 2 + 10);
@@ -375,7 +399,7 @@ function goBarChart(dataArr,mode){
 
 
                 for(var i=0; i<tobalBars; i++){
-                     //定义每种票的值
+                     //Définir la valeur
                      var barValR = dataArr[i].R;
                      var coefR = 10*0.1;
                      //var barValO = dataArr[i].O;
@@ -391,7 +415,7 @@ function goBarChart(dataArr,mode){
                      var finalSA = barValSA *coefSA;
                      var finalSJ = barValSJ *coefSJ;
 
-                        //定义每种票的Y值
+                        //Hauteur de Y
                         var barHR = parseInt(cHeight * finalR / maxValue * ctr / numctr);
                         var barHP = parseInt(cHeight * finalP / maxValue * ctr / numctr);
                         var barHSA = parseInt(cHeight * finalSA / maxValue * ctr / numctr);
@@ -401,7 +425,7 @@ function goBarChart(dataArr,mode){
                         var x = originX + (bWidth + bMargin) * i + bMargin;
 
 
-                        drawRect(x, y, bWidth, barHR - 1, mouseMove,gradient1,barValR,10,"Tarif réduit");  //高度减一避免盖住x轴
+                        drawRect(x, y, bWidth, barHR - 1, mouseMove,gradient1,barValR,10,"Tarif réduit");  
                         y = y - barHSA;
                         drawRect(x, y, bWidth, barHSA, mouseMove,gradient2,barValSA,12.5,"Speciaux Adulte");
                         y = y - barHSJ;
@@ -429,7 +453,7 @@ function goBarChart(dataArr,mode){
                 +'<div class="tooltip_main" id="main">'+msg+'</div>'
                 +'<div class="tooltip_bottom" id="bottom"></div>'
                 +'</div>');
-                //调整位置
+               
                 var objOffset = $('#'+obj).offset();
                 objOffset.left = 600;
                 objOffset.top  = 700;
@@ -443,12 +467,12 @@ function goBarChart(dataArr,mode){
                     
             }
 
-            //绘制方块
+            //Draw Rect
             function drawRect( x, y, X, Y, mouseMove,color ,quantite,prix,type){
                 ctx.beginPath();
                 ctx.rect( x, y, X, Y );
                 
-                if(ctx.isPointInPath(mousePosition.x*2, mousePosition.y*2)){ //如果是鼠标移动的到柱状图上，显示详情
+                if(ctx.isPointInPath(mousePosition.x*2, mousePosition.y*2)){ //Si le souris est au dessus de rect
                     
                     if($("#tooltip")[0]){
                         $("#tooltip").remove();
