@@ -190,6 +190,29 @@ and open the template in the editor.
                                 Le Programme :
                             </h2>
                         </div>
+                        <?php
+                        include_once '../Tableaus.php';
+                        $filePath = "../FirstPart/ResultatsFestival.csv";
+                        $tab = Tableaus::parse_csv($filePath);
+
+                        function AfficherProgramParLieu($tab, $Lieu) {
+
+                            $html = "";
+                            for ($i = 0; $i < count($tab); $i++) {
+                                $curr_arr = $tab[$i];
+                                if ($curr_arr[1] == "Heure" || $curr_arr[3] != $Lieu) {
+                                    continue;
+                                }
+                                $html .= "<p><Horaire>" . $curr_arr[0] . " à " . $curr_arr[1] . "<Troupe>&nbsp" . $curr_arr[5] . "&nbsp</Troupe>" .
+                                        "présente<TitreSpectacle>&nbsp" . $curr_arr[2] . "&nbsp</TitreSpectacle>";
+
+                                $html .= "</p>";
+                            }
+                            return $html;
+                        }
+
+                        echo AfficherProgramParLieu($tab, "Manoir des noix");
+                        ?>
                     </div>
                     <div class="Lieu">       <h2 id="a_Eglise_z">
 
@@ -212,10 +235,10 @@ and open the template in the editor.
 
                             <figure class="lieu">
 
-                                <img  src="../images/Eglise_Sainte_Croix_de_Veauce.jpg                                            "
+                                <img  src="../images/Eglise_Sainte_Croix_de_Veauce.jpg "
 
 
-                                      alt="[ Photo du pigeonnier du manoir des noix et de l'église de Veauce vue du ciel                        ]"
+                                      alt="[Photo du pigeonnier du manoir des noix et de l'église de Veauce vue du ciel                        ]"
 
                                       width=100%
                                       height=100%
@@ -249,6 +272,9 @@ and open the template in the editor.
                                 le programme  :
 
                             </h2></div>
+                        <?php
+                        echo AfficherProgramParLieu($tab, "Eglise");
+                        ?>
                     </div>
 
                     <div class="Lieu">       <h2 id="a_Château_de_Lachaise_z">
@@ -298,21 +324,22 @@ and open the template in the editor.
 
                             </p>
 
-                        </div>      <div><h2>
+                        </div> <div><h2>
 
 
-                                Château de Lachaise      à                                                       Monétay sur Allier
+                                Château de Lachaise à Monétay sur Allier
+                                , </h2><h2>
 
-
-                                ,</h2><h2>
-
-                                le programme  :
+                                le programme :
 
                             </h2>
+                            <?php
+                            echo AfficherProgramParLieu($tab, "Château de Lachaise");
+                            ?>
                         </div>
                     </div>
 
-                    <div class="Lieu">       <h2 id="a_Château_d'Idogne_z">
+                    <div class = "Lieu"> <h2 id = "a_Château_d'Idogne_z">
 
                             Monteignet sur l'Andelot
 
@@ -331,20 +358,20 @@ and open the template in the editor.
 
                         <div>
 
-                            <figure class="lieu">
+                            <figure class = "lieu">
 
-                                <img  src="../images/Château_d'Idogne.jpg                                             "
-
-
-                                      alt="[ Photo du château d'Idogne                                                                          ]"
-
-                                      width=100%
-                                      height=100%
-
-                                      ><figcaption>Photographe&#8239;:
+                                <img src = "../images/Château_d'Idogne.jpg                                             "
 
 
-                                    inconnu                                                                                     </figcaption></figure>
+                                     alt = "[ Photo du château d'Idogne                                                                          ]"
+
+                                     width = 100%
+                                     height = 100%
+
+                                     ><figcaption>Photographe&#8239;:
+
+
+                                    inconnu </figcaption></figure>
 
                             <p>
 
@@ -364,21 +391,22 @@ and open the template in the editor.
 
                             </p>
 
-                        </div>      <div><h2>
+                        </div> <div><h2>
 
 
                                 Château d'Idogne         à                                                 Monteignet sur l'Andelot
+                                , </h2><h2>
 
-
-                                ,</h2><h2>
-
-                                le programme  :
+                                le programme :
 
                             </h2>
                         </div>
+                        <?php
+                        echo AfficherProgramParLieu($tab, "Château d'Idogne");
+                        ?>
                     </div>
 
-                    <div class="Lieu">       <h2 id="Domaine_de_la_Querye">
+                    <div class = "Lieu"> <h2 id = "Domaine_de_la_Querye">
 
                             Monteignet sur l'Andelot
 
@@ -425,11 +453,6 @@ and open the template in the editor.
                                 monde plus beau.
                                 En faisant partager à Théâtres de Bourbon son cadre et ses arbres centenaires, le domaine de la Quérye s'inscrit donc pleinement dans cette
                                 ancienne volonté de mettre l'homme au cœur de toute chose et de changer quotidiennement et spirituellement le monde!
-
-
-
-
-
                                 Monteignet sur l'Andelot
 
                             </p>
@@ -438,17 +461,18 @@ and open the template in the editor.
 
 
                                 Domaine de la Quérye     à                                                 Monteignet sur l'Andelot
+                                , </h2><h2>
 
-
-                                ,</h2><h2>
-
-                                le programme  :
+                                le programme :
 
                             </h2>
                         </div>
+                        <?php
+                        echo AfficherProgramParLieu($tab, "Domaine de la Quérye");
+                        ?>
                     </div>
 
-                    <div class="Lieu">       <h2 id="Costume_de_Scène_Moulins">
+                    <div class = "Lieu"> <h2 id = "Costume_de_Scène_Moulins">
                             Costume de Scène
                             Moulins
 
@@ -459,57 +483,44 @@ and open the template in the editor.
                         </p>
 
 
-                        <h2 id="title">Centre National du Costume de Scène</h2>
+                        <h2 id = "title">Centre National du Costume de Scène</h2>
 
                         <div>
 
-                            <figure class="lieu">
+                            <figure class = "lieu">
 
-                                <img  src="../images/Moulins.jpg                                                  "
-
-
-                                      alt="[ Photo du Centre national du costume de scène                                                       ]"
-
-                                      width=100%
-                                      height=100%
-
-                                      ><figcaption>Photographe&#8239;:
+                                <img src = "../images/Moulins.jpg                                                  "
 
 
-                                    inconnu                                                                                     </figcaption></figure>
+                                     alt = "[ Photo du Centre national du costume de scène                                                       ]"
+
+                                     width = 100%
+                                     height = 100%
+
+                                     ><figcaption>Photographe&#8239;:
+
+
+                                    inconnu </figcaption></figure>
 
                             <p>
 
                                 Moulins
                             </p>
 
-                        </div>      <div><h2>
+                        </div> <div><h2>
 
 
-                                Centre National du       à                                                                  Moulins
+                                Centre National du à Moulins
                                 Costume de Scène
+                                , </h2><h2>
 
-                                ,</h2><h2>
-
-                                le programme  :
+                                le programme :
 
                             </h2></div>
 
-                        <p>       <Horaire>          mardi 06 août 2019                                           à              20h00      </Horaire>,
-
-                        <Troupe>                 La Compagnie de l’Élan                                                                 </Troupe>
-
-                        présente
-
-                        <TitreSpectacle>
-
-                            Le Tartuffe ou l'imposteur
-
-                        </TitreSpectacle>,
-
-                        de    <Auteur>          Molière                                                                                </Auteur>.
-
-                        </p>
+                       <?php
+                       echo AfficherProgramParLieu($tab, "Centre National du Costume de Scène");
+                       ?>
 
                     </div> <!--Lieu-->
                     <date>   programmation telle que définie au              dimanche 28 juillet 2019                                       </date>
